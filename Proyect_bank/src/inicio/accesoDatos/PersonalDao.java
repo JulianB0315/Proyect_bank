@@ -10,4 +10,5 @@ package inicio.accesoDatos;
  */
 public class PersonalDao {
     
+    private static final String FINDALL_PERSONA_STRING="?=call find"
 }
