@@ -8,6 +8,9 @@ package inicio.modelo;
  *
  * @author Julian
  */
-public class persona {
+public class Cliente {
+    //Atributos de la Class
     
+    String idCLiente;
+    String Nombre;    
 }
