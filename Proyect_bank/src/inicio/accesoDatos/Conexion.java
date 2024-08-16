@@ -2,10 +2,6 @@ package inicio.accesoDatos;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.DriverManager;
-/**
- *
- * @author Julian
- */
 public class Conexion {
     protected Connection conexion=null;
     

@@ -1,9 +1,4 @@
 package inicio.accesoDatos;
-
-/**
- *
- * @author Julian
- */
 public class GlobalException extends java.lang.Exception{
     public GlobalException(){
     }
