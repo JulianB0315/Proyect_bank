@@ -1,4 +1,4 @@
-package inicio.accesoDatos;
+package DBAOracle;
 public class noDataExption {
     
 }

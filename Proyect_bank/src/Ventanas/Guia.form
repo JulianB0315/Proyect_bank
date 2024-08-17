@@ -73,7 +73,7 @@
                                   <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="1" attributes="0">
                                       <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
-                                      <Component id="ButtonRegistro" min="-2" pref="143" max="-2" attributes="0"/>
+                                      <Component id="ButtonInicio" min="-2" pref="143" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -85,7 +85,7 @@
               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="199" max="-2" attributes="0"/>
-                      <Component id="ButtonRegistro1" min="-2" pref="143" max="-2" attributes="0"/>
+                      <Component id="ButtonRegistro" min="-2" pref="143" max="-2" attributes="0"/>
                       <EmptySpace pref="404" max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -104,7 +104,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-                  <Component id="ButtonRegistro" min="-2" pref="60" max="-2" attributes="0"/>
+                  <Component id="ButtonInicio" min="-2" pref="60" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                   <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="184" max="-2" attributes="0"/>
@@ -115,7 +115,7 @@
               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="141" max="-2" attributes="0"/>
-                      <Component id="ButtonRegistro1" min="-2" pref="60" max="-2" attributes="0"/>
+                      <Component id="ButtonRegistro" min="-2" pref="60" max="-2" attributes="0"/>
                       <EmptySpace pref="223" max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -225,7 +225,7 @@
             <Property name="text" type="java.lang.String" value="Peru"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="ButtonRegistro">
+        <Component class="javax.swing.JButton" name="ButtonInicio">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="1"/>
@@ -241,10 +241,10 @@
             <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="guiaInicio"/>
           </AccessibilityProperties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonRegistroActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonInicioActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="ButtonRegistro1">
+        <Component class="javax.swing.JButton" name="ButtonRegistro">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="1"/>
@@ -257,7 +257,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonRegistro1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonRegistroActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

@@ -1,4 +1,4 @@
-package inicio.accesoDatos;
+package DBAOracle;
 public class GlobalException extends java.lang.Exception{
     public GlobalException(){
     }

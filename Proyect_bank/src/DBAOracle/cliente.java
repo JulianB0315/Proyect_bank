@@ -1,4 +1,4 @@
-package inicio.modelo;
+package DBAOracle;
 
 public class cliente {
     private String idCliente;
