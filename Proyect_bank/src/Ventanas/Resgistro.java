@@ -1,9 +1,15 @@
 package Ventanas;
 
+import java.util.Random;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import Ventanas.Guia;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 public class Resgistro extends javax.swing.JFrame {
 
@@ -45,6 +51,7 @@ public class Resgistro extends javax.swing.JFrame {
         Femenino = new javax.swing.JRadioButton();
         otros = new javax.swing.JRadioButton();
         ButtonRegistro1 = new javax.swing.JButton();
+        TXTFechaNacimiento = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -176,14 +183,24 @@ public class Resgistro extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel12)
-                            .addComponent(jLabel7)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(24, 24, 24)
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(ButtonVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(113, 113, 113)
+                                .addComponent(ButtonRegistro1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel7)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(TXTFechaNacimiento))
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel2)
@@ -213,14 +230,7 @@ public class Resgistro extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel8)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(otros))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(24, 24, 24)
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(ButtonVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(113, 113, 113)
-                                .addComponent(ButtonRegistro1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(otros))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(33, 33, 33)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -273,7 +283,9 @@ public class Resgistro extends javax.swing.JFrame {
                             .addComponent(otros)
                             .addComponent(Femenino))))
                 .addGap(1, 1, 1)
-                .addComponent(jLabel7)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(TXTFechaNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
@@ -311,7 +323,7 @@ public class Resgistro extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 509, Short.MAX_VALUE)
+            .addGap(0, 511, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -321,8 +333,7 @@ public class Resgistro extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
-    
+
     //Funcion de salida
     public void cerrar(){
         try {
@@ -344,6 +355,29 @@ public class Resgistro extends javax.swing.JFrame {
             System.exit(0);
         }
     }
+    
+    //Retorno de datos a la base de datos 
+    public void registrarUsuario(String dni, String nombres, String apellidos, String sexo, String fechaNacimiento, String direccion, String telefono, String correo) {
+    String sql = "INSERT INTO Cliente (dni, nombre, apellido, sexo, fechaNacimiento, direccion, telefono, email) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+
+    try (Connection conn = DBConnection.getConnection();
+         PreparedStatement pstmt = conn.prepareStatement(sql)) {
+        pstmt.setString(1, dni);
+        pstmt.setString(2, nombres);
+        pstmt.setString(3, apellidos);
+        pstmt.setString(4, sexo);
+        pstmt.setString(5, fechaNacimiento);
+        pstmt.setString(6, direccion);
+        pstmt.setString(7, telefono);
+        pstmt.setString(8, correo);
+
+        pstmt.executeUpdate();
+        JOptionPane.showMessageDialog(this, "Usuario registrado exitosamente!");
+    } catch (SQLException e) {
+        e.printStackTrace();
+        JOptionPane.showMessageDialog(this, "Error al registrar usuario: " + e.getMessage());
+    }
+}
     private void ButtonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonVolverActionPerformed
        Guia pantallaGuia=new Guia();
        pantallaGuia.setVisible(true);
@@ -368,7 +402,61 @@ public class Resgistro extends javax.swing.JFrame {
     }//GEN-LAST:event_FemeninoActionPerformed
 
     private void ButtonRegistro1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonRegistro1ActionPerformed
-        // TODO add your handling code here:
+        // Obtener los datos del formulario
+        String dni = TxtDNI.getText();
+        String nombre = TXTNombres.getText();
+        String apellido = TXTApellidos.getText();
+        String sexo = "";
+        if (Masculino.isSelected()) {
+            sexo = "masculino";
+        } else if (Femenino.isSelected()) {
+            sexo = "femenino";
+        } else if (otros.isSelected()) {
+            sexo = "otros";
+        }
+        String fechaNacimiento = TXTFechaNacimiento.getText();
+        String direccion = TXTdireccion.getText();
+        String telefono = TXTtelefono.getText();
+        String email = TXTcorreo.getText();
+
+        // Validar los datos 
+        if (dni.isEmpty() || nombre.isEmpty() || apellido.isEmpty() || sexo.isEmpty() || fechaNacimiento.isEmpty() || direccion.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Por favor, complete todos los campos obligatorios.");
+            return;
+        }
+
+        // Insertar los datos en la base de datos
+            try (Connection conn = DBConnection.getConnection()){
+                String sql = "INSERT INTO Cliente (idCliente, dni, nombre, apellido, sexo, fechaNacimiento, direccion, telefono, email) VALUES (?, ?, ?, ?, ?, TO_DATE(?, 'YYYY-MM-DD'), ?, ?, ?)";
+                PreparedStatement ps = conn.prepareStatement(sql);
+                ps.setString(1, generateIdCliente()); // Método para generar un ID único para idCliente
+                ps.setString(2, dni);
+                ps.setString(3, nombre);
+                ps.setString(4, apellido);
+                ps.setString(5, sexo);
+                ps.setString(6, fechaNacimiento); // Asegúrate de que el formato de fecha sea 'YYYY-MM-DD'
+                ps.setString(7, direccion);
+                ps.setString(8, telefono);
+                ps.setString(9, email);
+                ps.executeUpdate();
+                JOptionPane.showMessageDialog(null, "Registro exitoso.");
+                conn.close();
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(null, "Error al insertar datos: " + e.getMessage());
+            }
+    }
+
+    // Método para generar un ID único para idCliente
+    private String generateIdCliente() {
+        String prefix = "CL";
+        String characters = "0123456789";
+        Random rnd = new Random();
+        StringBuilder sb = new StringBuilder(prefix);
+        while (sb.length() < 8) {
+            int index = (int) (rnd.nextFloat() * characters.length());
+            sb.append(characters.charAt(index));
+        }
+        return sb.toString();
     }//GEN-LAST:event_ButtonRegistro1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -377,6 +465,7 @@ public class Resgistro extends javax.swing.JFrame {
     private javax.swing.JRadioButton Femenino;
     private javax.swing.JRadioButton Masculino;
     private javax.swing.JTextField TXTApellidos;
+    private javax.swing.JTextField TXTFechaNacimiento;
     private javax.swing.JTextField TXTNombres;
     private javax.swing.JTextField TXTcorreo;
     private javax.swing.JTextField TXTdireccion;
