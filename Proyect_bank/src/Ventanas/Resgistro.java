@@ -1,21 +1,23 @@
 package Ventanas;
-
+//import para la generar in idcliente
 import java.util.Random;
+//import para la conexion
 import java.sql.Connection;
-import java.sql.DriverManager;
-import Ventanas.Guia;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+//impor cierre de ventana
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+
 
 public class Resgistro extends javax.swing.JFrame {
 
     public Resgistro() {
         initComponents();
         cerrar();
+        this.setTitle("Registro");
     }
 
     @SuppressWarnings("unchecked")
@@ -334,7 +336,7 @@ public class Resgistro extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    //Funcion de salida
+    //Funcion de salidar
     public void cerrar(){
         try {
             this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
@@ -348,6 +350,7 @@ public class Resgistro extends javax.swing.JFrame {
             e.printStackTrace();
         }
     }
+    //Mensaje al confirmar
     public void Confirmar(){
       int salir=JOptionPane.showConfirmDialog(this, "¿Esta seguro de salir se perdieron los datos ingresados?","Salir",JOptionPane.YES_NO_OPTION,JOptionPane.WARNING_MESSAGE);
         if (salir==JOptionPane.YES_OPTION) {
@@ -358,8 +361,8 @@ public class Resgistro extends javax.swing.JFrame {
     
     //Retorno de datos a la base de datos 
     public void registrarUsuario(String dni, String nombres, String apellidos, String sexo, String fechaNacimiento, String direccion, String telefono, String correo) {
+    //insert into segun la tabla y campos
     String sql = "INSERT INTO Cliente (dni, nombre, apellido, sexo, fechaNacimiento, direccion, telefono, email) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-
     try (Connection conn = DBConnection.getConnection();
          PreparedStatement pstmt = conn.prepareStatement(sql)) {
         pstmt.setString(1, dni);

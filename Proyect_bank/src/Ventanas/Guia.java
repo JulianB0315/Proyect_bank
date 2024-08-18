@@ -1,5 +1,5 @@
 package Ventanas;
-
+//import cierre de ventana
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
@@ -9,6 +9,7 @@ public class Guia extends javax.swing.JFrame {
     public Guia() {
         initComponents();
         cerrar();
+        this.setTitle("Guia de inicio");
     }
 
     @SuppressWarnings("unchecked")
@@ -189,6 +190,7 @@ public class Guia extends javax.swing.JFrame {
         }
     }
     private void ButtonRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonRegistroActionPerformed
+       //boton volver
        Resgistro pantallaInicio=new Resgistro();
        pantallaInicio.setVisible(true);
        pantallaInicio.setLocationRelativeTo(null);
