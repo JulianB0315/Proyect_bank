@@ -198,7 +198,10 @@ public class Guia extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonRegistroActionPerformed
 
     private void ButtonInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonInicioActionPerformed
-
+       Session pantallaSession=new Session();
+       pantallaSession.setVisible(true);
+       pantallaSession.setLocationRelativeTo(null);
+       this.dispose();
     }//GEN-LAST:event_ButtonInicioActionPerformed
 
 
