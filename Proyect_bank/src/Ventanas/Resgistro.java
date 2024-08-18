@@ -1,9 +1,15 @@
 package Ventanas;
 
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 public class Resgistro extends javax.swing.JFrame {
 
     public Resgistro() {
         initComponents();
+        cerrar();
     }
 
     @SuppressWarnings("unchecked")
@@ -315,7 +321,29 @@ public class Resgistro extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    
+    //Funcion de salida
+    public void cerrar(){
+        try {
+            this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+            addWindowListener(new WindowAdapter(){
+                public void windowClosing(WindowEvent e){
+                    Confirmar();
+                }
+            });
+            this.setVisible(true);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public void Confirmar(){
+      int salir=JOptionPane.showConfirmDialog(this, "¿Esta seguro de salir se perdieron los datos ingresados?","Salir",JOptionPane.YES_NO_OPTION,JOptionPane.WARNING_MESSAGE);
+        if (salir==JOptionPane.YES_OPTION) {
+            JOptionPane.showMessageDialog(null,"Gracias por vistarnos","Vuelva pronto",JOptionPane.INFORMATION_MESSAGE);
+            System.exit(0);
+        }
+    }
     private void ButtonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonVolverActionPerformed
        Guia pantallaGuia=new Guia();
        pantallaGuia.setVisible(true);
