@@ -9,6 +9,7 @@ public class cuenta extends javax.swing.JFrame {
 
     public cuenta() {
         initComponents();
+        this.setTitle("Creacion de cuenta");
     }
 
     @SuppressWarnings("unchecked")
