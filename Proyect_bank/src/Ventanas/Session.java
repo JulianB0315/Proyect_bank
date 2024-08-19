@@ -210,7 +210,8 @@ public class Session extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-        public void cerrar(){
+    //Cerrar ventana    
+    public void cerrar(){
         try {
             this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
             addWindowListener(new WindowAdapter(){
