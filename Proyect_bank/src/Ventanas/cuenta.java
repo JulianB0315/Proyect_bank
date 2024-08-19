@@ -188,23 +188,14 @@ public class cuenta extends javax.swing.JFrame {
             this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
             addWindowListener(new WindowAdapter() {
                 public void windowClosing(WindowEvent e) {
-                    Confirmar();
+                    JOptionPane.showMessageDialog(null, "Gracias por vistarnos", "Vuelva pronto",
+                            JOptionPane.INFORMATION_MESSAGE);
+                    System.exit(0);
                 }
             });
             this.setVisible(true);
         } catch (Exception e) {
             e.printStackTrace();
-        }
-    }
-
-    // Mensaje al confirmar
-    public void Confirmar() {
-        int salir = JOptionPane.showConfirmDialog(this, "¿Esta seguro de salir se perdieron los datos ingresados?",
-                "Salir", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
-        if (salir == JOptionPane.YES_OPTION) {
-            JOptionPane.showMessageDialog(null, "Gracias por vistarnos", "Vuelva pronto",
-                    JOptionPane.INFORMATION_MESSAGE);
-            System.exit(0);
         }
     }
 
