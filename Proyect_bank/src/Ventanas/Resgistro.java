@@ -380,6 +380,10 @@ public class Resgistro extends javax.swing.JFrame {
         e.printStackTrace();
         JOptionPane.showMessageDialog(this, "Error al registrar usuario: " + e.getMessage());
     }
+    cuenta pantallacuenta=new cuenta();
+       pantallacuenta.setVisible(true);
+       pantallacuenta.setLocationRelativeTo(null);
+       this.dispose();
 }
     private void ButtonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonVolverActionPerformed
        Guia pantallaGuia=new Guia();
@@ -405,7 +409,7 @@ public class Resgistro extends javax.swing.JFrame {
     }//GEN-LAST:event_FemeninoActionPerformed
 
     private void ButtonRegistro1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonRegistro1ActionPerformed
-        // Obtener los datos del formulario
+   // Obtener los datos del formulario
         String dni = TxtDNI.getText();
         String nombre = TXTNombres.getText();
         String apellido = TXTApellidos.getText();
@@ -427,7 +431,10 @@ public class Resgistro extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Por favor, complete todos los campos obligatorios.");
             return;
         }
-
+       cuenta pantallacuenta=new cuenta();
+       pantallacuenta.setVisible(true);
+       pantallacuenta.setLocationRelativeTo(null);
+       this.dispose(); 
         // Insertar los datos en la base de datos
             try (Connection conn = DBConnection.getConnection()){
                 String sql = "INSERT INTO Cliente (idCliente, dni, nombre, apellido, sexo, fechaNacimiento, direccion, telefono, email) VALUES (?, ?, ?, ?, ?, TO_DATE(?, 'YYYY-MM-DD'), ?, ?, ?)";
@@ -448,7 +455,6 @@ public class Resgistro extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Error al insertar datos: " + e.getMessage());
             }
     }
-
     // Método para generar un ID único para idCliente
     private String generateIdCliente() {
         String prefix = "CL";
@@ -460,6 +466,7 @@ public class Resgistro extends javax.swing.JFrame {
             sb.append(characters.charAt(index));
         }
         return sb.toString();
+
     }//GEN-LAST:event_ButtonRegistro1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
