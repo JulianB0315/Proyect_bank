@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package Ventanas;
 
 import java.awt.event.WindowAdapter;
@@ -191,7 +187,7 @@ public class cuenta extends javax.swing.JFrame {
     }
     //Mensaje al confirmar
     public void Confirmar(){
-      int salir=JOptionPane.showConfirmDialog(this, "¿Esta seguro de salir se perdieron los datos ingresados?","Salir",JOptionPane.YES_NO_OPTION,JOptionPane.WARNING_MESSAGE);
+    int salir=JOptionPane.showConfirmDialog(this, "¿Esta seguro de salir se perdieron los datos ingresados?","Salir",JOptionPane.YES_NO_OPTION,JOptionPane.WARNING_MESSAGE);
         if (salir==JOptionPane.YES_OPTION) {
             JOptionPane.showMessageDialog(null,"Gracias por vistarnos","Vuelva pronto",JOptionPane.INFORMATION_MESSAGE);
             System.exit(0);
