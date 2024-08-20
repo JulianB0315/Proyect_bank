@@ -182,7 +182,7 @@ public class inicioGuia extends javax.swing.JFrame {
             this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
             addWindowListener(new WindowAdapter() {
                 public void windowClosing(WindowEvent e) {
-                    JOptionPane.showMessageDialog(null, "Gracias por vistarnos", "Vuelva pronto",
+                    JOptionPane.showMessageDialog(null, "Gracias por visitarnos", "Vuelva pronto",
                             JOptionPane.INFORMATION_MESSAGE);
                     System.exit(0);
                 }
