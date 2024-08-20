@@ -173,31 +173,41 @@ public class crearCuenta extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-        // Cerrar ventana
+        // Funcion de salidar
         public void cerrar() {
-                try {
-                        this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-                        addWindowListener(new WindowAdapter() {
-                                public void windowClosing(WindowEvent e) {
-                                        JOptionPane.showMessageDialog(null, "Gracias por vistarnos", "Vuelva pronto",
-                                                        JOptionPane.INFORMATION_MESSAGE);
-                                        System.exit(0);
-                                }
-                        });
-                        this.setVisible(true);
-                } catch (Exception e) {
-                        e.printStackTrace();
-                }
-        }
+            try {
+                    this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+                    addWindowListener(new WindowAdapter() {
+                            public void windowClosing(WindowEvent e) {
+                                    Confirmar();
+                            }
+                    });
+                    this.setVisible(true);
+            } catch (Exception e) {
+                    e.printStackTrace();
+            }
+    }
 
-        private void ButtonInicioActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_ButtonInicioActionPerformed
+    // Mensaje al confirmar
+    public void Confirmar() {
+            int salir = JOptionPane.showConfirmDialog(this,
+                            "¿Está seguro de salir se perderán los datos ingresados?",
+                            "Salir", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+            if (salir == JOptionPane.YES_OPTION) {
+                    JOptionPane.showMessageDialog(null, "Gracias por visitarnos", "Vuelva pronto!!!",
+                                    JOptionPane.INFORMATION_MESSAGE);
+                    System.exit(0);
+            }
+    }
+
+        private void ButtonInicioActionPerformed(java.awt.event.ActionEvent evt) {
                 inicioSession pantallaSession = new inicioSession();
                 pantallaSession.setVisible(true);
                 pantallaSession.setLocationRelativeTo(null);
                 this.dispose();
         }// GEN-LAST:event_ButtonInicioActionPerformed
 
-        private void ButtonRegistroActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_ButtonRegistroActionPerformed
+        private void ButtonRegistroActionPerformed(java.awt.event.ActionEvent evt) {
                 // boton volver
                 clienteRegistro pantallaInicio = new clienteRegistro();
                 pantallaInicio.setVisible(true);
