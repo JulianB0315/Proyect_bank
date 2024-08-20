@@ -1,10 +1,10 @@
 package Controlador;
 
-import Ventanas.Guia;
+import Ventanas.inicioGuia;
 
 public class Capaz {
     public static void main(String[] args) {
-        Guia pantaGuia = new Guia();
+        inicioGuia pantaGuia = new inicioGuia();
         pantaGuia.setVisible(true);
         pantaGuia.setLocationRelativeTo(null);
     }
