@@ -6,7 +6,7 @@ import java.util.Random;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-//impor cierre de ventana
+//import cierre de ventana
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
@@ -17,7 +17,7 @@ public class clienteRegistro extends javax.swing.JFrame {
         public clienteRegistro() {
                 initComponents();
                 cerrar();
-                this.setTitle("Registro");
+                this.setTitle("Registro de datos del nuevo cliente");
         }
 
         @SuppressWarnings("unchecked")
@@ -355,10 +355,10 @@ public class clienteRegistro extends javax.swing.JFrame {
         // Mensaje al confirmar
         public void Confirmar() {
                 int salir = JOptionPane.showConfirmDialog(this,
-                                "¿Esta seguro de salir se perdieron los datos ingresados?",
+                                "¿Está seguro de salir se perderán los datos ingresados?",
                                 "Salir", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
                 if (salir == JOptionPane.YES_OPTION) {
-                        JOptionPane.showMessageDialog(null, "Gracias por vistarnos", "Vuelva pronto",
+                        JOptionPane.showMessageDialog(null, "Gracias por visitarnos", "Vuelva pronto!!!",
                                         JOptionPane.INFORMATION_MESSAGE);
                         System.exit(0);
                 }
@@ -412,7 +412,7 @@ public class clienteRegistro extends javax.swing.JFrame {
         }// GEN-LAST:event_MasculinoActionPerformed
 
         private void FemeninoActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_FemeninoActionPerformed
-                // TODO add your handling code here:
+
         }// GEN-LAST:event_FemeninoActionPerformed
 
         private void ButtonRegistro1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_ButtonRegistro1ActionPerformed
