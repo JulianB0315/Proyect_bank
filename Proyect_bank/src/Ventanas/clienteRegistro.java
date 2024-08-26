@@ -9,6 +9,9 @@ import java.sql.SQLException;
 //import cierre de ventana
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -54,7 +57,7 @@ public class clienteRegistro extends javax.swing.JFrame {
         Femenino = new javax.swing.JRadioButton();
         otros = new javax.swing.JRadioButton();
         ButtonRegistro1 = new javax.swing.JButton();
-        TXTFechaNacimiento = new javax.swing.JTextField();
+        Nacimiento = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -202,8 +205,8 @@ public class clienteRegistro extends javax.swing.JFrame {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel7)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(TXTFechaNacimiento))
+                                        .addGap(19, 19, 19)
+                                        .addComponent(Nacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel2)
@@ -214,12 +217,12 @@ public class clienteRegistro extends javax.swing.JFrame {
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(TxtDNI)
                                             .addComponent(TXTNombres)
+                                            .addComponent(TXTApellidos)
                                             .addGroup(jPanel1Layout.createSequentialGroup()
                                                 .addComponent(Masculino)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                 .addComponent(Femenino)
-                                                .addGap(0, 13, Short.MAX_VALUE))
-                                            .addComponent(TXTApellidos)))
+                                                .addGap(0, 13, Short.MAX_VALUE))))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel9)
@@ -264,31 +267,32 @@ public class clienteRegistro extends javax.swing.JFrame {
                 .addGap(4, 4, 4)
                 .addComponent(jLabel12)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(TxtDNI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(74, 74, 74)
-                        .addComponent(jLabel8))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(TXTNombres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5)
-                            .addComponent(TXTApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6)
-                            .addComponent(Masculino)
-                            .addComponent(otros)
-                            .addComponent(Femenino))))
-                .addGap(1, 1, 1)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(TXTFechaNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(TxtDNI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(74, 74, 74)
+                                .addComponent(jLabel8))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel4)
+                                    .addComponent(TXTNombres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel5)
+                                    .addComponent(TXTApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel6)
+                                    .addComponent(Masculino)
+                                    .addComponent(otros)
+                                    .addComponent(Femenino))))
+                        .addGap(2, 2, 2)
+                        .addComponent(jLabel7))
+                    .addComponent(Nacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
@@ -428,7 +432,35 @@ public class clienteRegistro extends javax.swing.JFrame {
                 } else if (otros.isSelected()) {
                         sexo = "otros";
                 }
-                String fechaNacimiento = TXTFechaNacimiento.getText();
+ Date fechaNacimientoDate = Nacimiento.getDate();
+    if (fechaNacimientoDate == null) {
+        JOptionPane.showMessageDialog(null, "Por favor, seleccione una fecha de nacimiento válida.");
+        return;
+    }
+
+    // Validar que la fecha no sea futura, no sea demasiado antigua, y que sea mayor de edad
+    Date fechaActual = new Date();
+    Calendar cal = Calendar.getInstance();
+    cal.add(Calendar.YEAR, -120); // Hace 120 años desde hoy
+    Date fechaLimiteAntigua = cal.getTime();
+
+    cal = Calendar.getInstance();
+    cal.add(Calendar.YEAR, -18); // Hace 18 años desde hoy
+    Date fechaLimiteMayorEdad = cal.getTime();
+
+    if (fechaNacimientoDate.after(fechaActual)) {
+        JOptionPane.showMessageDialog(null, "La fecha de nacimiento no puede ser futura.");
+        return;
+    } else if (fechaNacimientoDate.before(fechaLimiteAntigua)) {
+        JOptionPane.showMessageDialog(null, "La fecha de nacimiento no puede ser tan antigua.");
+        return;
+    } else if (fechaNacimientoDate.after(fechaLimiteMayorEdad)) {
+        JOptionPane.showMessageDialog(null, "Debe ser mayor de 18 años para registrarse.");
+        return;
+    }
+
+    SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd"); // Formato compatible con la base de datos
+    String fechaNacimiento = formatoFecha.format(fechaNacimientoDate);
                 String direccion = TXTdireccion.getText();
                 String telefono = TXTtelefono.getText();
                 String email = TXTcorreo.getText();
@@ -484,8 +516,8 @@ public class clienteRegistro extends javax.swing.JFrame {
     private javax.swing.JButton ButtonVolver;
     private javax.swing.JRadioButton Femenino;
     private javax.swing.JRadioButton Masculino;
+    private com.toedter.calendar.JDateChooser Nacimiento;
     private javax.swing.JTextField TXTApellidos;
-    private javax.swing.JTextField TXTFechaNacimiento;
     private javax.swing.JTextField TXTNombres;
     private javax.swing.JTextField TXTcorreo;
     private javax.swing.JTextField TXTdireccion;
