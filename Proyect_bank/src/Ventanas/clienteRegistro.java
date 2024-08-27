@@ -12,6 +12,8 @@ import java.awt.event.WindowEvent;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -518,6 +520,12 @@ public class clienteRegistro extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "El teléfono debe tener exactamente 9 dígitos.");
             return;
         }
+        // Validar el formato del correo electrónico
+        String email = TXTcorreo.getText();
+        if (!validarEmail(email)) {
+            JOptionPane.showMessageDialog(null, "Por favor, ingrese un correo electrónico válido.");
+            return;
+        }
 
         // Validar que la fecha no sea futura, no sea demasiado antigua, y que sea mayor
         // de edad
@@ -544,8 +552,6 @@ public class clienteRegistro extends javax.swing.JFrame {
         SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd"); // Formato compatible con la base de datos
         String fechaNacimiento = formatoFecha.format(fechaNacimientoDate);
         String direccion = TXTdireccion.getText();
-
-        String email = TXTcorreo.getText();
 
         // Validar los datos
         if (dni.isEmpty() || nombre.isEmpty() || apellido.isEmpty() || sexo.isEmpty()
@@ -592,6 +598,14 @@ public class clienteRegistro extends javax.swing.JFrame {
         return sb.toString();
 
     }// GEN-LAST:event_ButtonRegistro1ActionPerformed
+     // Método para validar el formato del correo electrónico
+
+    private boolean validarEmail(String email) {
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
+        Pattern pattern = Pattern.compile(emailRegex);
+        Matcher matcher = pattern.matcher(email);
+        return matcher.matches();
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ButtonRegistro1;
