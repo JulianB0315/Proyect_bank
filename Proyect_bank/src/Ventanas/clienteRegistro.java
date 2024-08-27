@@ -590,11 +590,12 @@ public class clienteRegistro extends javax.swing.JFrame {
                 pantallacuenta.setVisible(true);
                 pantallacuenta.setLocationRelativeTo(null);
                 this.dispose();
+                String idCliente = generateIdCliente();
                 // Insertar los datos en la base de datos
                 try (Connection conn = DBConnection.getConnection()) {
                         String sql = "INSERT INTO Cliente (idCliente, dni, nombre, apellido, sexo, fechaNacimiento, direccion, telefono, email) VALUES (?, ?, ?, ?, ?, TO_DATE(?, 'YYYY-MM-DD'), ?, ?, ?)";
                         PreparedStatement ps = conn.prepareStatement(sql);
-                        ps.setString(1, generateIdCliente()); // Método para generar un ID único para idCliente
+                        ps.setString(1, idCliente); // Método para generar un ID único para idCliente
                         ps.setString(2, dni);
                         ps.setString(3, nombre);
                         ps.setString(4, apellido);

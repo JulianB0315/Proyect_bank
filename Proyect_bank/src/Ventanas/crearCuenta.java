@@ -15,6 +15,7 @@ public class crearCuenta extends javax.swing.JFrame {
 
     public crearCuenta() {
         initComponents();
+        this.idCliente = idCliente;
         this.setTitle("Creacion de cuenta");
         ver.setVisible(false);
         verConfirmar.setVisible(false);
