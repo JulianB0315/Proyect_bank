@@ -493,34 +493,6 @@ public class clienteRegistro extends javax.swing.JFrame {
                 }
         }
 
-        // Retorno de datos a la base de datos
-        public void registrarUsuario(String dni, String nombres, String apellidos, String sexo, String fechaNacimiento,
-                        String direccion, String telefono, String correo) {
-                // insert into segun la tabla y campos
-                String sql = "INSERT INTO Cliente (dni, nombre, apellido, sexo, fechaNacimiento, direccion, telefono, email) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-                try (Connection conn = DBConnection.getConnection();
-                                PreparedStatement pstmt = conn.prepareStatement(sql)) {
-                        pstmt.setString(1, dni);
-                        pstmt.setString(2, nombres);
-                        pstmt.setString(3, apellidos);
-                        pstmt.setString(4, sexo);
-                        pstmt.setString(5, fechaNacimiento);
-                        pstmt.setString(6, direccion);
-                        pstmt.setString(7, telefono);
-                        pstmt.setString(8, correo);
-
-                        pstmt.executeUpdate();
-                        JOptionPane.showMessageDialog(this, "Usuario registrado exitosamente!");
-                } catch (SQLException e) {
-                        e.printStackTrace();
-                        JOptionPane.showMessageDialog(this, "Error al registrar usuario: " + e.getMessage());
-                }
-                crearCuenta pantallacuenta = new crearCuenta();
-                pantallacuenta.setVisible(true);
-                pantallacuenta.setLocationRelativeTo(null);
-                this.dispose();
-        }
-
         private void ButtonVolverActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_ButtonVolverActionPerformed
                 inicioGuia pantallaGuia = new inicioGuia();
                 pantallaGuia.setVisible(true);
