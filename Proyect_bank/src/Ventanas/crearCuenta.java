@@ -1,3 +1,4 @@
+
 package Ventanas;
 
 import java.awt.event.WindowAdapter;
@@ -16,14 +17,12 @@ public class crearCuenta extends javax.swing.JFrame {
         passConfirmar.setEchoChar('*');
         passContraseña.setEchoChar('*');
     }
-
+    //No Tocar en Visual
     @SuppressWarnings("unchecked")
-        // <editor-fold defaultstate="collapsed" desc="Generated
-        // <editor-fold defaultstate="collapsed" desc="Generated
-        // Code"> 
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        tipoTarjeta = new javax.swing.ButtonGroup();
+        gruopTipoTarjeta = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -111,7 +110,7 @@ public class crearCuenta extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        tipoTarjeta.add(buttonCredito);
+        gruopTipoTarjeta.add(buttonCredito);
         buttonCredito.setText("Credito");
         buttonCredito.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -119,7 +118,7 @@ public class crearCuenta extends javax.swing.JFrame {
             }
         });
 
-        tipoTarjeta.add(ButtonDebito);
+        gruopTipoTarjeta.add(ButtonDebito);
         ButtonDebito.setText("Debito");
         ButtonDebito.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -301,7 +300,7 @@ public class crearCuenta extends javax.swing.JFrame {
         );
 
         pack();
-    }// </editor-fold>                        
+    }// </editor-fold>//GEN-END:initComponents
 
     private void buttonCreditoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCreditoActionPerformed
         // TODO add your handling code here:
@@ -334,7 +333,6 @@ public class crearCuenta extends javax.swing.JFrame {
         verConfirmar.setVisible(false);
         passConfirmar.setEchoChar('*');
     }//GEN-LAST:event_verConfirmarMouseClicked
-
     // Funcion de salidar
     public void cerrar() {
         try {
@@ -366,6 +364,7 @@ public class crearCuenta extends javax.swing.JFrame {
     private javax.swing.JButton buttonCancelar;
     private javax.swing.JRadioButton buttonCredito;
     private javax.swing.JButton buttonFinalizar;
+    private javax.swing.ButtonGroup gruopTipoTarjeta;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -382,7 +381,6 @@ public class crearCuenta extends javax.swing.JFrame {
     private javax.swing.JLabel ocultoConfirmar;
     private javax.swing.JPasswordField passConfirmar;
     private javax.swing.JPasswordField passContraseña;
-    private javax.swing.ButtonGroup tipoTarjeta;
     private javax.swing.JLabel ver;
     private javax.swing.JLabel verConfirmar;
     // End of variables declaration//GEN-END:variables
