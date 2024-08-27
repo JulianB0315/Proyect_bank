@@ -1,6 +1,7 @@
 
 package Ventanas;
 
+import Ventanas.DBConnection;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
@@ -13,9 +14,9 @@ import java.util.Random;
 public class crearCuenta extends javax.swing.JFrame {
     private String idCliente;
 
-    public crearCuenta() {
+    public crearCuenta(String idCliente) {
+        this.idCliente=idCliente;
         initComponents();
-        this.idCliente = idCliente;
         this.setTitle("Creacion de cuenta");
         ver.setVisible(false);
         verConfirmar.setVisible(false);
@@ -23,6 +24,7 @@ public class crearCuenta extends javax.swing.JFrame {
         passContraseña.setEchoChar('*');
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
     }
+
 
     // No Tocar en Visual
     @SuppressWarnings("unchecked")
@@ -478,13 +480,15 @@ public class crearCuenta extends javax.swing.JFrame {
     }// GEN-LAST:event_verConfirmarMouseClicked
 
     private void buttonFinalizarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_buttonFinalizarActionPerformed
-        String tipoCuenta = buttonCredito.isSelected() ? "Crédito" : "Débito";
+        // Obtener los datos del formulario
+        String tipoCuenta = buttonCredito.isSelected() ? "credito" : "debito";
         String contraseña = new String(passContraseña.getPassword());
         String confirmarContraseña = new String(passConfirmar.getPassword());
 
+        // Validar la contraseña
         if (validarContraseña(contraseña, confirmarContraseña)) {
             try (Connection conn = DBConnection.getConnection()) {
-                String sqlCuenta = "INSERT INTO cuenta (idCuenta,idCliente, tipoCuenta, contraseña) VALUES (?, ?, ?, ?)";
+                String sqlCuenta = "INSERT INTO cuenta (idCuenta, idCliente, tipoCuenta, contraseña) VALUES (?, ?, ?, ?)";
                 PreparedStatement psCuenta = conn.prepareStatement(sqlCuenta);
                 psCuenta.setString(1, generateIdCuenta());
                 psCuenta.setString(2, idCliente); // Usar el idCliente recibido
@@ -494,14 +498,45 @@ public class crearCuenta extends javax.swing.JFrame {
 
                 JOptionPane.showMessageDialog(null, "Cuenta creada exitosamente.");
                 conn.close();
+                this.dispose(); // Cierra la ventana después de crear la cuenta
             } catch (SQLException e) {
                 JOptionPane.showMessageDialog(null, "Error al insertar datos: " + e.getMessage());
             }
         }
-    }// GEN-LAST:event_buttonFinalizarActionPerformed
-     // Funcion de cancelar
+    }                                             
 
-     private void eliminarRegistro(String idCliente) {
+    private boolean validarContraseña(String contraseña, String confirmarContraseña) {
+        if (contraseña.isEmpty() || confirmarContraseña.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Debe ingresar y confirmar su contraseña.");
+            return false;
+        }
+
+        if (contraseña.length() != 8) {
+            JOptionPane.showMessageDialog(null, "La contraseña debe tener exactamente 8 caracteres.");
+            return false;
+        }
+        if (!contraseña.equals(confirmarContraseña)) {
+            JOptionPane.showMessageDialog(null, "Las contraseñas no coinciden.");
+            return false;
+        }
+
+        return true;
+    }
+
+    private String generateIdCuenta() {
+        String prefix = "CT";
+        String characters = "0123456789";
+        Random rnd = new Random();
+        StringBuilder sb = new StringBuilder(prefix);
+        while (sb.length() < 8) {
+            int index = rnd.nextInt(characters.length());
+            sb.append(characters.charAt(index));
+        }
+        return sb.toString();
+    }
+
+    // Método para eliminar el registro
+    private void eliminarRegistro(String idCliente) {
         try (Connection conn = DBConnection.getConnection()) {
             String sqlEliminar = "DELETE FROM cliente WHERE idCliente = ?";
             PreparedStatement psEliminar = conn.prepareStatement(sqlEliminar);
@@ -521,6 +556,7 @@ public class crearCuenta extends javax.swing.JFrame {
         }
     }
 
+    // Configurar el comportamiento al cerrar la ventana
     private void cerrar() {
         this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         addWindowListener(new WindowAdapter() {
@@ -531,38 +567,6 @@ public class crearCuenta extends javax.swing.JFrame {
                 dispose(); // Cierra la ventana
             }
         });
-    }
-
-    // Validar datos
-    private boolean validarContraseña(String contraseña, String confirmarContraseña) {
-        if (contraseña.isEmpty() || confirmarContraseña.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Debe ingresar y confirmar su contraseña.");
-            return false;
-        }
-
-        if (contraseña.length() != 8) {
-            JOptionPane.showMessageDialog(null, "La contraseña debe tener exactamente 8 caracteres.");
-            return false;
-        }
-        if (!contraseña.equals(confirmarContraseña)) {
-            JOptionPane.showMessageDialog(null, "Las contraseñas no coinciden.");
-            return false;
-        }
-
-        return true;
-    }
-
-    // Método para generar un ID único para idCliente
-    private String generateIdCuenta() {
-        String prefix = "CT";
-        String characters = "0123456789";
-        Random rnd = new Random();
-        StringBuilder sb = new StringBuilder(prefix);
-        while (sb.length() < 8) {
-            int index = (int) (rnd.nextFloat() * characters.length());
-            sb.append(characters.charAt(index));
-        }
-        return sb.toString();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

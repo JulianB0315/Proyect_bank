@@ -517,122 +517,123 @@ public class clienteRegistro extends javax.swing.JFrame {
         }// GEN-LAST:event_FemeninoActionPerformed
 
         private void ButtonRegistro1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_ButtonRegistro1ActionPerformed
-                // Obtener los datos del formulario
-                String dni = TxtDNI.getText();
-                String nombre = TXTNombres.getText();
-                String apellido = TXTApellidos.getText();
-                String sexo = "";
-                if (Masculino.isSelected()) {
-                        sexo = "masculino";
-                } else if (Femenino.isSelected()) {
-                        sexo = "femenino";
-                } else if (otros.isSelected()) {
-                        sexo = "otros";
-                }
-                Date fechaNacimientoDate = Nacimiento.getDate();
-                if (fechaNacimientoDate == null) {
-                        JOptionPane.showMessageDialog(null, "Por favor, seleccione una fecha de nacimiento válida.");
-                        return;
-                }
-                // Validar que el DNI tenga 8 dígitos
-                if (dni.isEmpty() || dni.length() != 8) {
-                        JOptionPane.showMessageDialog(null, "El DNI debe tener exactamente 8 dígitos.");
-                        return;
-                }
+               // Obtener los datos del formulario
+    String dni = TxtDNI.getText();
+    String nombre = TXTNombres.getText();
+    String apellido = TXTApellidos.getText();
+    String sexo = "";
+    if (Masculino.isSelected()) {
+        sexo = "masculino";
+    } else if (Femenino.isSelected()) {
+        sexo = "femenino";
+    } else if (otros.isSelected()) {
+        sexo = "otros";
+    }
+    Date fechaNacimientoDate = Nacimiento.getDate();
+    if (fechaNacimientoDate == null) {
+        JOptionPane.showMessageDialog(null, "Por favor, seleccione una fecha de nacimiento válida.");
+        return;
+    }
 
-                // Validar que el teléfono tenga 9 dígitos
-                String telefono = TXTtelefono.getText();
-                if (telefono.isEmpty() || telefono.length() != 9) {
-                        JOptionPane.showMessageDialog(null, "El teléfono debe tener exactamente 9 dígitos.");
-                        return;
-                }
-                // Validar el formato del correo electrónico
-                String email = TXTcorreo.getText();
-                if (!validarEmail(email)) {
-                        JOptionPane.showMessageDialog(null, "Por favor, ingrese un correo electrónico válido.");
-                        return;
-                }
+    // Validar que el DNI tenga 8 dígitos
+    if (dni.isEmpty() || dni.length() != 8) {
+        JOptionPane.showMessageDialog(null, "El DNI debe tener exactamente 8 dígitos.");
+        return;
+    }
 
-                // Validar que la fecha no sea futura, no sea demasiado antigua, y que sea mayor
-                // de edad
-                Date fechaActual = new Date();
-                Calendar cal = Calendar.getInstance();
-                cal.add(Calendar.YEAR, -120); // Hace 120 años desde hoy
-                Date fechaLimiteAntigua = cal.getTime();
+    // Validar que el teléfono tenga 9 dígitos
+    String telefono = TXTtelefono.getText();
+    if (telefono.isEmpty() || telefono.length() != 9) {
+        JOptionPane.showMessageDialog(null, "El teléfono debe tener exactamente 9 dígitos.");
+        return;
+    }
 
-                cal = Calendar.getInstance();
-                cal.add(Calendar.YEAR, -18); // Hace 18 años desde hoy
-                Date fechaLimiteMayorEdad = cal.getTime();
+    // Validar el formato del correo electrónico
+    String email = TXTcorreo.getText();
+    if (!validarEmail(email)) {
+        JOptionPane.showMessageDialog(null, "Por favor, ingrese un correo electrónico válido.");
+        return;
+    }
 
-                if (fechaNacimientoDate.after(fechaActual)) {
-                        JOptionPane.showMessageDialog(null, "La fecha de nacimiento no puede ser futura.");
-                        return;
-                } else if (fechaNacimientoDate.before(fechaLimiteAntigua)) {
-                        JOptionPane.showMessageDialog(null, "La fecha de nacimiento no puede ser tan antigua.");
-                        return;
-                } else if (fechaNacimientoDate.after(fechaLimiteMayorEdad)) {
-                        JOptionPane.showMessageDialog(null, "Debe ser mayor de 18 años para registrarse.");
-                        return;
-                }
+    // Validar que la fecha no sea futura, no sea demasiado antigua, y que sea mayor de edad
+    Date fechaActual = new Date();
+    Calendar cal = Calendar.getInstance();
+    cal.add(Calendar.YEAR, -120); // Hace 120 años desde hoy
+    Date fechaLimiteAntigua = cal.getTime();
 
-                SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd"); // Formato compatible con la base de datos
-                String fechaNacimiento = formatoFecha.format(fechaNacimientoDate);
-                String direccion = TXTdireccion.getText();
+    cal = Calendar.getInstance();
+    cal.add(Calendar.YEAR, -18); // Hace 18 años desde hoy
+    Date fechaLimiteMayorEdad = cal.getTime();
 
-                // Validar los datos
-                if (dni.isEmpty() || nombre.isEmpty() || apellido.isEmpty() || sexo.isEmpty()
-                                || fechaNacimiento.isEmpty()
-                                || direccion.isEmpty()) {
-                        JOptionPane.showMessageDialog(null, "Por favor, complete todos los campos obligatorios.");
-                        return;
-                }
-                crearCuenta pantallacuenta = new crearCuenta();
-                pantallacuenta.setVisible(true);
-                pantallacuenta.setLocationRelativeTo(null);
-                this.dispose();
-                String idCliente = generateIdCliente();
-                // Insertar los datos en la base de datos
-                try (Connection conn = DBConnection.getConnection()) {
-                        String sql = "INSERT INTO Cliente (idCliente, dni, nombre, apellido, sexo, fechaNacimiento, direccion, telefono, email) VALUES (?, ?, ?, ?, ?, TO_DATE(?, 'YYYY-MM-DD'), ?, ?, ?)";
-                        PreparedStatement ps = conn.prepareStatement(sql);
-                        ps.setString(1, idCliente); // Método para generar un ID único para idCliente
-                        ps.setString(2, dni);
-                        ps.setString(3, nombre);
-                        ps.setString(4, apellido);
-                        ps.setString(5, sexo);
-                        ps.setString(6, fechaNacimiento); // Asegúrate de que el formato de fecha sea 'YYYY-MM-DD'
-                        ps.setString(7, direccion);
-                        ps.setString(8, telefono);
-                        ps.setString(9, email);
-                        ps.executeUpdate();
-                        JOptionPane.showMessageDialog(null, "Registro exitoso.");
-                        conn.close();
-                } catch (SQLException e) {
-                        JOptionPane.showMessageDialog(null, "Error al insertar datos: " + e.getMessage());
-                }
-        }
+    if (fechaNacimientoDate.after(fechaActual)) {
+        JOptionPane.showMessageDialog(null, "La fecha de nacimiento no puede ser futura.");
+        return;
+    } else if (fechaNacimientoDate.before(fechaLimiteAntigua)) {
+        JOptionPane.showMessageDialog(null, "La fecha de nacimiento no puede ser tan antigua.");
+        return;
+    } else if (fechaNacimientoDate.after(fechaLimiteMayorEdad)) {
+        JOptionPane.showMessageDialog(null, "Debe ser mayor de 18 años para registrarse.");
+        return;
+    }
 
-        // Método para generar un ID único para idCliente
-        private String generateIdCliente() {
-                String prefix = "CL";
-                String characters = "0123456789";
-                Random rnd = new Random();
-                StringBuilder sb = new StringBuilder(prefix);
-                while (sb.length() < 8) {
-                        int index = (int) (rnd.nextFloat() * characters.length());
-                        sb.append(characters.charAt(index));
-                }
-                return sb.toString();
+    SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd"); // Formato compatible con la base de datos
+    String fechaNacimiento = formatoFecha.format(fechaNacimientoDate);
+    String direccion = TXTdireccion.getText();
 
-        }// GEN-LAST:event_ButtonRegistro1ActionPerformed
-         // Método para validar el formato del correo electrónico
+    // Validar los datos
+    if (dni.isEmpty() || nombre.isEmpty() || apellido.isEmpty() || sexo.isEmpty()
+            || fechaNacimiento.isEmpty() || direccion.isEmpty()) {
+        JOptionPane.showMessageDialog(null, "Por favor, complete todos los campos obligatorios.");
+        return;
+    }
+    
+    String idCliente = generateIdCliente(); // Generar idCliente
+    // Insertar los datos en la base de datos
+    try (Connection conn = DBConnection.getConnection()) {
+        String sql = "INSERT INTO Cliente (idCliente, dni, nombre, apellido, sexo, fechaNacimiento, direccion, telefono, email) VALUES (?, ?, ?, ?, ?, TO_DATE(?, 'YYYY-MM-DD'), ?, ?, ?)";
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ps.setString(1, idCliente); // Método para generar un ID único para idCliente
+        ps.setString(2, dni);
+        ps.setString(3, nombre);
+        ps.setString(4, apellido);
+        ps.setString(5, sexo);
+        ps.setString(6, fechaNacimiento); // Asegúrate de que el formato de fecha sea 'YYYY-MM-DD'
+        ps.setString(7, direccion);
+        ps.setString(8, telefono);
+        ps.setString(9, email);
+        ps.executeUpdate();
 
-        private boolean validarEmail(String email) {
-                String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
-                Pattern pattern = Pattern.compile(emailRegex);
-                Matcher matcher = pattern.matcher(email);
-                return matcher.matches();
-        }
+        JOptionPane.showMessageDialog(null, "Registro exitoso.");
+
+        crearCuenta pantallaCuenta = new crearCuenta(idCliente);
+        pantallaCuenta.setVisible(true);
+        pantallaCuenta.setLocationRelativeTo(null);
+        this.dispose();
+    } catch (SQLException e) {
+        JOptionPane.showMessageDialog(null, "Error al insertar datos: " + e.getMessage());
+    }
+}
+
+// Método para generar un ID único para idCliente
+private String generateIdCliente() {
+    String prefix = "CL";
+    String characters = "0123456789";
+    Random rnd = new Random();
+    StringBuilder sb = new StringBuilder(prefix);
+    while (sb.length() < 8) {
+        int index = rnd.nextInt(characters.length());
+        sb.append(characters.charAt(index));
+    }
+    return sb.toString();
+}
+
+// Método para validar el formato del correo electrónico
+private boolean validarEmail(String email) {
+    String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
+    Pattern pattern = Pattern.compile(emailRegex);
+    Matcher matcher = pattern.matcher(email);
+    return matcher.matches();
+}
 
         // Variables declaration - do not modify//GEN-BEGIN:variables
         private javax.swing.JButton ButtonRegistro1;
