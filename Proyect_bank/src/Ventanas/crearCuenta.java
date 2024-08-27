@@ -18,7 +18,9 @@ public class crearCuenta extends javax.swing.JFrame {
     }
 
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated
+        // <editor-fold defaultstate="collapsed" desc="Generated
+        // <editor-fold defaultstate="collapsed" desc="Generated
+        // Code"> 
     private void initComponents() {
 
         tipoTarjeta = new javax.swing.ButtonGroup();
@@ -299,7 +301,7 @@ public class crearCuenta extends javax.swing.JFrame {
         );
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
+    }// </editor-fold>                        
 
     private void buttonCreditoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCreditoActionPerformed
         // TODO add your handling code here:
