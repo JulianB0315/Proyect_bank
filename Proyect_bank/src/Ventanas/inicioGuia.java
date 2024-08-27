@@ -193,8 +193,8 @@ public class inicioGuia extends javax.swing.JFrame {
         }
     }
 
-    private void ButtonRegistroActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_ButtonRegistroActionPerformed
-        // boton volver
+    private void ButtonRegistroActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_ButtonRegistroActionPerforme
+        // Boton de registro
         clienteRegistro pantallaInicio = new clienteRegistro();
         pantallaInicio.setVisible(true);
         pantallaInicio.setLocationRelativeTo(null);
@@ -202,6 +202,7 @@ public class inicioGuia extends javax.swing.JFrame {
     }// GEN-LAST:event_ButtonRegistroActionPerformed
 
     private void ButtonInicioActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_ButtonInicioActionPerformed
+        // Boton de inicio de sesion
         inicioSession pantallaSession = new inicioSession();
         pantallaSession.setVisible(true);
         pantallaSession.setLocationRelativeTo(null);
