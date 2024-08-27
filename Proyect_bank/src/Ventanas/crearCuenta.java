@@ -7,18 +7,18 @@ import javax.swing.JOptionPane;
 
 public class crearCuenta extends javax.swing.JFrame {
 
-        public crearCuenta() {
-                initComponents();
-                cerrar();
-                this.setTitle("Creacion de cuenta");
-                ver.setVisible(false);
-                verConfirmar.setVisible(false);
-                passConfirmar.setEchoChar('*');
-                passContraseña.setEchoChar('*');
-        }
+    public crearCuenta() {
+        initComponents();
+        cerrar();
+        this.setTitle("Creacion de cuenta");
+        ver.setVisible(false);
+        verConfirmar.setVisible(false);
+        passConfirmar.setEchoChar('*');
+        passContraseña.setEchoChar('*');
+    }
 
-        @SuppressWarnings("unchecked")
-        // <editor-fold defaultstate="collapsed" desc="Generated
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -313,7 +313,7 @@ public class crearCuenta extends javax.swing.JFrame {
     private void ocultoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ocultoMouseClicked
         oculto.setVisible(false);
         ver.setVisible(true);
-        passContraseña.setEchoChar((char)0);
+        passContraseña.setEchoChar((char) 0);
     }//GEN-LAST:event_ocultoMouseClicked
 
     private void verMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_verMouseClicked
@@ -325,7 +325,7 @@ public class crearCuenta extends javax.swing.JFrame {
     private void ocultoConfirmarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ocultoConfirmarMouseClicked
         ocultoConfirmar.setVisible(false);
         verConfirmar.setVisible(true);
-        passConfirmar.setEchoChar((char)0);
+        passConfirmar.setEchoChar((char) 0);
     }//GEN-LAST:event_ocultoConfirmarMouseClicked
 
     private void verConfirmarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_verConfirmarMouseClicked
@@ -334,31 +334,31 @@ public class crearCuenta extends javax.swing.JFrame {
         passConfirmar.setEchoChar('*');
     }//GEN-LAST:event_verConfirmarMouseClicked
 
-        // Funcion de salidar
-        public void cerrar() {
-            try {
-                    this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-                    addWindowListener(new WindowAdapter() {
-                            public void windowClosing(WindowEvent e) {
-                                    Confirmar();
-                            }
-                    });
-                    this.setVisible(true);
-            } catch (Exception e) {
-                    e.printStackTrace();
-            }
+    // Funcion de salidar
+    public void cerrar() {
+        try {
+            this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+            addWindowListener(new WindowAdapter() {
+                public void windowClosing(WindowEvent e) {
+                    Confirmar();
+                }
+            });
+            this.setVisible(true);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     // Mensaje al confirmar
     public void Confirmar() {
-            int salir = JOptionPane.showConfirmDialog(this,
-                            "¿Está seguro de salir se perderán los datos ingresados?",
-                            "Salir", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
-            if (salir == JOptionPane.YES_OPTION) {
-                    JOptionPane.showMessageDialog(null, "Gracias por visitarnos", "Vuelva pronto!!!",
-                                    JOptionPane.INFORMATION_MESSAGE);
-                    System.exit(0);
-            }
+        int salir = JOptionPane.showConfirmDialog(this,
+                "¿Está seguro de salir se perderán los datos ingresados?",
+                "Salir", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+        if (salir == JOptionPane.YES_OPTION) {
+            JOptionPane.showMessageDialog(null, "Gracias por visitarnos", "Vuelva pronto!!!",
+                    JOptionPane.INFORMATION_MESSAGE);
+            System.exit(0);
+        }
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JRadioButton ButtonDebito;
