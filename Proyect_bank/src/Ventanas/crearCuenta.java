@@ -265,6 +265,7 @@ public class crearCuenta extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonDebitoActionPerformed
 
     private void ocultoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ocultoMouseClicked
+        oculto.setVisible(false);
         
     }//GEN-LAST:event_ocultoMouseClicked
 
