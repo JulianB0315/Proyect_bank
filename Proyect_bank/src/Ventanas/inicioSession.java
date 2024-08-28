@@ -356,8 +356,7 @@ public class inicioSession extends javax.swing.JFrame {
                 ver.setVisible(true);
                 Contraseña.setEchoChar((char) 0);
         }// GEN-LAST:event_ocultarMouseClicked
-         // Cerrar ventana
-
+        
         // Funcion de salir
         public void cerrar() {
                 try {
