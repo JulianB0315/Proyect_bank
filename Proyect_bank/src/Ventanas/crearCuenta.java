@@ -1,7 +1,6 @@
 
 package Ventanas;
 
-import Ventanas.DBConnection;
 //Libreria para dar estilo interfaz
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -486,12 +485,8 @@ public class crearCuenta extends javax.swing.JFrame {
                 // Boton cancelar
                 int confirmar = JOptionPane.showConfirmDialog(this,
                                 "¿Está seguro de que quiero salir?, se borrar también el registro.",
-                                "Confirmar eliminación", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);// Funcion
-                                                                                                                 // de
-                                                                                                                 // Borra
-                                                                                                                 // el
-                                                                                                                 // registro
-
+                                "Confirmar eliminación", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+                                //Funcion para borra el ragistro
                 if (confirmar == JOptionPane.YES_OPTION) {
                         eliminarRegistro(idCliente);
                 }
