@@ -1,12 +1,42 @@
 package Ventanas;
 
-public class clienteCuenta extends javax.swing.JFrame {
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
-    public clienteCuenta() {
+public class clienteCuenta extends javax.swing.JFrame {
+    private String idCuenta;
+    public clienteCuenta(String idCuenta) {
+        this.idCuenta=idCuenta;
         initComponents();
         this.setTitle("Bienvenido!!");
-    }
 
+        cargarDatos();
+    }
+    private void cargarDatos() {
+        try (Connection conn = DBConnection.getConnection()) {
+            // Consulta SQL para obtener el saldo de la cuenta
+            String sql = "SELECT saldo FROM cuenta WHERE idCuenta = ?";
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setString(1, this.idCuenta); // Asignar el idCuenta al parámetro de la consulta
+            ResultSet rs = stmt.executeQuery();
+
+            // Verificar si se obtuvo un resultado
+            if (rs.next()) {
+                // Obtener el saldo de la base de datos
+                String saldo = rs.getString("saldo");
+                // Mostrar el idCuenta y saldo en las JLabel
+                idCuentaDar.setText(this.idCuenta);
+                cuentaSaldoDar.setText(saldo);
+            }
+            rs.close();
+            stmt.close();
+            idCuentaDar.setEditable(false);
+            cuentaSaldoDar.setEditable(false);
+        } catch (Exception e) {
+            e.printStackTrace(); 
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
