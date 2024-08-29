@@ -2,6 +2,10 @@ package Ventanas;
 
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -356,7 +360,7 @@ public class inicioSession extends javax.swing.JFrame {
                 ver.setVisible(true);
                 Contraseña.setEchoChar((char) 0);
         }// GEN-LAST:event_ocultarMouseClicked
-        
+
         // Funcion de salir
         public void cerrar() {
                 try {
@@ -383,6 +387,56 @@ public class inicioSession extends javax.swing.JFrame {
 
         private void ButtonSessionActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_ButtonSessionActionPerformed
                 // Obtener los datos del formulario
+                String dni = TXTDNI.getText();
+                char[] contraseñaIngresadaArray = Contraseña.getPassword(); 
+                String contraseñaIngresada = new String(contraseñaIngresadaArray); 
+                try (Connection conn = DBConnection.getConnection()) {
+                        // Paso 1: Obtener el idCliente usando el DNI
+                        String sql = "SELECT idCliente FROM cliente WHERE dni = ?";
+
+                        String idCliente = null; // Cambiado a String
+                        try (PreparedStatement ps = conn.prepareStatement(sql)) {
+                                ps.setString(1, dni); // Establece el valor del parámetro en la consulta
+
+                                try (ResultSet rs = ps.executeQuery()) {
+                                        if (rs.next()) { // Si hay un resultado
+                                                idCliente = rs.getString("idCliente"); 
+                                        } else {
+                                                // Si el DNI no existe en la base de datos
+                                                JOptionPane.showMessageDialog(null,"Datos Incorrecto!!", "Advertencia",JOptionPane.WARNING_MESSAGE);
+                                                return; // Salir del método
+                                        }
+                                }
+                        }
+                        //Obtener la contraseña usando el idCliente
+                        sql = "SELECT contraseña FROM cuenta WHERE idCliente = ?";
+                        try (PreparedStatement ps = conn.prepareStatement(sql)) {
+                                ps.setString(1, idCliente); // Cambiado a String
+                                try (ResultSet rs = ps.executeQuery()) {
+                                        if (rs.next()) { // Si hay un resultado
+                                                String contraseñaAlmacenada = rs.getString("contraseña"); 
+
+                                                // Comparar la contraseña ingresada con la almacenada
+                                                if (contraseñaIngresada.equals(contraseñaAlmacenada)) {
+                                                        // Mostrar el JFrame clienteCuenta
+                                                        JFrame clienteCuentaFrame = new clienteCuenta(); 
+                                                        clienteCuentaFrame.setVisible(true); // Hacer visible el JFrame
+                                                        this.dispose(); // Cerrar el JFrame actual si es necesario
+                                                } else {
+                                                        JOptionPane.showMessageDialog(null, "Datos Incorrecto!!","Advertencia", JOptionPane.WARNING_MESSAGE);
+                                                }
+                                        } else {
+                                                // Si el idCliente no existe en la tabla cuenta
+                                                JOptionPane.showMessageDialog(null,
+                                                                "Datos Incorrecto!!","Advertencia", JOptionPane.WARNING_MESSAGE);
+                                        }
+                                }
+                        }
+
+                } catch (Exception e) {
+                        JOptionPane.showMessageDialog(null, "Ocurrió un error: " + e.getMessage(), "Error",JOptionPane.ERROR_MESSAGE);
+                        e.printStackTrace();
+                }
 
         }// GEN-LAST:event_ButtonSessionActionPerformed
 
