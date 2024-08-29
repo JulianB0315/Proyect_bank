@@ -1,13 +1,10 @@
-
 package Ventanas;
 
 public class clienteCuenta extends javax.swing.JFrame {
 
-    /**
-     * Creates new form clienteCuenta
-     */
     public clienteCuenta() {
         initComponents();
+        this.setTitle("Bienvenido!!");
     }
 
     /**
