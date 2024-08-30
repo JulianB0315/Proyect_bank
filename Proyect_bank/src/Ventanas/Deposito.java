@@ -4,6 +4,9 @@ package Ventanas;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import javax.swing.JOptionPane;
 
 public class Deposito extends javax.swing.JFrame {
     private String idCuenta;
@@ -17,7 +20,7 @@ public class Deposito extends javax.swing.JFrame {
             // Consulta SQL para obtener el idCuenta (si es necesario)
             String sql = "SELECT idCuenta FROM cuenta WHERE idCuenta = ?";
             PreparedStatement stmt = conn.prepareStatement(sql);
-            stmt.setString(1, this.idCuenta); // Asignar el idCuenta al parámetro de la consulta
+            stmt.setString(1, this.idCuenta); 
             ResultSet rs = stmt.executeQuery();
     
             // Verificar si se obtuvo un resultado
@@ -42,6 +45,7 @@ public class Deposito extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jOptionPane1 = new javax.swing.JOptionPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -55,6 +59,8 @@ public class Deposito extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         idCuentadar = new javax.swing.JLabel();
+        buttonVolver = new javax.swing.JButton();
+        buttonDepositar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -115,12 +121,28 @@ public class Deposito extends javax.swing.JFrame {
         });
 
         jLabel6.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
-        jLabel6.setText("Deposito");
+        jLabel6.setText("Deposito:");
 
         jLabel7.setFont(new java.awt.Font("Verdana", 1, 20)); // NOI18N
         jLabel7.setText("Datos de la cuenta:");
 
         idCuentadar.setFont(new java.awt.Font("Verdana", 1, 20)); // NOI18N
+
+        buttonVolver.setFont(new java.awt.Font("Verdana", 1, 20)); // NOI18N
+        buttonVolver.setText("Volver");
+        buttonVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonVolverActionPerformed(evt);
+            }
+        });
+
+        buttonDepositar.setFont(new java.awt.Font("Verdana", 1, 20)); // NOI18N
+        buttonDepositar.setText("Depositar");
+        buttonDepositar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonDepositarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -131,18 +153,19 @@ public class Deposito extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(53, 53, 53)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel5))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel6)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel8)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(idCuentadar, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(cuentaSaldoDar, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(idCuentadar, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(50, 50, 50)
+                                .addComponent(cuentaSaldoDar, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -159,7 +182,13 @@ public class Deposito extends javax.swing.JFrame {
                                         .addComponent(jLabel15)
                                         .addGap(18, 18, 18)
                                         .addComponent(jLabel14)))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(63, 63, 63)
+                        .addComponent(buttonVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(buttonDepositar, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(49, 49, 49)))
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );
@@ -175,16 +204,20 @@ public class Deposito extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel7)
                 .addGap(21, 21, 21)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(idCuentadar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(idCuentadar, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(cuentaSaldoDar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(80, 80, 80)
+                .addGap(41, 41, 41)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(buttonVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonDepositar, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                 .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                 .addComponent(jLabel3)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -208,7 +241,58 @@ public class Deposito extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cuentaSaldoDarActionPerformed
 
+    private void buttonDepositarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDepositarActionPerformed
+        try (Connection conn = DBConnection.getConnection()) {
+            // Obtener el monto del deposito
+            double montoDeposito;
+            try {
+                montoDeposito = Double.parseDouble(cuentaSaldoDar.getText());
+                if (montoDeposito <= 0) {
+                    JOptionPane.showMessageDialog(this, "El monto debe ser mayor que 0.");
+                    return;
+                }
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(this, "Ingrese un monto válido.");
+                return;
+            }
+    
+            // Obtener el saldo actual
+            String sqlSelect = "SELECT saldo FROM cuenta WHERE idCuenta = ?";
+            PreparedStatement stmtSelect = conn.prepareStatement(sqlSelect);
+            stmtSelect.setString(1, this.idCuenta);
+            ResultSet rs = stmtSelect.executeQuery();
+    
+            if (rs.next()) {
+                double saldoActual = rs.getDouble("saldo");
+                double nuevoSaldo = saldoActual + montoDeposito;
+    
+                // Actualizar el saldo en la base de datos
+                String sqlUpdate = "UPDATE cuenta SET saldo = ? WHERE idCuenta = ?";
+                PreparedStatement stmtUpdate = conn.prepareStatement(sqlUpdate);
+                stmtUpdate.setDouble(1, nuevoSaldo);
+                stmtUpdate.setString(2, this.idCuenta);
+                stmtUpdate.executeUpdate();
+                JOptionPane.showMessageDialog(this, "Depósito realizado exitosamente.");
+            } 
+
+            rs.close();
+            stmtSelect.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Error al realizar el depósito.");
+        }
+    }//GEN-LAST:event_buttonDepositarActionPerformed
+
+    private void buttonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonVolverActionPerformed
+        clienteCuenta pClienteCuenta =new clienteCuenta(idCuenta);
+        pClienteCuenta.setVisible(true);
+        pClienteCuenta.setLocationRelativeTo(null);
+        this.dispose();
+    }//GEN-LAST:event_buttonVolverActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton buttonDepositar;
+    private javax.swing.JButton buttonVolver;
     private javax.swing.JTextField cuentaSaldoDar;
     private javax.swing.JLabel idCuentadar;
     private javax.swing.JLabel jLabel1;
@@ -219,6 +303,7 @@ public class Deposito extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JOptionPane jOptionPane1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
