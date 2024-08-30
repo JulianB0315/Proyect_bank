@@ -5,6 +5,7 @@ import java.util.Random;
 //Librerira para crear la conexion y insertar resgistros
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 //Librerria para mejorar la Interfaz
 import java.awt.event.WindowAdapter;
@@ -420,6 +421,10 @@ public class clienteRegistro extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "DNI invalido.");
             return;
         }
+        if (isDniRegistered(dni)) {
+            JOptionPane.showMessageDialog(null, "El DNI ya está registrado.");
+            return;
+        }
 
         // Validar que el teléfono tenga 9 dígitos
         String telefono = TXTtelefono.getText();
@@ -528,6 +533,24 @@ public class clienteRegistro extends javax.swing.JFrame {
         Matcher matcher = pattern.matcher(email);
         return matcher.matches();
     }
+
+    // Metodo para Validar si el DNI ya esta Registrado 
+    private boolean isDniRegistered(String dni) {
+    try (Connection conn = DBConnection.getConnection()) {
+        String sql = "SELECT COUNT(*) FROM Cliente WHERE dni = ?";
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ps.setString(1, dni);
+        ResultSet rs = ps.executeQuery();
+        
+        if (rs.next()) {
+            int count = rs.getInt(1);
+            return count > 0; // Retorna verdadero si el DNI ya está registrado
+        }
+    } catch (SQLException e) {
+        JOptionPane.showMessageDialog(null, "Error al verificar el DNI: " + e.getMessage());
+    }
+    return false;
+}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ButtonRegistro1;
