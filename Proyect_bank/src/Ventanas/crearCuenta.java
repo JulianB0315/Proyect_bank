@@ -9,27 +9,29 @@ import javax.swing.JOptionPane;
 //Libreria para establecer conexion, mandar y borrar registros
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Random;
 
 public class crearCuenta extends javax.swing.JFrame {
-        private String idCliente;// Traer idCliente de la clienteRegistro
+    private String idCliente;// Traer idCliente de la clienteRegistro
 
-        public crearCuenta(String idCliente) {
-                this.idCliente = idCliente;// Traer el idCliente
-                initComponents();
-                this.setTitle("Creacion de cuenta");
-                ver.setVisible(false);
-                verConfirmar.setVisible(false);
-                passConfirmar.setEchoChar('*');
-                passContraseña.setEchoChar('*');
-                setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-        }
+    public crearCuenta(String idCliente) {
+        this.idCliente = idCliente;// Traer el idCliente
+        initComponents();
+        this.setTitle("Creacion de cuenta");
+        ver.setVisible(false);
+        verConfirmar.setVisible(false);
+        passConfirmar.setEchoChar('*');
+        passContraseña.setEchoChar('*');
+        setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+    }
 
-        // No Tocar en Visual
-        @SuppressWarnings("unchecked")
-        // <editor-fold defaultstate="collapsed" desc="Generated
-        // <editor-fold defaultstate="collapsed" desc="Generated
+    // No Tocar en Visual
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -316,11 +318,13 @@ public class crearCuenta extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 822, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 822, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
@@ -328,145 +332,151 @@ public class crearCuenta extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-        private void buttonCancelarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_buttonCancelarActionPerformed
-                // Boton cancelar
-                int confirmar = JOptionPane.showConfirmDialog(this,
-                                "¿Está seguro de que quiero salir?, se borrar también el registro.",
-                                "Confirmar eliminación", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
-                                //Funcion para borra el ragistro
-                if (confirmar == JOptionPane.YES_OPTION) {
-                        eliminarRegistro(idCliente);
-                }
-        }// GEN-LAST:event_buttonCancelarActionPerformed
-
-        private void buttonCreditoActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_buttonCreditoActionPerformed
-                // TODO add your handling code here:
-        }// GEN-LAST:event_buttonCreditoActionPerformed
-
-        private void ButtonDebitoActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_ButtonDebitoActionPerformed
-                // TODO add your handling code here:
-        }// GEN-LAST:event_ButtonDebitoActionPerformed
-
-        private void ocultoMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_ocultoMouseClicked
-                // Label con Evento de Mouse
-                oculto.setVisible(false);
-                ver.setVisible(true);
-                passContraseña.setEchoChar((char) 0);
-        }// GEN-LAST:event_ocultoMouseClicked
-
-        private void verMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_verMouseClicked
-                // Label con Evento de Mouse
-                oculto.setVisible(true);
-                ver.setVisible(false);
-                passContraseña.setEchoChar('*');
-        }// GEN-LAST:event_verMouseClicked
-
-        private void ocultoConfirmarMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_ocultoConfirmarMouseClicked
-                // Label con Evento de Mouse
-                ocultoConfirmar.setVisible(false);
-                verConfirmar.setVisible(true);
-                passConfirmar.setEchoChar((char) 0);
-        }// GEN-LAST:event_ocultoConfirmarMouseClicked
-
-        private void verConfirmarMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_verConfirmarMouseClicked
-                // Label con Evento de Mouse
-                ocultoConfirmar.setVisible(true);
-                verConfirmar.setVisible(false);
-                passConfirmar.setEchoChar('*');
-        }// GEN-LAST:event_verConfirmarMouseClicked
-
-        private void buttonFinalizarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_buttonFinalizarActionPerformed
-                // Obtener los datos del formulario
-                String tipoCuenta = buttonCredito.isSelected() ? "credito" : "debito";
-                String contraseña = new String(passContraseña.getPassword());
-                String confirmarContraseña = new String(passConfirmar.getPassword());
-
-                // Validar la contraseña
-                if (validarContraseña(contraseña, confirmarContraseña)) {
-                        try (Connection conn = DBConnection.getConnection()) {
-                                String sqlCuenta = "INSERT INTO cuenta (idCuenta, idCliente, tipoCuenta, contraseña) VALUES (?, ?, ?, ?)";
-                                PreparedStatement psCuenta = conn.prepareStatement(sqlCuenta);
-                                psCuenta.setString(1, generateIdCuenta());
-                                psCuenta.setString(2, idCliente); // Usar el idCliente recibido
-                                psCuenta.setString(3, tipoCuenta);
-                                psCuenta.setString(4, contraseña);
-                                psCuenta.executeUpdate();
-
-                                JOptionPane.showMessageDialog(null, "Cuenta creada exitosamente.");
-                                conn.close();
-                                this.dispose(); // Cierra la ventana después de crear la cuenta
-                        } catch (SQLException e) {
-                                JOptionPane.showMessageDialog(null, "Error al insertar los datos datos");
-                        }
-                }
+    private void buttonCancelarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_buttonCancelarActionPerformed
+        // Boton cancelar
+        int confirmar = JOptionPane.showConfirmDialog(this,
+                "¿Está seguro de que quiero salir?, se borrar también el registro.",
+                "Confirmar eliminación", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+        // Funcion para borra el ragistro
+        if (confirmar == JOptionPane.YES_OPTION) {
+            eliminarRegistro(idCliente);
         }
+    }// GEN-LAST:event_buttonCancelarActionPerformed
 
-        private boolean validarContraseña(String contraseña, String confirmarContraseña) {
-                if (contraseña.isEmpty() || confirmarContraseña.isEmpty()) {
-                        JOptionPane.showMessageDialog(null, "Debe ingresar y confirmar su contraseña.");
-                        return false;
-                }
+    private void buttonCreditoActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_buttonCreditoActionPerformed
+        // TODO add your handling code here:
+    }// GEN-LAST:event_buttonCreditoActionPerformed
 
-                if (contraseña.length() != 8) {
-                        JOptionPane.showMessageDialog(null, "La contraseña debe tener exactamente 8 caracteres.");
-                        return false;
-                }
-                if (!contraseña.equals(confirmarContraseña)) {
-                        JOptionPane.showMessageDialog(null, "Las contraseñas no coinciden.");
-                        return false;
-                }
+    private void ButtonDebitoActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_ButtonDebitoActionPerformed
+        // TODO add your handling code here:
+    }// GEN-LAST:event_ButtonDebitoActionPerformed
 
-                return true;
+    private void ocultoMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_ocultoMouseClicked
+        // Label con Evento de Mouse
+        oculto.setVisible(false);
+        ver.setVisible(true);
+        passContraseña.setEchoChar((char) 0);
+    }// GEN-LAST:event_ocultoMouseClicked
+
+    private void verMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_verMouseClicked
+        // Label con Evento de Mouse
+        oculto.setVisible(true);
+        ver.setVisible(false);
+        passContraseña.setEchoChar('*');
+    }// GEN-LAST:event_verMouseClicked
+
+    private void ocultoConfirmarMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_ocultoConfirmarMouseClicked
+        // Label con Evento de Mouse
+        ocultoConfirmar.setVisible(false);
+        verConfirmar.setVisible(true);
+        passConfirmar.setEchoChar((char) 0);
+    }// GEN-LAST:event_ocultoConfirmarMouseClicked
+
+    private void verConfirmarMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_verConfirmarMouseClicked
+        // Label con Evento de Mouse
+        ocultoConfirmar.setVisible(true);
+        verConfirmar.setVisible(false);
+        passConfirmar.setEchoChar('*');
+    }// GEN-LAST:event_verConfirmarMouseClicked
+
+    private void buttonFinalizarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_buttonFinalizarActionPerformed
+        // Obtener los datos del formulario
+        String tipoCuenta = buttonCredito.isSelected() ? "credito" : "debito";
+        String contraseña = new String(passContraseña.getPassword());
+        String confirmarContraseña = new String(passConfirmar.getPassword());
+        // Verificar tipo de cuenta
+        if (tipoCuenta.equals("credito")) {
+            JOptionPane.showMessageDialog(null, "Para abrir una cuenta de crédito necesita evaluación.");
+            return;
         }
+        //Solo se pueden crear cuenta de debito
+        if (tipoCuenta.equals("debito")) {
+        // Validar la contraseña
+        if (validarContraseña(contraseña, confirmarContraseña)) {
+            try (Connection conn = DBConnection.getConnection()) {
+                String sqlCuenta = "INSERT INTO cuenta (idCuenta, idCliente, tipoCuenta, contraseña) VALUES (?, ?, ?, ?)";
+                PreparedStatement psCuenta = conn.prepareStatement(sqlCuenta);
+                psCuenta.setString(1, generateIdCuenta());
+                psCuenta.setString(2, idCliente); // Usar el idCliente recibido
+                psCuenta.setString(3, tipoCuenta);
+                psCuenta.setString(4, contraseña);
+                psCuenta.executeUpdate();
 
-        // metodo para generar idCuenta
-        private String generateIdCuenta() {
-            String characters = "0123456789";
-            Random rnd = new Random();
-            StringBuilder sb = new StringBuilder();
-            
-            // Generar 8 dígitos aleatorios
-            for (int i = 0; i < 8; i++) {
-                int index = rnd.nextInt(characters.length());
-                sb.append(characters.charAt(index));
+                JOptionPane.showMessageDialog(null, "Cuenta creada exitosamente.");
+                conn.close();
+                this.dispose(); // Cierra la ventana después de crear la cuenta
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(null, "Error al insertar los datos datos");
             }
-            
-            return sb.toString();
+        }
+        }
+    }
+
+    private boolean validarContraseña(String contraseña, String confirmarContraseña) {
+        if (contraseña.isEmpty() || confirmarContraseña.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Debe ingresar y confirmar su contraseña.");
+            return false;
         }
 
-        // Método para eliminar el registro
-        private void eliminarRegistro(String idCliente) {
-                try (Connection conn = DBConnection.getConnection()) {
-                        String sqlEliminar = "DELETE FROM cliente WHERE idCliente = ?";
-                        PreparedStatement psEliminar = conn.prepareStatement(sqlEliminar);
-                        psEliminar.setString(1, idCliente);
-                        int rowsAffected = psEliminar.executeUpdate();
-
-                        if (rowsAffected > 0) {
-                                JOptionPane.showMessageDialog(null, "Registro eliminado exitosamente.");
-                                // Cierra la ventana después de eliminar
-                                this.dispose();
-                        } else {
-                                JOptionPane.showMessageDialog(null, "No se encontro registro del cliente");
-                        }
-                        conn.close();
-                } catch (SQLException e) {
-                        JOptionPane.showMessageDialog(null, "Error al eliminar");
-                }
+        if (contraseña.length() != 8) {
+            JOptionPane.showMessageDialog(null, "La contraseña debe tener exactamente 8 caracteres.");
+            return false;
+        }
+        if (!contraseña.equals(confirmarContraseña)) {
+            JOptionPane.showMessageDialog(null, "Las contraseñas no coinciden.");
+            return false;
         }
 
-        // Configurar el comportamiento al cerrar la ventana
-        private void cerrar() {
-                this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-                addWindowListener(new WindowAdapter() {
-                        @Override
-                        public void windowClosing(WindowEvent e) {
-                                // Llama a eliminarRegistro y luego cierra la ventana
-                                eliminarRegistro(idCliente);
-                                dispose(); // Cierra la ventana
-                        }
-                });
+        return true;
+    }
+    // Metodo para generar idCuenta
+    private String generateIdCuenta() {
+        String characters = "0123456789";
+        Random rnd = new Random();
+        StringBuilder sb = new StringBuilder();
+
+        // Generar 8 dígitos aleatorios
+        for (int i = 0; i < 8; i++) {
+            int index = rnd.nextInt(characters.length());
+            sb.append(characters.charAt(index));
         }
+
+        return sb.toString();
+    }
+
+    // Método para eliminar el registro
+    private void eliminarRegistro(String idCliente) {
+        try (Connection conn = DBConnection.getConnection()) {
+            String sqlEliminar = "DELETE FROM cliente WHERE idCliente = ?";
+            PreparedStatement psEliminar = conn.prepareStatement(sqlEliminar);
+            psEliminar.setString(1, idCliente);
+            int rowsAffected = psEliminar.executeUpdate();
+
+            if (rowsAffected > 0) {
+                JOptionPane.showMessageDialog(null, "Registro eliminado exitosamente.");
+                // Cierra la ventana después de eliminar
+                this.dispose();
+            } else {
+                JOptionPane.showMessageDialog(null, "No se encontro registro del cliente");
+            }
+            conn.close();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error al eliminar");
+        }
+    }
+
+    // Configurar el comportamiento al cerrar la ventana
+    private void cerrar() {
+        this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                // Llama a eliminarRegistro y luego cierra la ventana
+                eliminarRegistro(idCliente);
+                dispose(); // Cierra la ventana
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JRadioButton ButtonDebito;
