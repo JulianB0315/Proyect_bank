@@ -316,9 +316,7 @@ public class crearCuenta extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 822, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 822, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -423,15 +421,17 @@ public class crearCuenta extends javax.swing.JFrame {
 
         // metodo para generar idCuenta
         private String generateIdCuenta() {
-                String prefix = "CT";
-                String characters = "0123456789";
-                Random rnd = new Random();
-                StringBuilder sb = new StringBuilder(prefix);
-                while (sb.length() < 8) {
-                        int index = rnd.nextInt(characters.length());
-                        sb.append(characters.charAt(index));
-                }
-                return sb.toString();
+            String characters = "0123456789";
+            Random rnd = new Random();
+            StringBuilder sb = new StringBuilder();
+            
+            // Generar 8 dígitos aleatorios
+            for (int i = 0; i < 8; i++) {
+                int index = rnd.nextInt(characters.length());
+                sb.append(characters.charAt(index));
+            }
+            
+            return sb.toString();
         }
 
         // Método para eliminar el registro
