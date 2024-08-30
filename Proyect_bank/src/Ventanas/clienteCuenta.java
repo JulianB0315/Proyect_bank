@@ -27,12 +27,10 @@ public class clienteCuenta extends javax.swing.JFrame {
                 String saldo = rs.getString("saldo");
                 // Mostrar el idCuenta y saldo en las JLabel
                 idCuentaDar.setText(this.idCuenta);
-                cuentaSaldoDar.setText(saldo);
+                cuentaSaldoDar.setText("S/. "+saldo);
             }
             rs.close();
             stmt.close();
-            idCuentaDar.setEditable(false);
-            cuentaSaldoDar.setEditable(false);
         } catch (Exception e) {
             e.printStackTrace(); 
         }
@@ -56,9 +54,7 @@ public class clienteCuenta extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        idCuentaDar = new javax.swing.JTextField();
         Deposito = new javax.swing.JButton();
-        cuentaSaldoDar = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -66,6 +62,8 @@ public class clienteCuenta extends javax.swing.JFrame {
         saldoRecibir = new javax.swing.JTextField();
         idCuentaRecibir = new javax.swing.JTextField();
         Transacion = new javax.swing.JButton();
+        cuentaSaldoDar = new javax.swing.JLabel();
+        idCuentaDar = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -121,25 +119,11 @@ public class clienteCuenta extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         jLabel5.setText("N° Cuenta:");
 
-        idCuentaDar.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
-        idCuentaDar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                idCuentaDarActionPerformed(evt);
-            }
-        });
-
         Deposito.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         Deposito.setText("Deposito ami cuenta");
         Deposito.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DepositoActionPerformed(evt);
-            }
-        });
-
-        cuentaSaldoDar.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
-        cuentaSaldoDar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cuentaSaldoDarActionPerformed(evt);
             }
         });
 
@@ -177,6 +161,10 @@ public class clienteCuenta extends javax.swing.JFrame {
             }
         });
 
+        cuentaSaldoDar.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+
+        idCuentaDar.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -198,34 +186,32 @@ public class clienteCuenta extends javax.swing.JFrame {
                                         .addGap(23, 23, 23)
                                         .addComponent(jLabel15)
                                         .addGap(18, 18, 18)
-                                        .addComponent(jLabel14))))
+                                        .addComponent(jLabel14))
+                                    .addComponent(jLabel4)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(53, 53, 53)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel5)
-                                        .addGap(97, 97, 97)
-                                        .addComponent(idCuentaDar, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jLabel4)
-                                                .addComponent(jLabel9)
-                                                .addComponent(jLabel6))
-                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                                    .addGap(213, 213, 213)
-                                                    .addComponent(jLabel8))
-                                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                    .addComponent(cuentaSaldoDar, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                            .addComponent(jLabel10)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(idCuentaRecibir, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(saldoRecibir, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE))
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel9)
+                                            .addComponent(jLabel6)
+                                            .addComponent(jLabel5))
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addGap(224, 224, 224)
+                                                .addComponent(jLabel8))
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addGap(76, 76, 76)
+                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(idCuentaDar, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(cuentaSaldoDar, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel10)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(idCuentaRecibir, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)
+                                            .addComponent(saldoRecibir, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE))))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(Deposito, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -249,30 +235,30 @@ public class clienteCuenta extends javax.swing.JFrame {
                     .addComponent(jLabel15))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel7)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(idCuentaDar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(cuentaSaldoDar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21)
-                .addComponent(jLabel4)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5)
+                    .addComponent(idCuentaDar, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel6)
+                    .addComponent(cuentaSaldoDar, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
+                        .addGap(83, 83, 83)
                         .addComponent(jLabel8))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel9)
-                            .addComponent(idCuentaRecibir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(34, 34, 34)
+                        .addComponent(jLabel4)
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel10)
-                            .addComponent(saldoRecibir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
+                            .addComponent(jLabel9)
+                            .addComponent(idCuentaRecibir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(25, 25, 25)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(saldoRecibir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel10))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
                 .addComponent(Deposito)
                 .addGap(28, 28, 28)
                 .addComponent(jLabel3)
@@ -303,20 +289,12 @@ public class clienteCuenta extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_saldoRecibirActionPerformed
 
-    private void cuentaSaldoDarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cuentaSaldoDarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cuentaSaldoDarActionPerformed
-
     private void DepositoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DepositoActionPerformed
         Deposito pDeposito = new Deposito(idCuenta);
         pDeposito.setVisible(true);
         pDeposito.setLocationRelativeTo(null);
         this.dispose();
     }//GEN-LAST:event_DepositoActionPerformed
-
-    private void idCuentaDarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idCuentaDarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_idCuentaDarActionPerformed
 
     private void idCuentaRecibirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idCuentaRecibirActionPerformed
         // TODO add your handling code here:
@@ -329,8 +307,8 @@ public class clienteCuenta extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Deposito;
     private javax.swing.JButton Transacion;
-    private javax.swing.JTextField cuentaSaldoDar;
-    private javax.swing.JTextField idCuentaDar;
+    private javax.swing.JLabel cuentaSaldoDar;
+    private javax.swing.JLabel idCuentaDar;
     private javax.swing.JTextField idCuentaRecibir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
