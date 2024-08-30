@@ -308,7 +308,10 @@ public class clienteCuenta extends javax.swing.JFrame {
     }//GEN-LAST:event_cuentaSaldoDarActionPerformed
 
     private void DepositoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DepositoActionPerformed
-        xd
+        Deposito pDeposito = new Deposito(idCuenta);
+        pDeposito.setVisible(true);
+        pDeposito.setLocationRelativeTo(null);
+        this.dispose();
     }//GEN-LAST:event_DepositoActionPerformed
 
     private void idCuentaDarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idCuentaDarActionPerformed
