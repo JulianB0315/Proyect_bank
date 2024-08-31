@@ -1,6 +1,8 @@
 package Ventanas;
 
 //import cierre de ventana
+import Ventanas.Registro.clienteRegistro;
+import Ventanas.cliente.inicioSession;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
