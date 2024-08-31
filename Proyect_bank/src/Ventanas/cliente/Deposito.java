@@ -1,11 +1,12 @@
 
-package Ventanas;
+package Ventanas.cliente;
 
+import Ventanas.DBConnection;
+import Ventanas.cliente.clienteCuenta;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
 import javax.swing.JOptionPane;
 
 public class Deposito extends javax.swing.JFrame {
