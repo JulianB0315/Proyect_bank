@@ -11,10 +11,6 @@ public class verRegistro extends javax.swing.JFrame {
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setTitle("Detalles del Registro");
         // Construir label
-        String cabezaRegsitro = "<html>" +
-                "<div style='text-align:center; font-family:Arial, sans-serif; font-size:16px;'>" +
-                "Bienvenido " +
-                "</div></html>";
         String textoRegistro = "<html>" +
                 "<div style='font-family:Arial, sans-serif; font-size:14px;'>" +
                 "<h2 style='text-align:center; margin-bottom:10px;'>Detalles del Registro</h2>" +
@@ -35,7 +31,6 @@ public class verRegistro extends javax.swing.JFrame {
                 "<hr style='border:1px solid #ccc; margin-bottom:10px;'/>" +
                 "</div></html>";
         verRegistro.setText(textoRegistro);
-        titulo.setText(cabezaRegsitro);
     }
 
     /**
@@ -91,7 +86,8 @@ public class verRegistro extends javax.swing.JFrame {
             .addGap(0, 500, Short.MAX_VALUE)
         );
 
-        titulo.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        titulo.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
+        titulo.setText("Bienvenido!!");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -99,11 +95,15 @@ public class verRegistro extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(verRegistro, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
-                    .addComponent(titulo, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE))
-                .addGap(26, 26, 26)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(verRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(26, 26, 26))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(titulo)
+                        .addGap(89, 89, 89)))
                 .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
