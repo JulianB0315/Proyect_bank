@@ -1,20 +1,33 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package Ventanas.cliente;
 
-/**
- *
- * @author Julian
- */
+import javax.swing.JFrame;
+
 public class ticket extends javax.swing.JFrame {
 
-    /**
-     * Creates new form ticket
-     */
-    public ticket() {
+    public ticket(String idTransaccion, String idCuenta, String idEmpleado, String tipoTransaccion, String descripcion, double montoDeposito, String idCuentaRecibir) {
         initComponents();
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        String tickettext="<html>" +
+            "<div style='font-family:Arial, sans-serif; font-size:14px;'>" +
+            "<h2 style='text-align:center; margin-bottom:10px;'>Detalles de la Transacción</h2>" +
+            "<hr style='border:1px solid #000; margin-bottom:10px;'/>" +
+            "<p><strong>ID Transacción:</strong> " + idTransaccion + "</p>" +
+            "<hr style='border:1px solid #ccc; margin-bottom:10px;'/>" +
+            "<p><strong>ID Cuenta:</strong> " + idCuenta + "</p>" +
+            "<hr style='border:1px solid #ccc; margin-bottom:10px;'/>" +
+            "<p><strong>ID Empleado:</strong> " + idEmpleado + "</p>" +
+            "<hr style='border:1px solid #ccc; margin-bottom:10px;'/>" +
+            "<p><strong>Tipo Transacción:</strong> " + tipoTransaccion + "</p>" +
+            "<hr style='border:1px solid #ccc; margin-bottom:10px;'/>" +
+            "<p><strong>Descripción:</strong> " + descripcion + "</p>" +
+            "<hr style='border:1px solid #ccc; margin-bottom:10px;'/>" +
+            "<p><strong>Monto:</strong> " + String.format("%.2f", montoDeposito) + "</p>" +
+            "<hr style='border:1px solid #ccc; margin-bottom:10px;'/>" +
+            "<p><strong>Cuenta Receptora:</strong> " + idCuentaRecibir + "</p>" +
+            "<hr style='border:1px solid #ccc; margin-bottom:10px;'/>" +
+            "</div></html>";
+            verRegistro.setText(tickettext);
     }
 
     /**
@@ -28,7 +41,6 @@ public class ticket extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         verRegistro = new javax.swing.JLabel();
-        volverCuenta = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -36,22 +48,15 @@ public class ticket extends javax.swing.JFrame {
 
         verRegistro.setBackground(new java.awt.Color(255, 255, 255));
         verRegistro.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
-
-        volverCuenta.setFont(new java.awt.Font("Verdana", 1, 20)); // NOI18N
-        volverCuenta.setText("Volver");
+        verRegistro.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addComponent(verRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 397, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(112, 112, 112)
-                        .addComponent(volverCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(14, 14, 14)
+                .addComponent(verRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 397, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(14, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -59,9 +64,7 @@ public class ticket extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addComponent(verRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 457, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(volverCuenta, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
-                .addContainerGap())
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -72,7 +75,7 @@ public class ticket extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -81,6 +84,5 @@ public class ticket extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel verRegistro;
-    private javax.swing.JButton volverCuenta;
     // End of variables declaration//GEN-END:variables
 }
