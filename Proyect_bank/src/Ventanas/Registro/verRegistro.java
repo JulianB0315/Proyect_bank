@@ -12,24 +12,26 @@ public class verRegistro extends javax.swing.JFrame {
         setTitle("Detalles del Registro");
         // Construir label
         String textoRegistro = "<html>" +
-                "<div style='font-family:Arial, sans-serif; font-size:14px;'>" +
-                "<h2 style='text-align:center; margin-bottom:10px;'>Detalles del Registro</h2>" +
-                "<hr style='border:1px solid #000; margin-bottom:10px;'/>" +
-                "<p><strong>Nombres:</strong> " + nombre + "</p>" +
-                "<hr style='border:1px solid #ccc; margin-bottom:10px;'/>" +
-                "<p><strong>Apellidos:</strong> " + apellido + "</p>" +
-                "<hr style='border:1px solid #ccc; margin-bottom:10px;'/>" +
-                "<p><strong>Sexo:</strong> " + sexo + "</p>" +
-                "<hr style='border:1px solid #ccc; margin-bottom:10px;'/>" +
-                "<p><strong>Fecha de Nacimiento:</strong> " + fechaNacimiento + "</p>" +
-                "<hr style='border:1px solid #ccc; margin-bottom:10px;'/>" +
-                "<p><strong>Teléfono:</strong> " + telefono + "</p>" +
-                "<hr style='border:1px solid #ccc; margin-bottom:10px;'/>" +
-                "<p><strong>Correo Electrónico:</strong> " + email + "</p>" +
-                "<hr style='border:1px solid #ccc; margin-bottom:10px;'/>" +
-                "<p><strong>Dirección:</strong> " + direccion + "</p>" +
-                "<hr style='border:1px solid #ccc; margin-bottom:10px;'/>" +
-                "</div></html>";
+    "<div style='font-family:Arial, sans-serif; font-size:14px; color:#333;'>" +
+    "<h2 style='text-align:center; color:#0056b3; margin-bottom:15px;'>Detalles del Registro</h2>" +
+    "<hr style='border:1px solid #0056b3; margin-bottom:15px;'/>" +
+    "<table style='width:100%; border-collapse:collapse;'>" +
+    "<tr><td style='padding:10px; border-bottom:1px solid #ddd;'><strong>Nombres:</strong></td>" +
+    "<td style='padding:10px; border-bottom:1px solid #ddd;'>" + nombre + "</td></tr>" +
+    "<tr><td style='padding:10px; border-bottom:1px solid #ddd;'><strong>Apellidos:</strong></td>" +
+    "<td style='padding:10px; border-bottom:1px solid #ddd;'>" + apellido + "</td></tr>" +
+    "<tr><td style='padding:10px; border-bottom:1px solid #ddd;'><strong>Sexo:</strong></td>" +
+    "<td style='padding:10px; border-bottom:1px solid #ddd;'>" + sexo + "</td></tr>" +
+    "<tr><td style='padding:10px; border-bottom:1px solid #ddd;'><strong>Fecha de Nacimiento:</strong></td>" +
+    "<td style='padding:10px; border-bottom:1px solid #ddd;'>" + fechaNacimiento + "</td></tr>" +
+    "<tr><td style='padding:10px; border-bottom:1px solid #ddd;'><strong>Teléfono:</strong></td>" +
+    "<td style='padding:10px; border-bottom:1px solid #ddd;'>" + telefono + "</td></tr>" +
+    "<tr><td style='padding:10px; border-bottom:1px solid #ddd;'><strong>Correo Electrónico:</strong></td>" +
+    "<td style='padding:10px; border-bottom:1px solid #ddd;'>" + email + "</td></tr>" +
+    "<tr><td style='padding:10px;'><strong>Dirección:</strong></td>" +
+    "<td style='padding:10px;'>" + direccion + "</td></tr>" +
+    "</table>" +
+    "</div></html>";
         verRegistro.setText(textoRegistro);
     }
 
@@ -66,7 +68,7 @@ public class verRegistro extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 92, Short.MAX_VALUE)
+            .addGap(0, 50, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -79,11 +81,11 @@ public class verRegistro extends javax.swing.JFrame {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 86, Short.MAX_VALUE)
+            .addGap(0, 50, Short.MAX_VALUE)
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 500, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         titulo.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
@@ -97,25 +99,25 @@ public class verRegistro extends javax.swing.JFrame {
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(verRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(26, 26, 26))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(verRegistro, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(127, 127, 127)
                         .addComponent(titulo)
-                        .addGap(89, 89, 89)))
-                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(verRegistro, javax.swing.GroupLayout.DEFAULT_SIZE, 426, Short.MAX_VALUE)
-                .addGap(12, 12, 12))
+                .addComponent(verRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -123,12 +125,12 @@ public class verRegistro extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
         );
 
         pack();

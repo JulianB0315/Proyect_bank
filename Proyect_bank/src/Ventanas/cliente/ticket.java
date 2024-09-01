@@ -8,25 +8,28 @@ public class ticket extends javax.swing.JFrame {
     public ticket(String idTransaccion, String idCuenta, String idEmpleado, String tipoTransaccion, String descripcion, double montoDeposito, String idCuentaRecibir) {
         initComponents();
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        String tickettext="<html>" +
-            "<div style='font-family:Arial, sans-serif; font-size:14px;'>" +
-            "<h2 style='text-align:center; margin-bottom:10px;'>Detalles de la Transacción</h2>" +
-            "<hr style='border:1px solid #000; margin-bottom:10px;'/>" +
-            "<p><strong>ID Transacción:</strong> " + idTransaccion + "</p>" +
-            "<hr style='border:1px solid #ccc; margin-bottom:10px;'/>" +
-            "<p><strong>ID Cuenta:</strong> " + idCuenta + "</p>" +
-            "<hr style='border:1px solid #ccc; margin-bottom:10px;'/>" +
-            "<p><strong>ID Empleado:</strong> " + idEmpleado + "</p>" +
-            "<hr style='border:1px solid #ccc; margin-bottom:10px;'/>" +
-            "<p><strong>Tipo Transacción:</strong> " + tipoTransaccion + "</p>" +
-            "<hr style='border:1px solid #ccc; margin-bottom:10px;'/>" +
-            "<p><strong>Descripción:</strong> " + descripcion + "</p>" +
-            "<hr style='border:1px solid #ccc; margin-bottom:10px;'/>" +
-            "<p><strong>Monto:</strong> " + String.format("%.2f", montoDeposito) + "</p>" +
-            "<hr style='border:1px solid #ccc; margin-bottom:10px;'/>" +
-            "<p><strong>Cuenta Receptora:</strong> " + idCuentaRecibir + "</p>" +
-            "<hr style='border:1px solid #ccc; margin-bottom:10px;'/>" +
-            "</div></html>";
+        String tickettext=    "<html>" +
+    "<div style='font-family:Arial, sans-serif; font-size:14px;'>" +
+    "<h2 style='text-align:center; color:#333;'>Detalles de la Transacción</h2>" +
+    "<hr style='border:1px solid #333; margin-bottom:15px;'/>" +
+    "<table style='width:100%; border-collapse:collapse;'>"+
+    "<tr><td style='padding:5px;'><strong>ID Transacción:</strong></td>" +
+    "<td style='padding:5px;'>" + idTransaccion + "</td></tr>" +
+    "<tr><td style='padding:5px;'><strong>ID Cuenta:</strong></td>" +
+    "<td style='padding:5px;'>" + idCuenta + "</td></tr>" +
+    "<tr><td style='padding:5px;'><strong>ID Empleado:</strong></td>" +
+    "<td style='padding:5px;'>" + idEmpleado + "</td></tr>" +
+    "<tr><td style='padding:5px;'><strong>Tipo Transacción:</strong></td>" +
+    "<td style='padding:5px;'>" + tipoTransaccion + "</td></tr>" +
+    "<tr><td style='padding:5px;'><strong>Descripción:</strong></td>" +
+    "<td style='padding:5px;'>" + descripcion + "</td></tr>" +
+    "<tr><td style='padding:5px;'><strong>Monto:</strong></td>" +
+    "<td style='padding:5px;'>" + String.format("%.2f", montoDeposito) + "</td></tr>" +
+    "<tr><td style='padding:5px;'><strong>Cuenta Receptora:</strong></td>" +
+    "<td style='padding:5px;'>" + idCuentaRecibir + "</td></tr>" +
+    "</table>" +
+    "<hr style='border:1px solid #ccc; margin-top:15px;'/>" +
+    "</div></html>";
             verRegistro.setText(tickettext);
     }
 
@@ -45,26 +48,28 @@ public class ticket extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setForeground(new java.awt.Color(255, 255, 255));
 
         verRegistro.setBackground(new java.awt.Color(255, 255, 255));
         verRegistro.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         verRegistro.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        verRegistro.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(verRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 397, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(verRegistro, javax.swing.GroupLayout.DEFAULT_SIZE, 393, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(verRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 457, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(verRegistro, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
