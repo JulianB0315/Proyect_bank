@@ -12,6 +12,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+//Libreria para el idCuenta
 import java.util.Random;
 
 public class crearCuenta extends javax.swing.JFrame {
