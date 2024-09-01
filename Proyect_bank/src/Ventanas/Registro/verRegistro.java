@@ -5,33 +5,37 @@ import javax.swing.JFrame;
 
 public class verRegistro extends javax.swing.JFrame {
 
-    public verRegistro(String nombre, String apellido, String sexo, String fechaNacimiento, String telefono,
+    public verRegistro(String dni, String nombre, String apellido, String sexo, String fechaNacimiento, String telefono,
             String email, String direccion) {
         initComponents();
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setTitle("Detalles del Registro");
         // Construir label
         String textoRegistro = "<html>" +
-    "<div style='font-family:Arial, sans-serif; font-size:14px; color:#333;'>" +
-    "<h2 style='text-align:center; color:#0056b3; margin-bottom:15px;'>Detalles del Registro</h2>" +
-    "<hr style='border:1px solid #0056b3; margin-bottom:15px;'/>" +
-    "<table style='width:100%; border-collapse:collapse;'>" +
-    "<tr><td style='padding:10px; border-bottom:1px solid #ddd;'><strong>Nombres:</strong></td>" +
-    "<td style='padding:10px; border-bottom:1px solid #ddd;'>" + nombre + "</td></tr>" +
-    "<tr><td style='padding:10px; border-bottom:1px solid #ddd;'><strong>Apellidos:</strong></td>" +
-    "<td style='padding:10px; border-bottom:1px solid #ddd;'>" + apellido + "</td></tr>" +
-    "<tr><td style='padding:10px; border-bottom:1px solid #ddd;'><strong>Sexo:</strong></td>" +
-    "<td style='padding:10px; border-bottom:1px solid #ddd;'>" + sexo + "</td></tr>" +
-    "<tr><td style='padding:10px; border-bottom:1px solid #ddd;'><strong>Fecha de Nacimiento:</strong></td>" +
-    "<td style='padding:10px; border-bottom:1px solid #ddd;'>" + fechaNacimiento + "</td></tr>" +
-    "<tr><td style='padding:10px; border-bottom:1px solid #ddd;'><strong>Teléfono:</strong></td>" +
-    "<td style='padding:10px; border-bottom:1px solid #ddd;'>" + telefono + "</td></tr>" +
-    "<tr><td style='padding:10px; border-bottom:1px solid #ddd;'><strong>Correo Electrónico:</strong></td>" +
-    "<td style='padding:10px; border-bottom:1px solid #ddd;'>" + email + "</td></tr>" +
-    "<tr><td style='padding:10px;'><strong>Dirección:</strong></td>" +
-    "<td style='padding:10px;'>" + direccion + "</td></tr>" +
-    "</table>" +
-    "</div></html>";
+                "<div style='font-family:Arial, sans-serif; font-size:16px; color:#333;'>" +
+                "<h2 style='text-align:center; color:#003366; margin-bottom:20px;'>Detalles del Registro</h2>" +
+                "<hr style='border:2px solid #003366; margin-bottom:20px;'/>" +
+                "<table style='width:100%; border-collapse:collapse;'>" +
+                "<tr><td style='padding:15px; border-bottom:1px solid #e0e0e0;'><strong>DNI:</strong></td>" +
+                "<td style='padding:15px; border-bottom:1px solid #e0e0e0;'>" + dni + "</td></tr>" +
+                "<tr><td style='padding:15px; border-bottom:1px solid #e0e0e0;'><strong>Nombres:</strong></td>" +
+                "<td style='padding:15px; border-bottom:1px solid #e0e0e0;'>" + nombre + "</td></tr>" +
+                "<tr><td style='padding:15px; border-bottom:1px solid #e0e0e0;'><strong>Apellidos:</strong></td>" +
+                "<td style='padding:15px; border-bottom:1px solid #e0e0e0;'>" + apellido + "</td></tr>" +
+                "<tr><td style='padding:15px; border-bottom:1px solid #e0e0e0;'><strong>Sexo:</strong></td>" +
+                "<td style='padding:15px; border-bottom:1px solid #e0e0e0;'>" + sexo + "</td></tr>" +
+                "<tr><td style='padding:15px; border-bottom:1px solid #e0e0e0;'><strong>Fecha de Nacimiento:</strong></td>"
+                +
+                "<td style='padding:15px; border-bottom:1px solid #e0e0e0;'>" + fechaNacimiento + "</td></tr>" +
+                "<tr><td style='padding:15px; border-bottom:1px solid #e0e0e0;'><strong>Teléfono:</strong></td>" +
+                "<td style='padding:15px; border-bottom:1px solid #e0e0e0;'>" + telefono + "</td></tr>" +
+                "<tr><td style='padding:15px; border-bottom:1px solid #e0e0e0;'><strong>Correo Electrónico:</strong></td>"
+                +
+                "<td style='padding:15px; border-bottom:1px solid #e0e0e0;'>" + email + "</td></tr>" +
+                "<tr><td style='padding:15px;'><strong>Dirección:</strong></td>" +
+                "<td style='padding:15px;'>" + direccion + "</td></tr>" +
+                "</table>" +
+                "</div></html>";
         verRegistro.setText(textoRegistro);
     }
 
@@ -45,7 +49,8 @@ public class verRegistro extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
@@ -67,26 +72,22 @@ public class verRegistro extends javax.swing.JFrame {
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 50, Short.MAX_VALUE)
-        );
+                jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 50, Short.MAX_VALUE));
         jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
+                jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 0, Short.MAX_VALUE));
 
         jPanel4.setBackground(new java.awt.Color(255, 51, 51));
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 50, Short.MAX_VALUE)
-        );
+                jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 50, Short.MAX_VALUE));
         jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
+                jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 0, Short.MAX_VALUE));
 
         titulo.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
         titulo.setText("Bienvenido!!");
@@ -94,44 +95,50 @@ public class verRegistro extends javax.swing.JFrame {
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(verRegistro, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(127, 127, 127)
-                        .addComponent(titulo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(verRegistro, javax.swing.GroupLayout.DEFAULT_SIZE, 400,
+                                                        Short.MAX_VALUE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addGap(127, 127, 127)
+                                                .addComponent(titulo)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED,
+                                                        javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)));
         jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(verRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE,
+                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 50,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(verRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 400,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING,
+                                javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
+                                Short.MAX_VALUE));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 600,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)));
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
-        );
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
