@@ -2,6 +2,13 @@
 package Ventanas.cliente;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import java.awt.Graphics; 
+import java.awt.Graphics2D; 
+import java.awt.print.PrinterException; 
+import java.awt.print.PrinterJob; 
+import java.awt.print.Printable; 
+import java.awt.print.PageFormat; 
 
 public class ticket extends javax.swing.JFrame {
 
@@ -9,29 +16,29 @@ public class ticket extends javax.swing.JFrame {
             double montoDeposito, String idCuentaRecibir) {
         initComponents();
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        String tickettext = "<html>" +
-                "<div style='font-family:Arial, sans-serif; font-size:14px;'>" +
-                "<h2 style='text-align:center; color:#333;'>Detalles de la Transacción</h2>" +
-                "<hr style='border:1px solid #333; margin-bottom:15px;'/>" +
-                "<table style='width:100%; border-collapse:collapse;'>" +
-                "<tr><td style='padding:5px;'><strong>ID Transacción:</strong></td>" +
-                "<td style='padding:5px;'>" + idTransaccion + "</td></tr>" +
-                "<tr><td style='padding:5px;'><strong>ID Cuenta:</strong></td>" +
-                "<td style='padding:5px;'>" + idCuenta + "</td></tr>" +
-                "<tr><td style='padding:5px;'><strong>ID Empleado:</strong></td>" +
-                "<td style='padding:5px;'>" + idEmpleado + "</td></tr>" +
-                "<tr><td style='padding:5px;'><strong>Tipo Transacción:</strong></td>" +
-                "<td style='padding:5px;'>" + tipoTransaccion + "</td></tr>" +
-                "<tr><td style='padding:5px;'><strong>Descripción:</strong></td>" +
-                "<td style='padding:5px;'>" + descripcion + "</td></tr>" +
-                "<tr><td style='padding:5px;'><strong>Monto:</strong></td>" +
-                "<td style='padding:5px;'>" + String.format("%.2f", montoDeposito) + "</td></tr>" +
-                "<tr><td style='padding:5px;'><strong>Cuenta Receptora:</strong></td>" +
-                "<td style='padding:5px;'>" + idCuentaRecibir + "</td></tr>" +
-                "</table>" +
-                "<hr style='border:1px solid #ccc; margin-top:15px;'/>" +
-                "</div></html>";
-        verRegistro.setText(tickettext);
+        String ticketText =  "<html>" +
+        "<div style='font-family:Arial, sans-serif; font-size:14px;'>" +
+        "<h2 style='text-align:center; color:#333;'>Detalles de la Transacción</h2>" +
+        "<hr style='border:1px solid #333; margin-bottom:15px;'/>" +
+        "<table style='width:100%; border-collapse:collapse;'>" +
+        "<tr><td style='padding:5px;'><strong>ID Transacción:</strong></td>" +
+        "<td style='padding:5px;'>" + idTransaccion + "</td></tr>" +
+        "<tr><td style='padding:5px;'><strong>ID Cuenta:</strong></td>" +
+        "<td style='padding:5px;'>" + idCuenta + "</td></tr>" +
+        "<tr><td style='padding:5px;'><strong>ID Empleado:</strong></td>" +
+        "<td style='padding:5px;'>" + idEmpleado + "</td></tr>" +
+        "<tr><td style='padding:5px;'><strong>Tipo Transacción:</strong></td>" +
+        "<td style='padding:5px;'>" + tipoTransaccion + "</td></tr>" +
+        "<tr><td style='padding:5px;'><strong>Descripción:</strong></td>" +
+        "<td style='padding:5px;'>" + descripcion + "</td></tr>" +
+        "<tr><td style='padding:5px;'><strong>Monto:</strong></td>" +
+        "<td style='padding:5px;'>" + String.format("%.2f", montoDeposito) + "</td></tr>" +
+        "<tr><td style='padding:5px;'><strong>Cuenta Receptora:</strong></td>" +
+        "<td style='padding:5px;'>" + idCuentaRecibir + "</td></tr>" +
+        "</table>" +
+        "<hr style='border:1px solid #ccc; margin-top:15px;'/>" +
+        "</div></html>";;
+        txtBoleta.setText(ticketText);
     }
 
     /**
@@ -45,18 +52,13 @@ public class ticket extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        verRegistro = new javax.swing.JLabel();
         btnImprimir = new javax.swing.JButton();
+        txtBoleta = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
-
-        verRegistro.setBackground(new java.awt.Color(255, 255, 255));
-        verRegistro.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
-        verRegistro.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        verRegistro.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         btnImprimir.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         btnImprimir.setText("Imprimir");
@@ -66,24 +68,27 @@ public class ticket extends javax.swing.JFrame {
             }
         });
 
+        txtBoleta.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        txtBoleta.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(verRegistro, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE)
-                .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(123, Short.MAX_VALUE)
                 .addComponent(btnImprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(102, 102, 102))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(txtBoleta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(verRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtBoleta, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnImprimir, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
                 .addContainerGap())
@@ -104,12 +109,36 @@ public class ticket extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirActionPerformed
-        System.out.println("Hola");
+        try {
+            PrinterJob printerJob = PrinterJob.getPrinterJob();
+            printerJob.setPrintable(new Printable() {
+                @Override
+                public int print(Graphics graphics, PageFormat pageFormat, int pageIndex) throws PrinterException {
+                    if (pageIndex > 0) {
+                        return NO_SUCH_PAGE;
+                    }
+                    Graphics2D g2d = (Graphics2D) graphics;
+                    g2d.translate(pageFormat.getImageableX(), pageFormat.getImageableY());
+                    // Ajustar escala si es necesario
+                    g2d.scale(0.8, 0.8);
+                    txtBoleta.printAll(graphics);
+                    return PAGE_EXISTS;
+                }
+            });
+
+            boolean printAccepted = printerJob.printDialog();
+            if (printAccepted) {
+                printerJob.print();
+            }
+        } catch (PrinterException e) {
+            JOptionPane.showMessageDialog(this, "Error al imprimir: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            e.printStackTrace();
+        }
     }//GEN-LAST:event_btnImprimirActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnImprimir;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel verRegistro;
+    private javax.swing.JLabel txtBoleta;
     // End of variables declaration//GEN-END:variables
 }
