@@ -1,11 +1,18 @@
 package Ventanas.cliente;
 
+// Maneja la conexión con la base de datos
 import Ventanas.DBConnection;
+// Establece una conexión con la base de datos
 import java.sql.Connection;
+// Permite ejecutar consultas SQL parametrizadas
 import java.sql.PreparedStatement;
+// Proporciona acceso a los resultados de una consulta SQL
 import java.sql.ResultSet;
+// Maneja errores relacionados con la base de datos
 import java.sql.SQLException;
+// Genera números aleatorios
 import java.util.Random;
+// Muestra cuadros de diálogo en la interfaz gráfica
 import javax.swing.JOptionPane;
 
 public class clienteCuenta extends javax.swing.JFrame {
