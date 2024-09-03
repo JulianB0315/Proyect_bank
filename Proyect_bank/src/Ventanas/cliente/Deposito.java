@@ -20,6 +20,7 @@ public class Deposito extends javax.swing.JFrame {
     public Deposito(String idCuenta) {
         this.idCuenta = idCuenta;
         initComponents();
+        this.setTitle("Deposito amni cuenta");
         cargarDatos();
     }
 
