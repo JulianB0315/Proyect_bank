@@ -732,10 +732,11 @@ public class clienteRegistro extends javax.swing.JFrame {
     // Funcion de salidar
     public void cerrar() {
         try {
+        //Altera la forma de salir en la interfaz para agregarle un metodo
             this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
             addWindowListener(new WindowAdapter() {
                 public void windowClosing(WindowEvent e) {
-                    Confirmar();
+                    Confirmar();//Este metodo manda una venta de confirmacion
                 }
             });
             this.setVisible(true);
@@ -746,53 +747,69 @@ public class clienteRegistro extends javax.swing.JFrame {
 
     // Mensaje al confirmar
     public void Confirmar() {
-        int salir = JOptionPane.showConfirmDialog(this,
-                "¿Está seguro de salir se perderán los datos ingresados?",
-                "Salir", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+        //Se muestra un panel 
+        int salir = JOptionPane.showConfirmDialog(this,"¿Está seguro de salir se perderán los datos ingresados?","Salir", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+        //Si la respuesta es positiva se cierra la interfaz
         if (salir == JOptionPane.YES_OPTION) {
-            JOptionPane.showMessageDialog(null, "Gracias por visitarnos", "Vuelva pronto!!!",
-                    JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Gracias por visitarnos", "Vuelva pronto!!!",JOptionPane.INFORMATION_MESSAGE);
             System.exit(0);
         }
     }
 
     // Método para generar idCliente
     private String generateIdCliente() {
-        String prefix = "CL";
-        String characters = "0123456789";
-        Random rnd = new Random();
-        StringBuilder sb = new StringBuilder(prefix);
+        String prefix = "CL";// Prefijo para el ID del cliente "CL"
+        String characters = "0123456789";// Conjunto de caracteres numéricos permitidos
+        Random rnd = new Random();// Generador de números aleatorios
+        StringBuilder sb = new StringBuilder(prefix); // Constructor de cadenas que comienza con el prefijo
+        // Bucle que genera los 6 caracteres numéricos aleatorios
         while (sb.length() < 8) {
-            int index = rnd.nextInt(characters.length());
-            sb.append(characters.charAt(index));
+            int index = rnd.nextInt(characters.length()); // Selecciona un índice aleatorio en la cadena de caracteres
+            sb.append(characters.charAt(index));// Agrega el carácter seleccionado a la cadena final
         }
-        return sb.toString();
+        return sb.toString();//Retorna el String 
     }
 
     // Método para validar el formato del correo electrónico
     private boolean validarEmail(String email) {
+        //^: Indica el inicio de la cadena.
+        //[] es un conjunto de caracteres.
+        //a-zA-Z0-9 permite letras mayúsculas y minúsculas, y dígitos.
+        //_+&*- permite algunos caracteres especiales comunes en direcciones de correo electrónico.
+        //(?:...) es un grupo de no captura. Esto significa que el grupo se evalúa, pero no se captura en los resultados.
+        //\\. coincide con un punto literal (.).
+        //[a-zA-Z0-9_+&*-]+ coincide con una secuencia de caracteres alfanuméricos o especiales como antes.
+        // * indica que el grupo anterior (un punto seguido de caracteres) puede repetirse cero o más veces
+        // @: Coincide con el símbolo arroba (@), que es obligatorio en todas las direcciones de correo electrónico.
+        //$: Indica el final de la cadena.
         String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
+        // Compila la expresión regular en un patrón
         Pattern pattern = Pattern.compile(emailRegex);
+        // Aplica el patrón a la cadena de correo electrónico proporcionada
         Matcher matcher = pattern.matcher(email);
+        // Devuelve true si el correo electrónico coincide con el patrón, false en caso contrario
         return matcher.matches();
     }
 
     // Metodo para Validar si el DNI ya esta Registrado
+    //Traemos el valor de DNI
     private boolean isDniRegistered(String dni) {
+        //Se conecta a la base de datos 
         try (Connection conn = DBConnection.getConnection()) {
+        //Crea el select COUNT para contrar todos los registro que considan con la consulta
             String sql = "SELECT COUNT(*) FROM Cliente WHERE dni = ?";
-            PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setString(1, dni);
-            ResultSet rs = ps.executeQuery();
-
+            PreparedStatement ps = conn.prepareStatement(sql);//Se manda a consulta
+            ps.setString(1, dni);//El ? viene a ser el valor del DNI escrito
+            ResultSet rs = ps.executeQuery();// Guarda el valor de resultados
             if (rs.next()) {
                 int count = rs.getInt(1);
                 return count > 0; // Retorna verdadero si el DNI ya está registrado
             }
         } catch (SQLException e) {
+        // Si algo sale mal al consultar se manda 
             JOptionPane.showMessageDialog(null, "Error al verificar el DNI: " + e.getMessage());
         }
-        return false;
+        return false;//Si el DNI no esta registrado retorna falso
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
