@@ -1,16 +1,16 @@
 
 package Ventanas.Registro;
 
+// Interfaz gráfica, clase base para crear ventanas
 import javax.swing.JFrame;
 
 public class verRegistro extends javax.swing.JFrame {
 
-    public verRegistro(String dni, String nombre, String apellido, String sexo, String fechaNacimiento, String telefono,
-            String email, String direccion) {
+    public verRegistro(String dni, String nombre, String apellido, String sexo, String fechaNacimiento, String telefono,String email, String direccion) {
         initComponents();
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setTitle("Detalles del Registro");
-        // Construir label
+        //Diseño de label para el regsitro
         String textoRegistro = "<html>" +
                 "<div style='font-family:Arial, sans-serif; font-size:16px; color:#333;'>" +
                 "<h2 style='text-align:center; color:#003366; margin-bottom:20px;'>Detalles del Registro</h2>" +
