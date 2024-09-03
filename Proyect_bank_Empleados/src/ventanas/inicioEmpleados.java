@@ -10,8 +10,10 @@ public class inicioEmpleados extends javax.swing.JFrame {
 
     public inicioEmpleados() {
         initComponents();
-
-    }
+        passContraseña.setEchoChar('*');
+        lblver.setVisible(false);
+        this.setTitle("Inicio para empleados");
+     }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -191,11 +193,16 @@ public class inicioEmpleados extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void lblverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblverMouseClicked
-        System.out.println("");
+        lblocultar.setVisible(true);
+        lblver.setVisible(false);
+        passContraseña.setEchoChar('*');     
     }//GEN-LAST:event_lblverMouseClicked
 
     private void lblocultarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblocultarMouseClicked
-        System.out.println("");
+        lblocultar.setVisible(false);
+        lblver.setVisible(true);
+        passContraseña.setEchoChar((char)0);
+
     }//GEN-LAST:event_lblocultarMouseClicked
 
     private void buttonInicioActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_buttonInicioActionPerformed
@@ -205,13 +212,14 @@ public class inicioEmpleados extends javax.swing.JFrame {
         String contraseñaIngresada = new String(contraseñaIngresadaArray);
 
         try (Connection conn = DBConnection.getConnection()) {
+            String idEmpleado = txtuser.getText();
             // Obtener IDEMPLEADO
             String sql = "SELECT IDEMPLEADO, contraseña FROM EMPLEADO WHERE idEmpleado = ?";
             try (PreparedStatement ps = conn.prepareStatement(sql)) {
                 ps.setString(1, user);
                 try (ResultSet rs = ps.executeQuery()) {
                     if (rs.next()) {
-                        String idEmpleado = rs.getString("IDEMPLEADO");
+                        idEmpleado = rs.getString("IDEMPLEADO");
                         String contraseñaAlmacenada = rs.getString("contraseña");
                         // Verificar la contraseña
                         if (contraseñaIngresada.equals(contraseñaAlmacenada)) {
