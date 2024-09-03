@@ -49,19 +49,6 @@ public class clienteCuenta extends javax.swing.JFrame {
         }
     }
 
-    private double obtenerSaldoRecibir() {
-        double saldo = 0.0;
-        try {
-            // Obtener el texto del JTextField y convertirlo a double
-            saldo = Double.parseDouble(txtCuenta.getText());
-        } catch (NumberFormatException e) {
-            // Manejo de errores si el texto no es un número válido
-            JOptionPane.showMessageDialog(null, "El valor ingresado no es un número válido.", "Error",
-                    JOptionPane.ERROR_MESSAGE);
-        }
-        return saldo;
-    }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -471,7 +458,6 @@ public class clienteCuenta extends javax.swing.JFrame {
         cargarDatos();
     }// GEN-LAST:event_actulizarActionPerformed
      // Método para generar idTransaccion
-
     private String generateidTransaccion() {
         String prefix = "0000";
         String characters = "0123456789";
@@ -483,7 +469,6 @@ public class clienteCuenta extends javax.swing.JFrame {
         }
         return sb.toString();
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Deposito;
     private javax.swing.JButton Transacion;
