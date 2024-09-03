@@ -1,11 +1,16 @@
 package Ventanas;
 
-//import cierre de ventana
-import Ventanas.Registro.clienteRegistro;
-import Ventanas.cliente.inicioSession;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-import javax.swing.JFrame;
+// Se utiliza para manejar la lógica y la interfaz de registro de nuevos clientes.
+import Ventanas.Registro.clienteRegistro; 
+// Esta clase se encarga de la funcionalidad de inicio de sesión para los clientes.
+import Ventanas.cliente.inicioSession; 
+// Se utiliza para manejar eventos de ventana, permitiendo implementar solo los métodos necesarios sin tener que definir toda la interfaz `WindowListener`.
+import java.awt.event.WindowAdapter; 
+// Representa eventos específicos relacionados con la ventana, como abrir, cerrar o minimizar.
+import java.awt.event.WindowEvent; 
+// `JFrame` es la clase base para crear una ventana en una aplicación Java Swing.
+import javax.swing.JFrame; 
+// de información, advertencia o confirmación.
 import javax.swing.JOptionPane;
 
 public class inicioGuia extends javax.swing.JFrame {
@@ -192,6 +197,7 @@ public class inicioGuia extends javax.swing.JFrame {
     private void ButtonRegistroActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_ButtonRegistroActionPerforme
         // Boton de registro
         clienteRegistro pantallaInicio = new clienteRegistro();
+        //Hace visble la interfaz de regsitro
         pantallaInicio.setVisible(true);
         pantallaInicio.setLocationRelativeTo(null);
         this.dispose();
@@ -200,6 +206,7 @@ public class inicioGuia extends javax.swing.JFrame {
     private void ButtonInicioActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_ButtonInicioActionPerformed
         // Boton de inicio de sesion
         inicioSession pantallaSession = new inicioSession();
+        //Hace Visible la interfaz de inicio de session
         pantallaSession.setVisible(true);
         pantallaSession.setLocationRelativeTo(null);
         this.dispose();
