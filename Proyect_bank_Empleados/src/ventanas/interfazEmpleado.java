@@ -2,8 +2,7 @@
 package ventanas;
 
 import ventanas.AlteraCuentas.borrarCuenta;
-import ventanas.AlteraCuentas.estadoCuenta;
-import ventanas.Busqueda.busquedaCuenta;
+import ventanas.Busqueda.buscarCliente;
 import ventanas.Busqueda.historialTransaccion;
 import ventanas.Crear.CrearCuenta;
 import ventanas.Crear.tranferenciaEmpleado;
@@ -28,14 +27,13 @@ private String idEmpleado;
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        btnDesactivarCuenta = new javax.swing.JButton();
         btnHistorialTransacion = new javax.swing.JButton();
         btnBorrarCuenta = new javax.swing.JButton();
         btnCrearCuenta = new javax.swing.JButton();
-        btnBuscar = new javax.swing.JButton();
         btnTransaccion = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
+        btnBuscarCliente = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -44,17 +42,6 @@ private String idEmpleado;
 
         jPanel2.setBackground(new java.awt.Color(230, 230, 230));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 53, 102), 2));
-
-        btnDesactivarCuenta.setBackground(new java.awt.Color(230, 230, 230));
-        btnDesactivarCuenta.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
-        btnDesactivarCuenta.setForeground(new java.awt.Color(0, 53, 102));
-        btnDesactivarCuenta.setText("Desactivar o Activar Cuenta");
-        btnDesactivarCuenta.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 3, 1, 3, new java.awt.Color(0, 53, 102)));
-        btnDesactivarCuenta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDesactivarCuentaActionPerformed(evt);
-            }
-        });
 
         btnHistorialTransacion.setBackground(new java.awt.Color(230, 230, 230));
         btnHistorialTransacion.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
@@ -70,7 +57,7 @@ private String idEmpleado;
         btnBorrarCuenta.setBackground(new java.awt.Color(230, 230, 230));
         btnBorrarCuenta.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
         btnBorrarCuenta.setForeground(new java.awt.Color(0, 53, 102));
-        btnBorrarCuenta.setText("Borra Cuenta");
+        btnBorrarCuenta.setText("Alterar Cuentas");
         btnBorrarCuenta.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 3, 1, 3, new java.awt.Color(0, 53, 102)));
         btnBorrarCuenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -81,7 +68,7 @@ private String idEmpleado;
         btnCrearCuenta.setBackground(new java.awt.Color(230, 230, 230));
         btnCrearCuenta.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
         btnCrearCuenta.setForeground(new java.awt.Color(0, 53, 102));
-        btnCrearCuenta.setText("Crear una Cuenta Nueva");
+        btnCrearCuenta.setText("Crear Cuentas o Clientes");
         btnCrearCuenta.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 3, 1, 3, new java.awt.Color(0, 53, 102)));
         btnCrearCuenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -89,21 +76,10 @@ private String idEmpleado;
             }
         });
 
-        btnBuscar.setBackground(new java.awt.Color(230, 230, 230));
-        btnBuscar.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
-        btnBuscar.setForeground(new java.awt.Color(0, 53, 102));
-        btnBuscar.setText("Buscar Cliente");
-        btnBuscar.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 3, 1, 3, new java.awt.Color(0, 53, 102)));
-        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuscarActionPerformed(evt);
-            }
-        });
-
         btnTransaccion.setBackground(new java.awt.Color(230, 230, 230));
         btnTransaccion.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
         btnTransaccion.setForeground(new java.awt.Color(0, 53, 102));
-        btnTransaccion.setText("Transaccion");
+        btnTransaccion.setText("Transaccion o Retiro");
         btnTransaccion.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 3, 1, 3, new java.awt.Color(0, 53, 102)));
         btnTransaccion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -141,6 +117,17 @@ private String idEmpleado;
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
+        btnBuscarCliente.setBackground(new java.awt.Color(230, 230, 230));
+        btnBuscarCliente.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
+        btnBuscarCliente.setForeground(new java.awt.Color(0, 53, 102));
+        btnBuscarCliente.setText("Buscar Cliente");
+        btnBuscarCliente.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 3, 1, 3, new java.awt.Color(0, 53, 102)));
+        btnBuscarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarClienteActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -149,15 +136,14 @@ private String idEmpleado;
                 .addContainerGap(10, Short.MAX_VALUE)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(btnDesactivarCuenta, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btnCrearCuenta, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
-                            .addComponent(btnBorrarCuenta, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addComponent(btnTransaccion, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnHistorialTransacion, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnBorrarCuenta, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(btnTransaccion, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnHistorialTransacion, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnBuscarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(34, 34, 34)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10))
@@ -165,21 +151,19 @@ private String idEmpleado;
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(0, 20, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(btnBuscarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
                 .addComponent(btnCrearCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnBorrarCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnHistorialTransacion, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
                 .addComponent(btnTransaccion, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnDesactivarCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 430, Short.MAX_VALUE)
-            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 430, Short.MAX_VALUE)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE)
         );
 
         jLabel1.setFont(new java.awt.Font("Serif", 1, 48)); // NOI18N
@@ -208,7 +192,7 @@ private String idEmpleado;
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -219,9 +203,7 @@ private String idEmpleado;
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -245,29 +227,22 @@ private String idEmpleado;
         pHistorialTransaccion.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnHistorialTransacionActionPerformed
 
-    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        busquedaCuenta pBusquedaCuenta = new busquedaCuenta();
-        pBusquedaCuenta.setVisible(true);
-        pBusquedaCuenta.setLocationRelativeTo(null);
-    }//GEN-LAST:event_btnBuscarActionPerformed
-
     private void btnTransaccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTransaccionActionPerformed
         tranferenciaEmpleado pTranferenciaEmpleado = new tranferenciaEmpleado(idEmpleado);
         pTranferenciaEmpleado.setVisible(true);
         pTranferenciaEmpleado.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnTransaccionActionPerformed
 
-    private void btnDesactivarCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDesactivarCuentaActionPerformed
-        estadoCuenta pEstadoCuenta = new estadoCuenta();
-        pEstadoCuenta.setVisible(true);
-        pEstadoCuenta.setLocationRelativeTo(null);
-    }//GEN-LAST:event_btnDesactivarCuentaActionPerformed
+    private void btnBuscarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarClienteActionPerformed
+        buscarCliente pCliente  = new buscarCliente();
+        pCliente.setVisible(true);
+        pCliente.setLocationRelativeTo(null);
+    }//GEN-LAST:event_btnBuscarClienteActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBorrarCuenta;
-    private javax.swing.JButton btnBuscar;
+    private javax.swing.JButton btnBuscarCliente;
     private javax.swing.JButton btnCrearCuenta;
-    private javax.swing.JButton btnDesactivarCuenta;
     private javax.swing.JButton btnHistorialTransacion;
     private javax.swing.JButton btnTransaccion;
     private javax.swing.JLabel jLabel1;
