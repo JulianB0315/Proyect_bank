@@ -8,5 +8,6 @@ public class Capaz {
         inicioEmpleados pEmpleados=new inicioEmpleados();
         pEmpleados.setVisible(true);
         pEmpleados.setLocationRelativeTo(null);
+        
     }
 }
