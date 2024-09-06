@@ -59,6 +59,8 @@ public class historialTransaccion extends javax.swing.JFrame {
 
         btnBuscarDa.setBackground(new java.awt.Color(230, 230, 230));
         btnBuscarDa.setFont(new java.awt.Font("Serif", 1, 14)); // NOI18N
+        btnBuscarDa.setForeground(new java.awt.Color(0, 53, 102));
+        btnBuscarDa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/buscar.png"))); // NOI18N
         btnBuscarDa.setText("Buscar");
         btnBuscarDa.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 3, 1, 3, new java.awt.Color(0, 53, 102)));
 
@@ -78,6 +80,8 @@ public class historialTransaccion extends javax.swing.JFrame {
 
         btnBuscarRecibir.setBackground(new java.awt.Color(230, 230, 230));
         btnBuscarRecibir.setFont(new java.awt.Font("Serif", 1, 14)); // NOI18N
+        btnBuscarRecibir.setForeground(new java.awt.Color(0, 53, 102));
+        btnBuscarRecibir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/buscar.png"))); // NOI18N
         btnBuscarRecibir.setText("Buscar");
         btnBuscarRecibir.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 3, 1, 3, new java.awt.Color(0, 53, 102)));
 

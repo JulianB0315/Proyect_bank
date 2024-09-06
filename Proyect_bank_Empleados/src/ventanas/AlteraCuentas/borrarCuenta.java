@@ -42,6 +42,8 @@ public class borrarCuenta extends javax.swing.JFrame {
 
         btnBuscar.setBackground(new java.awt.Color(230, 230, 230));
         btnBuscar.setFont(new java.awt.Font("Serif", 1, 14)); // NOI18N
+        btnBuscar.setForeground(new java.awt.Color(0, 53, 102));
+        btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/buscar.png"))); // NOI18N
         btnBuscar.setText("Buscar");
         btnBuscar.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 3, 1, 3, new java.awt.Color(0, 53, 102)));
 
@@ -96,14 +98,17 @@ public class borrarCuenta extends javax.swing.JFrame {
         btnDesactivar.setBackground(new java.awt.Color(230, 230, 230));
         btnDesactivar.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
         btnDesactivar.setForeground(new java.awt.Color(0, 53, 102));
+        btnDesactivar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/x.png"))); // NOI18N
         btnDesactivar.setText("Desactivar");
         btnDesactivar.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 3, 1, 3, new java.awt.Color(0, 53, 102)));
 
         btnActivar.setBackground(new java.awt.Color(230, 230, 230));
         btnActivar.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
         btnActivar.setForeground(new java.awt.Color(0, 53, 102));
+        btnActivar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ckeck.png"))); // NOI18N
         btnActivar.setText("Activar");
         btnActivar.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 3, 1, 3, new java.awt.Color(0, 53, 102)));
+        btnActivar.setContentAreaFilled(false);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
