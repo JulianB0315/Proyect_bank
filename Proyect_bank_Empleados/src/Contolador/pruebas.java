@@ -1,12 +1,12 @@
 
 package Contolador;
 
-import ventanas.Busqueda.historialTransaccion;
+import ventanas.Crear.CrearCliente;
 
 public class pruebas {
    public static void main(String[] args) {
-    historialTransaccion pHistorialTransaccion= new historialTransaccion();
-    pHistorialTransaccion.setVisible(true);
-    pHistorialTransaccion.setLocationRelativeTo(null);
+      CrearCliente pCrearCliente = new CrearCliente();
+      pCrearCliente.setVisible(true);
+      pCrearCliente.setLocationRelativeTo(null);
    }
 }
