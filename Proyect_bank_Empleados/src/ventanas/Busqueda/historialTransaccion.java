@@ -64,6 +64,11 @@ public class historialTransaccion extends javax.swing.JFrame {
         btnBuscarDa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/buscar.png"))); // NOI18N
         btnBuscarDa.setText("Buscar");
         btnBuscarDa.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 3, 1, 3, new java.awt.Color(0, 53, 102)));
+        btnBuscarDa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarDaActionPerformed(evt);
+            }
+        });
 
         txtCuentaDa.setBackground(new java.awt.Color(230, 230, 230));
         txtCuentaDa.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
@@ -86,6 +91,11 @@ public class historialTransaccion extends javax.swing.JFrame {
         btnBuscarRecibir.setText("Buscar");
         btnBuscarRecibir.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 3, 1, 3, new java.awt.Color(0, 53, 102)));
         btnBuscarRecibir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnBuscarRecibir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarRecibirActionPerformed(evt);
+            }
+        });
 
         txtCuentaRecibe.setBackground(new java.awt.Color(230, 230, 230));
         txtCuentaRecibe.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
@@ -188,6 +198,14 @@ public class historialTransaccion extends javax.swing.JFrame {
     private void txtCuentaRecibeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCuentaRecibeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCuentaRecibeActionPerformed
+
+    private void btnBuscarDaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarDaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBuscarDaActionPerformed
+
+    private void btnBuscarRecibirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarRecibirActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBuscarRecibirActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscarDa;
