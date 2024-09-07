@@ -95,7 +95,7 @@
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="btnCrearCuenta" alignment="1" pref="300" max="32767" attributes="0"/>
+                                  <Component id="btnCuentacrear" alignment="1" pref="300" max="32767" attributes="0"/>
                                   <Component id="btnBorrarCuenta" alignment="1" max="32767" attributes="0"/>
                                   <Component id="btnCrearClienta" alignment="0" pref="300" max="32767" attributes="0"/>
                               </Group>
@@ -116,7 +116,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="btnBuscarCliente" min="-2" pref="50" max="-2" attributes="0"/>
                       <EmptySpace pref="20" max="32767" attributes="0"/>
-                      <Component id="btnCrearCuenta" min="-2" pref="50" max="-2" attributes="0"/>
+                      <Component id="btnCuentacrear" min="-2" pref="50" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                       <Component id="btnCrearClienta" min="-2" pref="50" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
@@ -155,6 +155,9 @@
                     </MatteColorBorder>
                   </Border>
                 </Property>
+                <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                  <Color id="Hand Cursor"/>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnHistorialTransacionActionPerformed"/>
@@ -182,12 +185,15 @@
                     </MatteColorBorder>
                   </Border>
                 </Property>
+                <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                  <Color id="Hand Cursor"/>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBorrarCuentaActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnCrearCuenta">
+            <Component class="javax.swing.JButton" name="btnCuentacrear">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="e6" green="e6" red="e6" type="rgb"/>
@@ -209,9 +215,12 @@
                     </MatteColorBorder>
                   </Border>
                 </Property>
+                <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                  <Color id="Hand Cursor"/>
+                </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCrearCuentaActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCuentacrearActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnTransaccion">
@@ -235,6 +244,9 @@
                       <Color PropertyName="color" blue="66" green="35" red="0" type="rgb"/>
                     </MatteColorBorder>
                   </Border>
+                </Property>
+                <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                  <Color id="Hand Cursor"/>
                 </Property>
               </Properties>
               <Events>
@@ -323,6 +335,9 @@
                     </MatteColorBorder>
                   </Border>
                 </Property>
+                <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                  <Color id="Hand Cursor"/>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBuscarClienteActionPerformed"/>
@@ -349,6 +364,9 @@
                       <Color PropertyName="color" blue="66" green="35" red="0" type="rgb"/>
                     </MatteColorBorder>
                   </Border>
+                </Property>
+                <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                  <Color id="Hand Cursor"/>
                 </Property>
               </Properties>
               <Events>

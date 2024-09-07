@@ -2,8 +2,9 @@
 package ventanas;
 
 import ventanas.AlteraCuentas.borrarCuenta;
-import ventanas.Busqueda.buscarCliente;
+import ventanas.Busqueda.buscarBaseCliente;
 import ventanas.Busqueda.historialTransaccion;
+import ventanas.Crear.CrearCliente;
 import ventanas.Crear.CrearCuenta;
 import ventanas.Crear.tranferenciaEmpleado;
 
@@ -13,7 +14,6 @@ private String idEmpleado;
         this.idEmpleado = idEmpleado;
         initComponents();
         this.setTitle("");
-        btnBorrarCuenta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
     }
 
     /**
@@ -29,7 +29,7 @@ private String idEmpleado;
         jPanel2 = new javax.swing.JPanel();
         btnHistorialTransacion = new javax.swing.JButton();
         btnBorrarCuenta = new javax.swing.JButton();
-        btnCrearCuenta = new javax.swing.JButton();
+        btnCuentacrear = new javax.swing.JButton();
         btnTransaccion = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
@@ -50,6 +50,7 @@ private String idEmpleado;
         btnHistorialTransacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/tramite.png"))); // NOI18N
         btnHistorialTransacion.setText("Historial de Transacciones");
         btnHistorialTransacion.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 3, 1, 3, new java.awt.Color(0, 53, 102)));
+        btnHistorialTransacion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnHistorialTransacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnHistorialTransacionActionPerformed(evt);
@@ -62,21 +63,23 @@ private String idEmpleado;
         btnBorrarCuenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ckeck.png"))); // NOI18N
         btnBorrarCuenta.setText("Alterar Cuentas");
         btnBorrarCuenta.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 3, 1, 3, new java.awt.Color(0, 53, 102)));
+        btnBorrarCuenta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnBorrarCuenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBorrarCuentaActionPerformed(evt);
             }
         });
 
-        btnCrearCuenta.setBackground(new java.awt.Color(230, 230, 230));
-        btnCrearCuenta.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
-        btnCrearCuenta.setForeground(new java.awt.Color(0, 53, 102));
-        btnCrearCuenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cuenta.png"))); // NOI18N
-        btnCrearCuenta.setText("Crear Cuenta");
-        btnCrearCuenta.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 3, 1, 3, new java.awt.Color(0, 53, 102)));
-        btnCrearCuenta.addActionListener(new java.awt.event.ActionListener() {
+        btnCuentacrear.setBackground(new java.awt.Color(230, 230, 230));
+        btnCuentacrear.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
+        btnCuentacrear.setForeground(new java.awt.Color(0, 53, 102));
+        btnCuentacrear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cuenta.png"))); // NOI18N
+        btnCuentacrear.setText("Crear Cuenta");
+        btnCuentacrear.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 3, 1, 3, new java.awt.Color(0, 53, 102)));
+        btnCuentacrear.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCuentacrear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCrearCuentaActionPerformed(evt);
+                btnCuentacrearActionPerformed(evt);
             }
         });
 
@@ -86,6 +89,7 @@ private String idEmpleado;
         btnTransaccion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/dolar.png"))); // NOI18N
         btnTransaccion.setText("Transaccion o Retiro");
         btnTransaccion.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 3, 1, 3, new java.awt.Color(0, 53, 102)));
+        btnTransaccion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnTransaccion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnTransaccionActionPerformed(evt);
@@ -128,6 +132,7 @@ private String idEmpleado;
         btnBuscarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/buscar.png"))); // NOI18N
         btnBuscarCliente.setText("Buscar Cliente");
         btnBuscarCliente.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 3, 1, 3, new java.awt.Color(0, 53, 102)));
+        btnBuscarCliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnBuscarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBuscarClienteActionPerformed(evt);
@@ -140,6 +145,7 @@ private String idEmpleado;
         btnCrearClienta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/usuario.png"))); // NOI18N
         btnCrearClienta.setText("Crear Cliente");
         btnCrearClienta.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 3, 1, 3, new java.awt.Color(0, 53, 102)));
+        btnCrearClienta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCrearClienta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCrearClientaActionPerformed(evt);
@@ -157,7 +163,7 @@ private String idEmpleado;
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnCrearCuenta, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+                            .addComponent(btnCuentacrear, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
                             .addComponent(btnBorrarCuenta, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnCrearClienta, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE))
                         .addComponent(btnTransaccion, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -173,7 +179,7 @@ private String idEmpleado;
                 .addContainerGap()
                 .addComponent(btnBuscarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
-                .addComponent(btnCrearCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnCuentacrear, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20)
                 .addComponent(btnCrearClienta, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20)
@@ -230,11 +236,11 @@ private String idEmpleado;
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnCrearCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearCuentaActionPerformed
+    private void btnCuentacrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCuentacrearActionPerformed
        CrearCuenta pCrearCuenta = new CrearCuenta();
        pCrearCuenta.setVisible(true);
        pCrearCuenta.setLocationRelativeTo(null);
-    }//GEN-LAST:event_btnCrearCuentaActionPerformed
+    }//GEN-LAST:event_btnCuentacrearActionPerformed
 
     private void btnBorrarCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrarCuentaActionPerformed
         borrarCuenta pBorrarCuenta = new borrarCuenta();
@@ -255,20 +261,22 @@ private String idEmpleado;
     }//GEN-LAST:event_btnTransaccionActionPerformed
 
     private void btnBuscarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarClienteActionPerformed
-        buscarCliente pCliente  = new buscarCliente();
+        buscarBaseCliente pCliente  = new buscarBaseCliente();
         pCliente.setVisible(true);
         pCliente.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnBuscarClienteActionPerformed
 
     private void btnCrearClientaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearClientaActionPerformed
-        // TODO add your handling code here:
+       CrearCliente pCrearCliente = new CrearCliente();
+       pCrearCliente.setVisible(true);
+       pCrearCliente.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnCrearClientaActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBorrarCuenta;
     private javax.swing.JButton btnBuscarCliente;
     private javax.swing.JButton btnCrearClienta;
-    private javax.swing.JButton btnCrearCuenta;
+    private javax.swing.JButton btnCuentacrear;
     private javax.swing.JButton btnHistorialTransacion;
     private javax.swing.JButton btnTransaccion;
     private javax.swing.JLabel jLabel1;

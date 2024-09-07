@@ -1,5 +1,12 @@
-
 package ventanas.AlteraCuentas;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import ventanas.DBConnection;
 
 public class borrarCuenta extends javax.swing.JFrame {
 
@@ -46,6 +53,12 @@ public class borrarCuenta extends javax.swing.JFrame {
         btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/buscar.png"))); // NOI18N
         btnBuscar.setText("Buscar");
         btnBuscar.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 3, 1, 3, new java.awt.Color(0, 53, 102)));
+        btnBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
 
         txtCuenta.setBackground(new java.awt.Color(230, 230, 230));
         txtCuenta.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
@@ -62,6 +75,7 @@ public class borrarCuenta extends javax.swing.JFrame {
         btnBorrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/borrar.png"))); // NOI18N
         btnBorrar.setText("   Borrar");
         btnBorrar.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 3, 1, 3, new java.awt.Color(0, 53, 102)));
+        btnBorrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnBorrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBorrarActionPerformed(evt);
@@ -101,6 +115,12 @@ public class borrarCuenta extends javax.swing.JFrame {
         btnDesactivar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/x.png"))); // NOI18N
         btnDesactivar.setText("Desactivar");
         btnDesactivar.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 3, 1, 3, new java.awt.Color(0, 53, 102)));
+        btnDesactivar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnDesactivar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDesactivarActionPerformed(evt);
+            }
+        });
 
         btnActivar.setBackground(new java.awt.Color(230, 230, 230));
         btnActivar.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
@@ -109,6 +129,12 @@ public class borrarCuenta extends javax.swing.JFrame {
         btnActivar.setText("Activar");
         btnActivar.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 3, 1, 3, new java.awt.Color(0, 53, 102)));
         btnActivar.setContentAreaFilled(false);
+        btnActivar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnActivar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActivarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -224,6 +250,44 @@ public class borrarCuenta extends javax.swing.JFrame {
     private void btnBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnBorrarActionPerformed
+
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+   String idCuenta = .getText();
+    
+    DefaultTableModel model = (DefaultTableModel) tblVerCuenta.getModel();
+    model.setRowCount(0); 
+
+    try (Connection conn = DBConnection.getConnection()) { // Conexión dentro del try con recursos
+        String sql = "SELECT idCuenta, idCliente, tipoCuenta, saldo FROM CUENTA WHERE idCuenta = ?";
+        PreparedStatement pstmt = conn.prepareStatement(sql);
+        pstmt.setString(1, idCuenta);
+
+        ResultSet rs = pstmt.executeQuery();
+        
+        while (rs.next()) {
+            String idCuentaDB = rs.getString("idCuenta");
+            String idClienteDB = rs.getString("idCliente");
+            String tipoCuentaDB = rs.getString("tipoCuenta");
+            double saldoDB = rs.getDouble("saldo");
+
+            model.addRow(new Object[]{idCuentaDB, idClienteDB, tipoCuentaDB, saldoDB});
+        }
+        
+        rs.close();
+        pstmt.close();
+    } catch (SQLException e) {
+        e.printStackTrace();
+        JOptionPane.showMessageDialog(this, "Error al recuperar los datos de la cuenta.", "Error", JOptionPane.ERROR_MESSAGE);
+    
+}    }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void btnActivarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActivarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnActivarActionPerformed
+
+    private void btnDesactivarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDesactivarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnDesactivarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnActivar;

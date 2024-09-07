@@ -34,6 +34,7 @@ public class historialTransaccion extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(230, 230, 230));
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 53, 102), 2));
+        jPanel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         tblVerTranferencias.setBackground(new java.awt.Color(230, 230, 230));
         tblVerTranferencias.setFont(new java.awt.Font("Serif", 1, 12)); // NOI18N
@@ -84,6 +85,7 @@ public class historialTransaccion extends javax.swing.JFrame {
         btnBuscarRecibir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/buscar.png"))); // NOI18N
         btnBuscarRecibir.setText("Buscar");
         btnBuscarRecibir.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 3, 1, 3, new java.awt.Color(0, 53, 102)));
+        btnBuscarRecibir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         txtCuentaRecibe.setBackground(new java.awt.Color(230, 230, 230));
         txtCuentaRecibe.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
