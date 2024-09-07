@@ -1,8 +1,17 @@
 
 package ventanas.Busqueda;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import ventanas.DBConnection;
+
 
 public class historialTransaccion extends javax.swing.JFrame {
 
+    
     public historialTransaccion() {
         initComponents();
     }
@@ -44,15 +53,22 @@ public class historialTransaccion extends javax.swing.JFrame {
 
             },
             new String [] {
-                "N° Cuenta", "N° Cuenta Depositada", "Monto", "Tipo", "Banca", "Fecha"
+                "N° de Transaccion", "N° Cuenta", "N° Cuenta Depositada", "N° de Empleado", "Tipo", "Descripcion", "Monto", "Fecha"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
             }
         });
         tblVerTranferencias.setSelectionForeground(new java.awt.Color(0, 53, 102));
@@ -115,8 +131,8 @@ public class historialTransaccion extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(20, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(22, 22, 22)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel3)
@@ -129,14 +145,17 @@ public class historialTransaccion extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(txtCuentaDa, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btnBuscarDa, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1))
-                .addGap(20, 20, 20))
+                        .addComponent(btnBuscarDa, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(14, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 849, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(14, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(25, Short.MAX_VALUE)
+                .addContainerGap(32, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnBuscarDa)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -148,12 +167,12 @@ public class historialTransaccion extends javax.swing.JFrame {
                     .addComponent(txtCuentaRecibe, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30))
+                .addGap(23, 23, 23))
         );
 
         jLabel1.setFont(new java.awt.Font("Serif", 1, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(212, 175, 55));
-        jLabel1.setText("     Nueva Banco Perú");
+        jLabel1.setText("                     Nueva Banco Perú");
         jLabel1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 3, 1, 3, new java.awt.Color(212, 175, 55)));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -162,10 +181,10 @@ public class historialTransaccion extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addGap(20, 20, 20))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -192,19 +211,81 @@ public class historialTransaccion extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtCuentaDaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCuentaDaActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_txtCuentaDaActionPerformed
 
     private void txtCuentaRecibeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCuentaRecibeActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_txtCuentaRecibeActionPerformed
 
     private void btnBuscarDaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarDaActionPerformed
-        // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel) tblVerTranferencias.getModel();
+        model.setRowCount(0); 
+        String CuentaRecibe = txtCuentaDa.getText();
+
+    try (Connection conn = DBConnection.getConnection()) { 
+        String sql = "SELECT * FROM TRANSACCION WHERE IDCUENTA LIKE ?";
+        PreparedStatement pstmt = conn.prepareStatement(sql);
+        pstmt.setString(1,CuentaRecibe+"%");
+        ResultSet rs = pstmt.executeQuery();
+
+        if (!rs.isBeforeFirst()) { 
+            JOptionPane.showMessageDialog(this, "No se encontraron transacciones con esta cuenta.", "Sin resultados", JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
+        
+        while (rs.next()) {
+            String idtransaccion = rs.getString("IDTRANSACCION");
+            String NCuenta = rs.getString("IDCUENTA");
+            String NCuentaRecibe= rs.getString("CUENTARECIBE");
+            String Nempleado = rs.getString("IDEMPLEADO");
+            String tipo = rs.getString("TIPOTRANSACCION");
+            String descripcion = rs.getString("DESCRIPCION");
+            String monto = rs.getString("MONTO");
+            String fecha= rs.getString("FECHATRANSACCION");
+            model.addRow(new Object[]{idtransaccion,NCuenta,NCuentaRecibe,Nempleado,tipo,descripcion,monto,fecha});
+        }
+        rs.close();
+        pstmt.close();
+    } catch (SQLException e) {
+        e.printStackTrace();
+        JOptionPane.showMessageDialog(this, "Error al recuperar los datos de la transaccion.", "Error", JOptionPane.ERROR_MESSAGE);
+    }
     }//GEN-LAST:event_btnBuscarDaActionPerformed
 
     private void btnBuscarRecibirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarRecibirActionPerformed
-        // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel) tblVerTranferencias.getModel();
+        model.setRowCount(0); 
+        String CuentaRecibe = txtCuentaRecibe.getText();
+
+    try (Connection conn = DBConnection.getConnection()) { 
+        String sql = "SELECT * FROM TRANSACCION WHERE CUENTARECIBE LIKE ?";
+        PreparedStatement pstmt = conn.prepareStatement(sql);
+        pstmt.setString(1,CuentaRecibe+"%");
+        ResultSet rs = pstmt.executeQuery();
+
+        if (!rs.isBeforeFirst()) { 
+            JOptionPane.showMessageDialog(this, "No se encontraron transacciones con esta cuenta.", "Sin resultados", JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
+        
+        while (rs.next()) {
+            String idtransaccion = rs.getString("IDTRANSACCION");
+            String NCuenta = rs.getString("IDCUENTA");
+            String NCuentaRecibe= rs.getString("CUENTARECIBE");
+            String Nempleado = rs.getString("IDEMPLEADO");
+            String tipo = rs.getString("TIPOTRANSACCION");
+            String descripcion = rs.getString("DESCRIPCION");
+            String monto = rs.getString("MONTO");
+            String fecha= rs.getString("FECHATRANSACCION");
+            model.addRow(new Object[]{idtransaccion,NCuenta,NCuentaRecibe,Nempleado,tipo,descripcion,monto,fecha});
+        }
+        rs.close();
+        pstmt.close();
+    } catch (SQLException e) {
+        e.printStackTrace();
+        JOptionPane.showMessageDialog(this, "Error al recuperar los datos de la transaccion.", "Error", JOptionPane.ERROR_MESSAGE);
+    }
     }//GEN-LAST:event_btnBuscarRecibirActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -5,10 +5,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-
 import ventanas.DBConnection;
 
 public class buscarBaseCliente extends javax.swing.JFrame {
@@ -196,13 +194,13 @@ public class buscarBaseCliente extends javax.swing.JFrame {
         model.setRowCount(0); 
         String DNI = txtDNI.getText();
 
-    try (Connection conn = DBConnection.getConnection()) { // Conexión dentro del try con recursos
+    try (Connection conn = DBConnection.getConnection()) { 
         String sql = "SELECT * FROM CLIENTE WHERE DNI LIKE ?";
         PreparedStatement pstmt = conn.prepareStatement(sql);
         pstmt.setString(1,DNI+"%");
         ResultSet rs = pstmt.executeQuery();
 
-        if (!rs.isBeforeFirst()) { // Verifica si el ResultSet está vacío
+        if (!rs.isBeforeFirst()) {
             JOptionPane.showMessageDialog(this, "No se encontraron clientes con el DNI ingresado. Mostrando todos los DNIs registrados.", "Sin resultados", JOptionPane.INFORMATION_MESSAGE);
             return;
         }

@@ -1,12 +1,12 @@
 
 package Contolador;
 
-import ventanas.Busqueda.buscarBaseCliente;
+import ventanas.Busqueda.historialTransaccion;
 
 public class pruebas {
    public static void main(String[] args) {
-    buscarBaseCliente pBaseCliente = new buscarBaseCliente();
-    pBaseCliente.setVisible(true);
-    pBaseCliente.setLocationRelativeTo(null);
+    historialTransaccion pHistorialTransaccion= new historialTransaccion();
+    pHistorialTransaccion.setVisible(true);
+    pHistorialTransaccion.setLocationRelativeTo(null);
    }
 }
