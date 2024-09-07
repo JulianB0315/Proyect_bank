@@ -290,11 +290,11 @@ public class borrarCuenta extends javax.swing.JFrame {
     }// GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnActivarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnActivarActionPerformed
-        // TODO add your handling code here:
+        
     }// GEN-LAST:event_btnActivarActionPerformed
 
     private void btnDesactivarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnDesactivarActionPerformed
-        // TODO add your handling code here:
+        
     }// GEN-LAST:event_btnDesactivarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
