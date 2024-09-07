@@ -1,12 +1,12 @@
 
 package Contolador;
 
-import ventanas.AlteraCuentas.borrarCuenta;
+import ventanas.Busqueda.buscarBaseCliente;
 
 public class pruebas {
    public static void main(String[] args) {
-    borrarCuenta pBorrarCuenta = new borrarCuenta();
-    pBorrarCuenta.setVisible(true);
-    pBorrarCuenta.setLocationRelativeTo(null);
+    buscarBaseCliente pBaseCliente = new buscarBaseCliente();
+    pBaseCliente.setVisible(true);
+    pBaseCliente.setLocationRelativeTo(null);
    }
 }

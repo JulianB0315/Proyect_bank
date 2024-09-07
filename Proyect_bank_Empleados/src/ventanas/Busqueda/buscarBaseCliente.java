@@ -1,6 +1,16 @@
 
 package ventanas.Busqueda;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
+import ventanas.DBConnection;
+
 public class buscarBaseCliente extends javax.swing.JFrame {
 
     public buscarBaseCliente() {
@@ -23,6 +33,7 @@ public class buscarBaseCliente extends javax.swing.JFrame {
         btnCuenta = new javax.swing.JButton();
         txtDNI = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -31,24 +42,32 @@ public class buscarBaseCliente extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(230, 230, 230));
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 53, 102), 2));
+        jPanel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         tblVerTranferencias.setBackground(new java.awt.Color(230, 230, 230));
-        tblVerTranferencias.setFont(new java.awt.Font("Serif", 1, 12)); // NOI18N
+        tblVerTranferencias.setFont(new java.awt.Font("Serif", 1, 14)); // NOI18N
         tblVerTranferencias.setForeground(new java.awt.Color(0, 53, 102));
         tblVerTranferencias.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Id Cliente", "Nombre", "Apellido", "Sexo", "Fecha Nacimiento", "Direccion", "Telefono", "Cliente"
+                "Id Cliente", "Nombre", "Apellido", "Sexo", "Fecha Nacimiento", "Direccion", "Telefono", "Correo", "Fecha de registro"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
             }
         });
         tblVerTranferencias.setSelectionForeground(new java.awt.Color(0, 53, 102));
@@ -58,7 +77,7 @@ public class buscarBaseCliente extends javax.swing.JFrame {
         btnCuenta.setFont(new java.awt.Font("Serif", 1, 14)); // NOI18N
         btnCuenta.setForeground(new java.awt.Color(0, 53, 102));
         btnCuenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/buscar.png"))); // NOI18N
-        btnCuenta.setText("Buscar");
+        btnCuenta.setText("  Buscar");
         btnCuenta.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 3, 1, 3, new java.awt.Color(0, 53, 102)));
         btnCuenta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCuenta.addActionListener(new java.awt.event.ActionListener() {
@@ -81,38 +100,56 @@ public class buscarBaseCliente extends javax.swing.JFrame {
         jLabel2.setText("     DNI de Cliente                 :");
         jLabel2.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 2, 0, 0, new java.awt.Color(0, 53, 102)));
 
+        jButton1.setBackground(new java.awt.Color(230, 230, 230));
+        jButton1.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(0, 53, 102));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/borrar.png"))); // NOI18N
+        jButton1.setText("   Borrar Registro de la base de datos");
+        jButton1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 3, 1, 3, new java.awt.Color(0, 53, 102)));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(20, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 668, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addGap(12, 12, 12)
                         .addComponent(txtDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btnCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(20, 20, 20))
+                        .addComponent(btnCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 747, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(20, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(189, 189, 189))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(33, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCuenta)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         jLabel1.setFont(new java.awt.Font("Serif", 1, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(212, 175, 55));
-        jLabel1.setText("             Nueva Banco Perú");
+        jLabel1.setText("                  Nueva Banco Perú");
         jLabel1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 3, 1, 3, new java.awt.Color(212, 175, 55)));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -155,11 +192,75 @@ public class buscarBaseCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_txtDNIActionPerformed
 
     private void btnCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCuentaActionPerformed
-        // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel) tblVerTranferencias.getModel();
+        model.setRowCount(0); 
+        String DNI = txtDNI.getText();
+
+    try (Connection conn = DBConnection.getConnection()) { // Conexión dentro del try con recursos
+        String sql = "SELECT * FROM CLIENTE WHERE DNI LIKE ?";
+        PreparedStatement pstmt = conn.prepareStatement(sql);
+        pstmt.setString(1,DNI+"%");
+        ResultSet rs = pstmt.executeQuery();
+
+        if (!rs.isBeforeFirst()) { // Verifica si el ResultSet está vacío
+            JOptionPane.showMessageDialog(this, "No se encontraron clientes con el DNI ingresado. Mostrando todos los DNIs registrados.", "Sin resultados", JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
+        
+        while (rs.next()) {
+            String idCliente = rs.getString("IDCLIENTE");
+            String dni = rs.getString("DNI");
+            String nombre = rs.getString("NOMBRE");
+            String apellido = rs.getString("APELLIDO");
+            String sexo = rs.getString("SEXO");
+            String fechaNacimiento = rs.getString("FECHANACIMIENTO");
+            String direccion = rs.getString("DIRECCION");
+            String telefono = rs.getString("TELEFONO");
+            String email = rs.getString("EMAIL");
+            String fechaRegistro = rs.getString("FECHAREGISTRO");
+            model.addRow(new Object[]{idCliente, dni, nombre, apellido, sexo, fechaNacimiento, direccion, telefono, email, fechaRegistro});
+        }
+        
+        rs.close();
+        pstmt.close();
+    } catch (SQLException e) {
+        e.printStackTrace();
+        JOptionPane.showMessageDialog(this, "Error al recuperar los datos de clientes.", "Error", JOptionPane.ERROR_MESSAGE);
+    }
     }//GEN-LAST:event_btnCuentaActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        int selectedRow = tblVerTranferencias.getSelectedRow();
+    if (selectedRow != -1) {
+        String idCliente = tblVerTranferencias.getValueAt(selectedRow, 0).toString();
+        String Dni = tblVerTranferencias.getValueAt(selectedRow,1).toString();
+        int confirm = JOptionPane.showConfirmDialog(this, "¿Esta seguro de borrar el Cliente con DNI:"+Dni+"?", "Confirmar Borrado", JOptionPane.YES_NO_OPTION);
+        if (confirm == JOptionPane.YES_OPTION) {
+            try (Connection conn = DBConnection.getConnection()) {
+                String sql = "DELETE FROM CLIENTE WHERE IDCLIENTE = ?";
+                PreparedStatement pstmt = conn.prepareStatement(sql);
+                pstmt.setString(1, idCliente);
+                int rowsAffected = pstmt.executeUpdate();
+                if (rowsAffected > 0) {
+                    ((DefaultTableModel) tblVerTranferencias.getModel()).removeRow(selectedRow);
+                    JOptionPane.showMessageDialog(this, "Cliente borrada exitosamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+                } else {
+                    JOptionPane.showMessageDialog(this, "Error al borrar el cliente.", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+                pstmt.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+                JOptionPane.showMessageDialog(this, "Error al intentar borrar la cuenta.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    } else {
+        JOptionPane.showMessageDialog(this, "Por favor, selecciones un cliente para borrar.", "Advertencia", JOptionPane.WARNING_MESSAGE);
+    }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCuenta;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel2;
