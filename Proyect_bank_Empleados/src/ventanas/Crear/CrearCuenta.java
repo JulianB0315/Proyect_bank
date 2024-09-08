@@ -329,7 +329,6 @@ public class CrearCuenta extends javax.swing.JFrame {
     private void btntVerOcultarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btntVerOcultarActionPerformed
         ImageIcon iconMostrar = new ImageIcon(getClass().getResource("/img/ver.png"));
         ImageIcon iconOcultar = new ImageIcon(getClass().getResource("/img/ocultar.png"));
-
         if (btntVerOcultar.isSelected()) {
             // Si está seleccionado, muestra la contraseña y cambia el ícono a "mostrar"
             passContraseña.setEchoChar((char) 0);
@@ -344,7 +343,6 @@ public class CrearCuenta extends javax.swing.JFrame {
     private void btntVerOcultarConfrimarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btntVerOcultarConfrimarActionPerformed
         ImageIcon iconMostrar = new ImageIcon(getClass().getResource("/img/ver.png"));
         ImageIcon iconOcultar = new ImageIcon(getClass().getResource("/img/ocultar.png"));
-
         if (btntVerOcultarConfrimar.isSelected()) {
             // Si está seleccionado, muestra la contraseña y cambia el ícono a "mostrar"
             passContraseñaConfirmar.setEchoChar((char) 0);
