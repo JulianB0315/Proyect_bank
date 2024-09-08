@@ -1,12 +1,11 @@
 
 package logica;
 
-import GUI.CrearCliente;
-import GUI.CrearCuenta;
+import GUI.tranferenciaEmpleado;
 
 public class pruebas {
    public static void main(String[] args) {
-      CrearCuenta pCrearCuenta = new CrearCuenta();
-      pCrearCuenta.setVisible(true); 
+      tranferenciaEmpleado pEmpleado = new tranferenciaEmpleado(null);
+      pEmpleado.setVisible(true);
    }
 }
