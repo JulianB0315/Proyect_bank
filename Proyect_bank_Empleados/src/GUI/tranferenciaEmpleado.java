@@ -1,5 +1,5 @@
 
-package ventanas;
+package GUI;
 
 public class tranferenciaEmpleado extends javax.swing.JFrame {
 

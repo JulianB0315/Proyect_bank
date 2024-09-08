@@ -1,8 +1,8 @@
 
-package GUI;
+package logica;
 
-import ventanas.CrearCliente;
-import ventanas.CrearCuenta;
+import GUI.CrearCliente;
+import GUI.CrearCuenta;
 
 public class pruebas {
    public static void main(String[] args) {

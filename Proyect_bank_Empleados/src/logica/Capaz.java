@@ -1,7 +1,7 @@
 
-package GUI;
+package logica;
 
-import ventanas.inicioEmpleados;
+import GUI.inicioEmpleados;
 
 public class Capaz {
     public static void main(String[] args) {

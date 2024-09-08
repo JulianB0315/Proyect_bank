@@ -1,5 +1,5 @@
 
-package ventanas;
+package GUI;
 
 import javax.swing.ImageIcon;
 import java.sql.Connection;

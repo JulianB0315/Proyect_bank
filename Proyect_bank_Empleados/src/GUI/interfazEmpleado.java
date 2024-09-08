@@ -1,5 +1,5 @@
 
-package ventanas;
+package GUI;
 
 public class interfazEmpleado extends javax.swing.JFrame {
 private String idEmpleado;

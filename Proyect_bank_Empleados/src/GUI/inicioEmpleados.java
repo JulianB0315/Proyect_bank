@@ -1,5 +1,5 @@
 
-package ventanas;
+package GUI;
 
 import DB.DBConnection;
 import java.sql.Connection;
