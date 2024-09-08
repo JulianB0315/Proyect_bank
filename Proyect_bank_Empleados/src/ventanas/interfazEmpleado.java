@@ -1,13 +1,6 @@
 
 package ventanas;
 
-import ventanas.AlteraCuentas.borrarCuenta;
-import ventanas.Busqueda.buscarBaseCliente;
-import ventanas.Busqueda.historialTransaccion;
-import ventanas.Crear.CrearCliente;
-import ventanas.Crear.CrearCuenta;
-import ventanas.Crear.tranferenciaEmpleado;
-
 public class interfazEmpleado extends javax.swing.JFrame {
 private String idEmpleado;
     public interfazEmpleado(String idEmpleado) {

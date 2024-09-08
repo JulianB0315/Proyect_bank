@@ -1,5 +1,5 @@
 
-package Contolador;
+package GUI;
 
 import ventanas.inicioEmpleados;
 

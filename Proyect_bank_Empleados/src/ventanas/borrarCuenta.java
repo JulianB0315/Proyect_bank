@@ -1,4 +1,4 @@
-package ventanas.AlteraCuentas;
+package ventanas;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import ventanas.DBConnection;
+import DB.DBConnection;
 
 public class borrarCuenta extends javax.swing.JFrame {
 
@@ -134,7 +134,6 @@ public class borrarCuenta extends javax.swing.JFrame {
         btnActivar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ckeck.png"))); // NOI18N
         btnActivar.setText("Activar");
         btnActivar.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 3, 1, 3, new java.awt.Color(0, 53, 102)));
-        btnActivar.setContentAreaFilled(false);
         btnActivar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnActivar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

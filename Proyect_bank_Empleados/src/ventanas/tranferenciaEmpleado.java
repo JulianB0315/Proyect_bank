@@ -1,5 +1,5 @@
 
-package ventanas.Crear;
+package ventanas;
 
 public class tranferenciaEmpleado extends javax.swing.JFrame {
 

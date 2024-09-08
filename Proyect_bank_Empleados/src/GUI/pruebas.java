@@ -1,8 +1,8 @@
 
-package Contolador;
+package GUI;
 
-import ventanas.Crear.CrearCliente;
-import ventanas.Crear.CrearCuenta;
+import ventanas.CrearCliente;
+import ventanas.CrearCuenta;
 
 public class pruebas {
    public static void main(String[] args) {

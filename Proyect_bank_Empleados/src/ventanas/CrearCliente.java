@@ -1,5 +1,5 @@
 
-package ventanas.Crear;
+package ventanas;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -12,7 +12,7 @@ import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
-import ventanas.DBConnection;
+import DB.DBConnection;
 
 public class CrearCliente extends javax.swing.JFrame {
 
