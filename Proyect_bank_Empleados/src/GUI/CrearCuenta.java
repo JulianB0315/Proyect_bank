@@ -9,6 +9,8 @@ import java.sql.SQLException;
 import DB.DBConnection;
 import javax.swing.JOptionPane;
 import java.util.Random;
+import java.awt.Image;
+import javax.swing.JFrame;
 
 public class CrearCuenta extends javax.swing.JFrame {
 
@@ -16,6 +18,11 @@ public class CrearCuenta extends javax.swing.JFrame {
         initComponents();
         passContraseñaConfirmar.setEchoChar('*');
         passContraseña.setEchoChar('*');
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        this.setTitle("Crear Cuentas");
+        ImageIcon icon = new ImageIcon(getClass().getResource("/img/logo.png"));
+        Image logo = icon.getImage();
+        setIconImage(logo);
     }
 
     /**

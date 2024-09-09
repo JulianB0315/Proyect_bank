@@ -7,13 +7,20 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import DB.DBConnection;
-
+import javax.swing.ImageIcon;
+import java.awt.Image;
+import javax.swing.JFrame;
 
 public class historialTransaccion extends javax.swing.JFrame {
 
     
     public historialTransaccion() {
         initComponents();
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        this.setTitle("Historial de Tranferencias");
+        ImageIcon icon = new ImageIcon(getClass().getResource("/img/logo.png"));
+        Image logo = icon.getImage();
+        setIconImage(logo);
     }
 
     /**

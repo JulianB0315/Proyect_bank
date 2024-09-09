@@ -8,11 +8,18 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import DB.DBConnection;
-
+import java.awt.Image;
+import javax.swing.JFrame;
+import javax.swing.ImageIcon;
 public class buscarBaseCliente extends javax.swing.JFrame {
 
     public buscarBaseCliente() {
         initComponents();
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        this.setTitle("Buscar Clientes");
+        ImageIcon icon = new ImageIcon(getClass().getResource("/img/logo.png"));
+        Image logo = icon.getImage();
+        setIconImage(logo);
     }
 
     /**

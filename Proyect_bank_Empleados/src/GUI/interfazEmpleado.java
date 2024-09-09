@@ -1,12 +1,18 @@
 
 package GUI;
 
+import javax.swing.ImageIcon;
+import java.awt.Image;
+
 public class interfazEmpleado extends javax.swing.JFrame {
 private String idEmpleado;
     public interfazEmpleado(String idEmpleado) {
         this.idEmpleado = idEmpleado;
         initComponents();
-        this.setTitle("");
+        this.setTitle("Interfaz de empleados");
+        ImageIcon icon = new ImageIcon(getClass().getResource("/img/logo.png"));
+        Image logo = icon.getImage();
+        setIconImage(logo);
     }
 
     /**

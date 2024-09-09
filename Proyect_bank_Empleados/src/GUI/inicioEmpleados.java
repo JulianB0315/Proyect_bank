@@ -7,6 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import java.awt.Image;
 
 public class inicioEmpleados extends javax.swing.JFrame {
 
@@ -14,7 +15,9 @@ public class inicioEmpleados extends javax.swing.JFrame {
         initComponents();
         passContraseña.setEchoChar('*');
         this.setTitle("Inicio para empleados");
-        
+        ImageIcon icon = new ImageIcon(getClass().getResource("/img/logo.png"));
+        Image logo = icon.getImage();
+        setIconImage(logo);
      }
 
     /**

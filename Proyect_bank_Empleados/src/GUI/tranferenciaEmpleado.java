@@ -8,16 +8,21 @@ import java.sql.ResultSet;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JTextField;
-
+import java.awt.Image;
 import java.sql.SQLException;
 import java.util.Random;
+import javax.swing.JFrame;
 
 public class tranferenciaEmpleado extends javax.swing.JFrame {
 private String idEmpleado;
     public tranferenciaEmpleado(String idEmpleado) {
         initComponents();
-         this.idEmpleado= idEmpleado;
+        this.setTitle("Tranferencias");
+        this.idEmpleado= idEmpleado;
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        ImageIcon icon = new ImageIcon(getClass().getResource("/img/logo.png"));
+        Image logo = icon.getImage();
+        setIconImage(logo);
     }
 
     /**
@@ -565,14 +570,14 @@ private String idEmpleado;
             txtCuentaRemitente.setText("++++++++++++++++++");
             txtCuentadar.setText("");
             txtmonto.setText("");
-            passContraseña.setText("++++++++++++++++");
+            passContraseña.setText("++++++++++++++++++");
             lbltipoCuenta.setText("");
             lblsaldo.setText("");
                 break;
             case "Retiro":
             passContraseña.setEnabled(true);
             txtCuentaRemitente.setEnabled(false);
-            txtCuentaRemitente.setText("+++++++++++++++++");
+            txtCuentaRemitente.setText("++++++++++++++++++");
             txtCuentadar.setText("");
             txtmonto.setText("");
             passContraseña.setText("");

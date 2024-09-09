@@ -13,11 +13,19 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import DB.DBConnection;
+import java.awt.Image;
+import javax.swing.JFrame;
+import javax.swing.ImageIcon;
 
 public class CrearCliente extends javax.swing.JFrame {
 
     public CrearCliente() {
         initComponents();
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        this.setTitle("Registro de Cliente");
+        ImageIcon icon = new ImageIcon(getClass().getResource("/img/logo.png"));
+        Image logo = icon.getImage();
+        setIconImage(logo);
     }
 
     /**
