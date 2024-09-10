@@ -1,5 +1,5 @@
 
-package Ventanas.Registro;
+package GUI;
 
 // Interfaz gráfica, clase base para crear ventanas
 import javax.swing.JFrame;

@@ -1,6 +1,6 @@
-package Controlador;
+package logica;
 
-import Ventanas.inicioGuia;
+import GUI.inicioGuia;
 
 public class controlCapas {
     public static void main(String[] args) {
