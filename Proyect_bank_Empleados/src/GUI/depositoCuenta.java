@@ -38,17 +38,12 @@ private String idEmpleado;
         jPanel2 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         txtCuentadar = new javax.swing.JTextField();
-        lblsaldo = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
         txtmonto = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
-        lbltipoCuenta = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
         btnrealizar = new javax.swing.JButton();
+        jLabel28 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -71,15 +66,6 @@ private String idEmpleado;
             }
         });
 
-        lblsaldo.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
-        lblsaldo.setForeground(new java.awt.Color(0, 53, 102));
-        lblsaldo.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 3, 0, new java.awt.Color(0, 53, 102)));
-
-        jLabel17.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
-        jLabel17.setForeground(new java.awt.Color(0, 53, 102));
-        jLabel17.setText("   Saldo                        :");
-        jLabel17.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 2, 0, 0, new java.awt.Color(0, 53, 102)));
-
         txtmonto.setBackground(new java.awt.Color(230, 230, 230));
         txtmonto.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
         txtmonto.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 3, 0, new java.awt.Color(0, 53, 102)));
@@ -93,23 +79,10 @@ private String idEmpleado;
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/dolar.png"))); // NOI18N
 
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/transferancia.png"))); // NOI18N
-
-        jLabel20.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
-        jLabel20.setForeground(new java.awt.Color(0, 53, 102));
-        jLabel20.setText("   Tipo de Cuenta         :");
-        jLabel20.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 2, 0, 0, new java.awt.Color(0, 53, 102)));
-
-        lbltipoCuenta.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
-        lbltipoCuenta.setForeground(new java.awt.Color(0, 53, 102));
-        lbltipoCuenta.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 3, 0, new java.awt.Color(0, 53, 102)));
-
-        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cuenta.png"))); // NOI18N
-
         btnrealizar.setBackground(new java.awt.Color(230, 230, 230));
         btnrealizar.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
         btnrealizar.setForeground(new java.awt.Color(0, 53, 102));
-        btnrealizar.setText("Realizar");
+        btnrealizar.setText("Realizar deposito");
         btnrealizar.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 3, 1, 3, new java.awt.Color(0, 53, 102)));
         btnrealizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnrealizar.addActionListener(new java.awt.event.ActionListener() {
@@ -118,80 +91,61 @@ private String idEmpleado;
             }
         });
 
+        jLabel28.setFont(new java.awt.Font("Serif", 1, 24)); // NOI18N
+        jLabel28.setForeground(new java.awt.Color(0, 53, 102));
+        jLabel28.setText("                 Deposito a Cuenta");
+        jLabel28.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 3, 1, 3, new java.awt.Color(0, 53, 102)));
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(25, Short.MAX_VALUE)
+                .addContainerGap(18, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                            .addComponent(jLabel19)
+                            .addGap(18, 18, 18)
+                            .addComponent(txtmonto, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(jLabel9)
+                            .addGap(15, 15, 15))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                            .addComponent(btnrealizar, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(106, 106, 106))
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addComponent(jLabel14)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(txtCuentadar, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel8)
+                            .addContainerGap()))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel20)
-                                .addGap(18, 18, 18)
-                                .addComponent(lbltipoCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel12))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel14)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtCuentadar, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel8)
-                                .addGap(1, 1, 1))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel17, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel19, javax.swing.GroupLayout.Alignment.TRAILING))
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addComponent(txtmonto, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jLabel9))
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addComponent(lblsaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jLabel11)))))
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(btnrealizar, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(91, 91, 91))))
+                        .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(32, 32, 32))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(27, 27, 27)
+                .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel14)
                         .addComponent(txtCuentadar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel8))
-                .addGap(15, 15, 15)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lbltipoCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel12))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblsaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel11))
+                .addGap(20, 20, 20)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtmonto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtmonto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jLabel9)))
-                .addGap(41, 41, 41)
+                .addGap(40, 40, 40)
                 .addComponent(btnrealizar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43))
+                .addGap(20, 20, 20))
         );
 
         jLabel3.setFont(new java.awt.Font("Serif", 1, 48)); // NOI18N
@@ -217,7 +171,7 @@ private String idEmpleado;
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -242,7 +196,7 @@ private String idEmpleado;
         String idTransaccion = generateidTransaccion();
         String cuentaCliente = txtCuentadar.getText();
         String cuentaRemitente = "00001DEP";
-        double Monto = Double.parseDouble(txtmonto.getText());
+        String MontoString = txtmonto.getText();
         String tipoTransaccion = "Deposito";
         String descripcion = "Realizada por un empleado autorizado";
         if(!existeCuenta(cuentaCliente)){
@@ -253,10 +207,15 @@ private String idEmpleado;
             JOptionPane.showMessageDialog(null, "La cuenta se encuentra inactiva.", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        if(cuentaCliente.isEmpty()||Monto==0.0){
+        if(!MontoString.matches("^\\d*\\.?\\d+$")){
+            JOptionPane.showMessageDialog(null,"Ingresar un montos Valido","Error",JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        if(cuentaCliente.isEmpty()||MontoString.isEmpty()){
             JOptionPane.showMessageDialog(null, "Completar los campos.", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
+        double Monto = Double.parseDouble(MontoString);
         try (Connection conn = DBConnection.getConnection()) {
             // Suma de monto
             String sqlSumar = "UPDATE cuenta SET saldo = saldo + ? WHERE idCuenta = ?";
@@ -278,6 +237,9 @@ private String idEmpleado;
             psInsert.executeUpdate();
             JOptionPane.showMessageDialog(null, "Depósito realizado exitosamente.", "Felicidades",JOptionPane.INFORMATION_MESSAGE);
             txtmonto.setText("");
+            voucherPago pVoucherPago = new voucherPago(idTransaccion);
+            pVoucherPago.setVisible(true);
+            pVoucherPago.setLocationRelativeTo(null);
 
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Algo salio mal :c", "Error", JOptionPane.WARNING_MESSAGE);
@@ -341,19 +303,14 @@ private String idEmpleado;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnrealizar;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JLabel lblsaldo;
-    private javax.swing.JLabel lbltipoCuenta;
     private javax.swing.JTextField txtCuentadar;
     private javax.swing.JTextField txtmonto;
     // End of variables declaration//GEN-END:variables

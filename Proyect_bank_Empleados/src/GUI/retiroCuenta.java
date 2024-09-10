@@ -53,6 +53,8 @@ private String idEmpleado;
         jLabel20 = new javax.swing.JLabel();
         lbltipoCuenta = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        btncargadatos = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -105,7 +107,7 @@ private String idEmpleado;
         btnRealizar.setBackground(new java.awt.Color(230, 230, 230));
         btnRealizar.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
         btnRealizar.setForeground(new java.awt.Color(0, 53, 102));
-        btnRealizar.setText("Realizar");
+        btnRealizar.setText("Realizar retiro");
         btnRealizar.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 3, 1, 3, new java.awt.Color(0, 53, 102)));
         btnRealizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnRealizar.addActionListener(new java.awt.event.ActionListener() {
@@ -145,12 +147,29 @@ private String idEmpleado;
 
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cuenta.png"))); // NOI18N
 
+        jLabel28.setFont(new java.awt.Font("Serif", 1, 24)); // NOI18N
+        jLabel28.setForeground(new java.awt.Color(0, 53, 102));
+        jLabel28.setText("                   Retiros de Cuenta");
+        jLabel28.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 3, 1, 3, new java.awt.Color(0, 53, 102)));
+
+        btncargadatos.setBackground(new java.awt.Color(230, 230, 230));
+        btncargadatos.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
+        btncargadatos.setForeground(new java.awt.Color(0, 53, 102));
+        btncargadatos.setText("Cargar Datos");
+        btncargadatos.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 3, 1, 3, new java.awt.Color(0, 53, 102)));
+        btncargadatos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btncargadatos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btncargadatosActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(21, Short.MAX_VALUE)
+                .addContainerGap(36, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -176,8 +195,9 @@ private String idEmpleado;
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel17)
-                                    .addComponent(jLabel19))
-                                .addGap(18, 18, 18)
+                                    .addComponent(jLabel19)
+                                    .addComponent(btnRealizar, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addComponent(lblsaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -186,40 +206,42 @@ private String idEmpleado;
                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addComponent(txtmonto, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jLabel9)))))
-                        .addContainerGap())
+                                        .addComponent(jLabel9))))
+                            .addComponent(btncargadatos, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(30, 30, 30))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(btnRealizar, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(94, 94, 94))))
+                        .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(48, 48, 48))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(27, 27, 27)
+                .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel14)
                         .addComponent(txtCuentadar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel8))
-                .addGap(18, 18, 18)
+                .addGap(20, 20, 20)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(passContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel15))
                     .addComponent(btntVerOcultar, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addGap(18, 18, 18)
+                .addGap(20, 20, 20)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(lbltipoCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel12))
-                .addGap(18, 18, 18)
+                .addGap(20, 20, 20)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblsaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(lblsaldo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel11))
-                .addGap(18, 18, 18)
+                .addGap(20, 20, 20)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -227,14 +249,16 @@ private String idEmpleado;
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(txtmonto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(52, 52, 52)
-                .addComponent(btnRealizar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20))
+                .addGap(32, 32, 32)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnRealizar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btncargadatos, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(40, 40, 40))
         );
 
         jLabel3.setFont(new java.awt.Font("Serif", 1, 48)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(212, 175, 55));
-        jLabel3.setText("   Nueva Banco Perú  ");
+        jLabel3.setText("     Nueva Banco Perú  ");
         jLabel3.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 3, 1, 3, new java.awt.Color(212, 175, 55)));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -304,7 +328,7 @@ private String idEmpleado;
         String cuentaCliente = txtCuentadar.getText();
         String contraseñaCliente = new String(passContraseña.getPassword());
         String cuentaRemitente = "00001RET";
-        double Monto = Double.parseDouble(txtmonto.getText());
+        String MontoString = txtmonto.getText();
         String tipoTransaccion = "Retiro";
         String descripcion = "Realizada por un empleado autorizado";
             if(!existeCuenta(cuentaCliente)){
@@ -315,6 +339,11 @@ private String idEmpleado;
             JOptionPane.showMessageDialog(null, "La cuenta se encuentra inactiva.", "Error", JOptionPane.ERROR_MESSAGE);
                 return;
             }
+            if(!MontoString.matches("^\\d*\\.?\\d+$")){
+                JOptionPane.showMessageDialog(null,"Ingresar un montos Valido","Error",JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+            double Monto = Double.parseDouble(MontoString);
             if(!comprobarSaldo(cuentaCliente, Monto)){
             JOptionPane.showMessageDialog(null, "Saldo insuficiente.", "Error", JOptionPane.ERROR_MESSAGE);
                 return;
@@ -323,7 +352,7 @@ private String idEmpleado;
                 JOptionPane.showMessageDialog(null, "Contraseña incorrecta.", "Error", JOptionPane.ERROR_MESSAGE);
                 return;
             }
-            if(cuentaCliente.isEmpty()||contraseñaCliente.isEmpty()||Monto==0.0){
+            if(cuentaCliente.isEmpty()||contraseñaCliente.isEmpty()||MontoString.isEmpty()){
                 JOptionPane.showMessageDialog(null, "Completar los campos.", "Error", JOptionPane.ERROR_MESSAGE);
                 return;
             }
@@ -346,14 +375,25 @@ private String idEmpleado;
                 psInsert.setDouble(6, Monto);
                 psInsert.setString(7, cuentaRemitente);
                 psInsert.executeUpdate();
-
                 JOptionPane.showMessageDialog(null, "El retiro se realizada con éxito","Felicidades",JOptionPane.INFORMATION_MESSAGE);
                 txtmonto.setText("");
+                voucherPago pVoucherPago = new voucherPago(idTransaccion);
+                pVoucherPago.setVisible(true);
+                pVoucherPago.setLocationRelativeTo(null);
 
             } catch (SQLException e) {
                 JOptionPane.showMessageDialog(null, "Algo salio mal :c","Error",JOptionPane.WARNING_MESSAGE);
             }            
     }//GEN-LAST:event_btnRealizarActionPerformed
+
+    private void btncargadatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncargadatosActionPerformed
+        String cuentaCliente = txtCuentadar.getText();
+        String contraseñaCliente = new String(passContraseña.getPassword());
+        if (!comprobarTransferencia(cuentaCliente, contraseñaCliente, lblsaldo, lbltipoCuenta)) {
+            JOptionPane.showMessageDialog(null, "Contraseña incorrecta", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+    }//GEN-LAST:event_btncargadatosActionPerformed
     private boolean existeCuenta(String cuenta) {
         String sql = "SELECT COUNT(*) FROM cuenta WHERE idcuenta = ?";
         try (Connection conn = DBConnection.getConnection();
@@ -465,6 +505,7 @@ private String idEmpleado;
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnRealizar;
+    private javax.swing.JButton btncargadatos;
     private javax.swing.JToggleButton btntVerOcultar;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -473,6 +514,7 @@ private String idEmpleado;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
