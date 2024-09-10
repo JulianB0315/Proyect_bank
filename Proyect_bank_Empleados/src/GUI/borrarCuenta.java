@@ -4,6 +4,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.awt.Image;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import DB.DBConnection;
@@ -12,6 +15,11 @@ public class borrarCuenta extends javax.swing.JFrame {
 
     public borrarCuenta() {
         initComponents();
+        this.setTitle("Alterar Cuentas");
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        ImageIcon icon = new ImageIcon(getClass().getResource("/img/logo.png"));
+        Image logo = icon.getImage();
+        setIconImage(logo);
     }
 
     /**

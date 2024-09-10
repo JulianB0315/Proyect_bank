@@ -254,7 +254,7 @@ private String idEmpleado;
     }//GEN-LAST:event_btnHistorialTransacionActionPerformed
 
     private void btnTransaccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTransaccionActionPerformed
-        tranferenciaEmpleado pTranferenciaEmpleado = new tranferenciaEmpleado(idEmpleado);
+        operacionesEmpleado pTranferenciaEmpleado = new operacionesEmpleado(idEmpleado);
         pTranferenciaEmpleado.setVisible(true);
         pTranferenciaEmpleado.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnTransaccionActionPerformed
