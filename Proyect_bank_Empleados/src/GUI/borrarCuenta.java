@@ -12,14 +12,15 @@ import javax.swing.table.DefaultTableModel;
 import DB.DBConnection;
 
 public class borrarCuenta extends javax.swing.JFrame {
-
-    public borrarCuenta() {
+    private String idEmpleado;
+    public borrarCuenta(String idEmpleado) {
         initComponents();
         this.setTitle("Alterar Cuentas");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         ImageIcon icon = new ImageIcon(getClass().getResource("/img/logo.png"));
         Image logo = icon.getImage();
         setIconImage(logo);
+        this.idEmpleado = idEmpleado;
     }
 
     /**
@@ -45,6 +46,9 @@ public class borrarCuenta extends javax.swing.JFrame {
         btnActivar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
+        jMenuBar2 = new javax.swing.JMenuBar();
+        jMenu2 = new javax.swing.JMenu();
+        itmVolver1 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -196,7 +200,8 @@ public class borrarCuenta extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Serif", 1, 48)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(212, 175, 55));
-        jLabel3.setText("              Nueva Banco Perú  ");
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logo02.png"))); // NOI18N
+        jLabel3.setText("    Nueva Banco Perú  ");
         jLabel3.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 3, 1, 3, new java.awt.Color(212, 175, 55)));
 
         jPanel3.setBackground(new java.awt.Color(212, 175, 55));
@@ -231,9 +236,34 @@ public class borrarCuenta extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
+
+        jMenuBar2.setBackground(new java.awt.Color(230, 230, 230));
+        jMenuBar2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 53, 102)));
+        jMenuBar2.setForeground(new java.awt.Color(0, 53, 102));
+        jMenuBar2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        jMenu2.setBackground(new java.awt.Color(230, 230, 230));
+        jMenu2.setForeground(new java.awt.Color(0, 53, 102));
+        jMenu2.setText("Volver");
+        jMenu2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        itmVolver1.setBackground(new java.awt.Color(230, 230, 230));
+        itmVolver1.setFont(new java.awt.Font("Serif", 1, 12)); // NOI18N
+        itmVolver1.setForeground(new java.awt.Color(0, 53, 102));
+        itmVolver1.setText("Volver");
+        itmVolver1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itmVolver1ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(itmVolver1);
+
+        jMenuBar2.add(jMenu2);
+
+        setJMenuBar(jMenuBar2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -250,6 +280,13 @@ public class borrarCuenta extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void itmVolver1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmVolver1ActionPerformed
+        interfazEmpleado pEmpleado = new interfazEmpleado(idEmpleado);
+        pEmpleado.setVisible(true);
+        pEmpleado.setLocationRelativeTo(null);
+        this.dispose();
+    }//GEN-LAST:event_itmVolver1ActionPerformed
 
     private void txtCuentaActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_txtCuentaActionPerformed
         // TODO add your handling code here:
@@ -393,8 +430,14 @@ public class borrarCuenta extends javax.swing.JFrame {
     private javax.swing.JButton btnBorrar;
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnDesactivar;
+    private javax.swing.JMenuItem itmVolver;
+    private javax.swing.JMenuItem itmVolver1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

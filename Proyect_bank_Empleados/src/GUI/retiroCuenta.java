@@ -56,6 +56,11 @@ private String idEmpleado;
         jLabel28 = new javax.swing.JLabel();
         btncargadatos = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        itmVolver = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        itmLimpiar = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -107,6 +112,7 @@ private String idEmpleado;
         btnRealizar.setBackground(new java.awt.Color(230, 230, 230));
         btnRealizar.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
         btnRealizar.setForeground(new java.awt.Color(0, 53, 102));
+        btnRealizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/retiro.png"))); // NOI18N
         btnRealizar.setText("Realizar retiro");
         btnRealizar.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 3, 1, 3, new java.awt.Color(0, 53, 102)));
         btnRealizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -155,6 +161,7 @@ private String idEmpleado;
         btncargadatos.setBackground(new java.awt.Color(230, 230, 230));
         btncargadatos.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
         btncargadatos.setForeground(new java.awt.Color(0, 53, 102));
+        btncargadatos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cargar.png"))); // NOI18N
         btncargadatos.setText("Cargar Datos");
         btncargadatos.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 3, 1, 3, new java.awt.Color(0, 53, 102)));
         btncargadatos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -258,7 +265,8 @@ private String idEmpleado;
 
         jLabel3.setFont(new java.awt.Font("Serif", 1, 48)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(212, 175, 55));
-        jLabel3.setText("     Nueva Banco Perú  ");
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logo02.png"))); // NOI18N
+        jLabel3.setText("Nueva Banco Perú  ");
         jLabel3.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 3, 1, 3, new java.awt.Color(212, 175, 55)));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -281,6 +289,47 @@ private String idEmpleado;
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(20, Short.MAX_VALUE))
         );
+
+        jMenuBar1.setBackground(new java.awt.Color(230, 230, 230));
+        jMenuBar1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 53, 102)));
+        jMenuBar1.setForeground(new java.awt.Color(0, 53, 102));
+        jMenuBar1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        jMenu1.setBackground(new java.awt.Color(230, 230, 230));
+        jMenu1.setForeground(new java.awt.Color(0, 53, 102));
+        jMenu1.setText("Volver");
+        jMenu1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        itmVolver.setBackground(new java.awt.Color(230, 230, 230));
+        itmVolver.setFont(new java.awt.Font("Serif", 1, 12)); // NOI18N
+        itmVolver.setForeground(new java.awt.Color(0, 53, 102));
+        itmVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/volver.png"))); // NOI18N
+        itmVolver.setText("Volver");
+        itmVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itmVolverActionPerformed(evt);
+            }
+        });
+        jMenu1.add(itmVolver);
+
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setForeground(new java.awt.Color(0, 53, 102));
+        jMenu2.setText("Limpiar");
+
+        itmLimpiar.setBackground(new java.awt.Color(230, 230, 230));
+        itmLimpiar.setForeground(new java.awt.Color(0, 53, 102));
+        itmLimpiar.setText("Limpiar");
+        itmLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itmLimpiarActionPerformed(evt);
+            }
+        });
+        jMenu2.add(itmLimpiar);
+
+        jMenuBar1.add(jMenu2);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -394,6 +443,17 @@ private String idEmpleado;
             return;
         }
     }//GEN-LAST:event_btncargadatosActionPerformed
+
+    private void itmVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmVolverActionPerformed
+        interfazEmpleado pEmpleado = new interfazEmpleado(idEmpleado);
+        pEmpleado.setVisible(true);
+        pEmpleado.setLocationRelativeTo(null);
+        this.dispose();
+    }//GEN-LAST:event_itmVolverActionPerformed
+
+    private void itmLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmLimpiarActionPerformed
+
+    }//GEN-LAST:event_itmLimpiarActionPerformed
     private boolean existeCuenta(String cuenta) {
         String sql = "SELECT COUNT(*) FROM cuenta WHERE idcuenta = ?";
         try (Connection conn = DBConnection.getConnection();
@@ -507,6 +567,8 @@ private String idEmpleado;
     private javax.swing.JButton btnRealizar;
     private javax.swing.JButton btncargadatos;
     private javax.swing.JToggleButton btntVerOcultar;
+    private javax.swing.JMenuItem itmLimpiar;
+    private javax.swing.JMenuItem itmVolver;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel14;
@@ -518,6 +580,9 @@ private String idEmpleado;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lblsaldo;

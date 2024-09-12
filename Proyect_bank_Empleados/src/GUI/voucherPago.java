@@ -92,6 +92,7 @@ public class voucherPago extends javax.swing.JFrame {
         btninprimir.setBackground(new java.awt.Color(230, 230, 230));
         btninprimir.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
         btninprimir.setForeground(new java.awt.Color(0, 53, 102));
+        btninprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/inprimir.png"))); // NOI18N
         btninprimir.setText("Inprimir");
         btninprimir.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 3, 1, 3, new java.awt.Color(0, 53, 102)));
         btninprimir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -126,7 +127,8 @@ public class voucherPago extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Serif", 1, 48)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(212, 175, 55));
-        jLabel3.setText("     Nueva Banco Perú  ");
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logo02.png"))); // NOI18N
+        jLabel3.setText("Nueva Banco Perú  ");
         jLabel3.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 3, 1, 3, new java.awt.Color(212, 175, 55)));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
