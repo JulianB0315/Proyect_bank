@@ -11,6 +11,7 @@ import javax.swing.JOptionPane;
 import java.util.Random;
 import java.awt.Image;
 import javax.swing.JFrame;
+import java.awt.Window;
 
 public class CrearCuenta extends javax.swing.JFrame {
 private String idEmpleado;
@@ -61,6 +62,8 @@ private String idEmpleado;
         itmVolver = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         itmLimpiar = new javax.swing.JMenuItem();
+        nmSalir = new javax.swing.JMenu();
+        itemCerrar = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -137,6 +140,7 @@ private String idEmpleado;
         btnCrearCuenta.setBackground(new java.awt.Color(230, 230, 230));
         btnCrearCuenta.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
         btnCrearCuenta.setForeground(new java.awt.Color(0, 53, 102));
+        btnCrearCuenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/realizar.png"))); // NOI18N
         btnCrearCuenta.setText("Crear Cuenta");
         btnCrearCuenta.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 3, 1, 3, new java.awt.Color(0, 53, 102)));
         btnCrearCuenta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -317,6 +321,22 @@ private String idEmpleado;
 
         jMenuBar1.add(jMenu2);
 
+        nmSalir.setForeground(new java.awt.Color(0, 53, 102));
+        nmSalir.setText("Salir");
+
+        itemCerrar.setBackground(new java.awt.Color(230, 230, 230));
+        itemCerrar.setForeground(new java.awt.Color(0, 53, 102));
+        itemCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/x - copia.png"))); // NOI18N
+        itemCerrar.setText("Cerrar todo");
+        itemCerrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemCerrarActionPerformed(evt);
+            }
+        });
+        nmSalir.add(itemCerrar);
+
+        jMenuBar1.add(nmSalir);
+
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -345,8 +365,18 @@ private String idEmpleado;
     }//GEN-LAST:event_itmVolverActionPerformed
 
     private void itmLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmLimpiarActionPerformed
-
+        txtuserCliente.setText("");
+        passContraseña.setText("");
+        passContraseñaConfirmar.setText("");
     }//GEN-LAST:event_itmLimpiarActionPerformed
+
+    private void itemCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemCerrarActionPerformed
+        Window[] windows = Window.getWindows();
+        for (Window window : windows) {
+            window.dispose();
+        }
+        System.exit(0);
+    }//GEN-LAST:event_itemCerrarActionPerformed
 
     private void passContraseñaActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_passContraseñaActionPerformed
         // TODO add your handling code here:
@@ -468,6 +498,7 @@ private String idEmpleado;
     private javax.swing.JToggleButton btntVerOcultar;
     private javax.swing.JToggleButton btntVerOcultarConfrimar;
     private javax.swing.ButtonGroup grpTipoCuenta;
+    private javax.swing.JMenuItem itemCerrar;
     private javax.swing.JMenuItem itmLimpiar;
     private javax.swing.JMenuItem itmVolver;
     private javax.swing.JLabel jLabel1;
@@ -484,6 +515,7 @@ private String idEmpleado;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JMenu nmSalir;
     private javax.swing.JPasswordField passContraseña;
     private javax.swing.JPasswordField passContraseñaConfirmar;
     private javax.swing.JRadioButton rdoCredito;

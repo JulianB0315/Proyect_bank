@@ -12,7 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import DB.DBConnection;
 import java.awt.Image;
-
+import java.awt.Window;
 
 public class transferanciaCuentaCuenta extends javax.swing.JFrame {
     private String idEmpleado;
@@ -66,6 +66,8 @@ public class transferanciaCuentaCuenta extends javax.swing.JFrame {
         itmVolver = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         itmLimpiar = new javax.swing.JMenuItem();
+        nmSalir = new javax.swing.JMenu();
+        itemCerrar = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -365,6 +367,22 @@ public class transferanciaCuentaCuenta extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu2);
 
+        nmSalir.setForeground(new java.awt.Color(0, 53, 102));
+        nmSalir.setText("Salir");
+
+        itemCerrar.setBackground(new java.awt.Color(230, 230, 230));
+        itemCerrar.setForeground(new java.awt.Color(0, 53, 102));
+        itemCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/x - copia.png"))); // NOI18N
+        itemCerrar.setText("Cerrar todo");
+        itemCerrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemCerrarActionPerformed(evt);
+            }
+        });
+        nmSalir.add(itemCerrar);
+
+        jMenuBar1.add(nmSalir);
+
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -382,7 +400,12 @@ public class transferanciaCuentaCuenta extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btncargadatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncargadatosActionPerformed
-        
+        String cuentaCliente = txtCuentadar.getText();
+        String contraseñaCliente = new String(passContraseña.getPassword());
+        if (!comprobarTransferencia(cuentaCliente, contraseñaCliente, lblsaldo, lbltipoCuenta)) {
+            JOptionPane.showMessageDialog(null, "Contraseña incorrecta", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
     }//GEN-LAST:event_btncargadatosActionPerformed
 
     private void itmVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmVolverActionPerformed
@@ -393,16 +416,24 @@ public class transferanciaCuentaCuenta extends javax.swing.JFrame {
     }//GEN-LAST:event_itmVolverActionPerformed
 
     private void itmLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmLimpiarActionPerformed
-       
+        txtCuentadar.setText("");
+        passContraseña.setText("");
+        lbltipoCuenta.setText("");
+        lblsaldo.setText("");
+        txtCuentaRemitente.setText("");
+        txtmonto.setText("");
     }//GEN-LAST:event_itmLimpiarActionPerformed
 
-    private void txtCuentadarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_txtCuentadarActionPerformed
-        String cuentaCliente = txtCuentadar.getText();
-        String contraseñaCliente = new String(passContraseña.getPassword());
-        if (!comprobarTransferencia(cuentaCliente, contraseñaCliente, lblsaldo, lbltipoCuenta)) {
-            JOptionPane.showMessageDialog(null, "Contraseña incorrecta", "Error", JOptionPane.ERROR_MESSAGE);
-            return;
+    private void itemCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemCerrarActionPerformed
+        Window[] windows = Window.getWindows(); 
+        for (Window window : windows) {
+            window.dispose();
         }
+        System.exit(0); 
+    }//GEN-LAST:event_itemCerrarActionPerformed
+
+    private void txtCuentadarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_txtCuentadarActionPerformed
+       
     }// GEN-LAST:event_txtCuentadarActionPerformed
 
     private void passContraseñaActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_passContraseñaActionPerformed
@@ -620,6 +651,7 @@ public class transferanciaCuentaCuenta extends javax.swing.JFrame {
     private javax.swing.JButton btnRealizar;
     private javax.swing.JButton btncargadatos;
     private javax.swing.JToggleButton btntVerOcultar;
+    private javax.swing.JMenuItem itemCerrar;
     private javax.swing.JMenuItem itmLimpiar;
     private javax.swing.JMenuItem itmVolver;
     private javax.swing.JLabel jLabel10;
@@ -642,6 +674,7 @@ public class transferanciaCuentaCuenta extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lblsaldo;
     private javax.swing.JLabel lbltipoCuenta;
+    private javax.swing.JMenu nmSalir;
     private javax.swing.JPasswordField passContraseña;
     private javax.swing.JTextField txtCuentaRemitente;
     private javax.swing.JTextField txtCuentadar;

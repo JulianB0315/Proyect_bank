@@ -16,6 +16,7 @@ import DB.DBConnection;
 import java.awt.Image;
 import javax.swing.JFrame;
 import javax.swing.ImageIcon;
+import java.awt.Window;
 
 public class CrearCliente extends javax.swing.JFrame {
 private String idEmpleado;
@@ -73,6 +74,8 @@ private String idEmpleado;
         itmVolver = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         itmLimpiar = new javax.swing.JMenuItem();
+        nmSalir = new javax.swing.JMenu();
+        itemCerrar = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -383,6 +386,22 @@ private String idEmpleado;
 
         jMenuBar1.add(jMenu2);
 
+        nmSalir.setForeground(new java.awt.Color(0, 53, 102));
+        nmSalir.setText("Salir");
+
+        itemCerrar.setBackground(new java.awt.Color(230, 230, 230));
+        itemCerrar.setForeground(new java.awt.Color(0, 53, 102));
+        itemCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/x - copia.png"))); // NOI18N
+        itemCerrar.setText("Cerrar todo");
+        itemCerrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemCerrarActionPerformed(evt);
+            }
+        });
+        nmSalir.add(itemCerrar);
+
+        jMenuBar1.add(nmSalir);
+
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -531,6 +550,14 @@ private String idEmpleado;
         txtdireccion.setText("");
         txttelefono.setText("");
     }//GEN-LAST:event_itmLimpiarActionPerformed
+
+    private void itemCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemCerrarActionPerformed
+        Window[] windows = Window.getWindows();
+        for (Window window : windows) {
+            window.dispose();
+        }
+        System.exit(0);
+    }//GEN-LAST:event_itemCerrarActionPerformed
     private String generateIdCliente() {
         String prefix = "CL";
         String characters = "0123456789";
@@ -572,6 +599,7 @@ private String idEmpleado;
     private javax.swing.JButton btnCrearRegsitro;
     private com.toedter.calendar.JDateChooser clrfechanacimiento;
     private javax.swing.JRadioButton femenino;
+    private javax.swing.JMenuItem itemCerrar;
     private javax.swing.JMenuItem itmLimpiar;
     private javax.swing.JMenuItem itmVolver;
     private javax.swing.JLabel jLabel1;
@@ -597,6 +625,7 @@ private String idEmpleado;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JRadioButton masculino;
+    private javax.swing.JMenu nmSalir;
     private javax.swing.JRadioButton otros;
     private javax.swing.JTextField txtCorreo;
     private javax.swing.JTextField txtapellidos;

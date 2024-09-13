@@ -11,6 +11,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import DB.DBConnection;
+import java.awt.Window;
 
 public class depositoCuenta extends javax.swing.JFrame {
 private String idEmpleado;
@@ -48,6 +49,8 @@ private String idEmpleado;
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         itmVolver = new javax.swing.JMenuItem();
+        nmSalir = new javax.swing.JMenu();
+        itemCerrar = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -201,6 +204,22 @@ private String idEmpleado;
 
         jMenuBar1.add(jMenu1);
 
+        nmSalir.setForeground(new java.awt.Color(0, 53, 102));
+        nmSalir.setText("Salir");
+
+        itemCerrar.setBackground(new java.awt.Color(230, 230, 230));
+        itemCerrar.setForeground(new java.awt.Color(0, 53, 102));
+        itemCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/x - copia.png"))); // NOI18N
+        itemCerrar.setText("Cerrar todo");
+        itemCerrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemCerrarActionPerformed(evt);
+            }
+        });
+        nmSalir.add(itemCerrar);
+
+        jMenuBar1.add(nmSalir);
+
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -279,6 +298,14 @@ private String idEmpleado;
         pEmpleado.setLocationRelativeTo(null);
         this.dispose();
     }//GEN-LAST:event_itmVolverActionPerformed
+
+    private void itemCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemCerrarActionPerformed
+        Window[] windows = Window.getWindows();
+        for (Window window : windows) {
+            window.dispose();
+        }
+        System.exit(0);
+    }//GEN-LAST:event_itemCerrarActionPerformed
     private void txtCuentadarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_txtCuentadarActionPerformed
         // TODO add your handling code here:
     }// GEN-LAST:event_txtCuentadarActionPerformed
@@ -337,6 +364,7 @@ private String idEmpleado;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnrealizar;
+    private javax.swing.JMenuItem itemCerrar;
     private javax.swing.JMenuItem itmVolver;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel19;
@@ -348,6 +376,7 @@ private String idEmpleado;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JMenu nmSalir;
     private javax.swing.JTextField txtCuentadar;
     private javax.swing.JTextField txtmonto;
     // End of variables declaration//GEN-END:variables
