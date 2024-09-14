@@ -345,7 +345,7 @@ private String idCliente;
             ps.setString(4, Direccionsedit);
             ps.setString(5, Telefonoedit);
             ps.setString(6, idCliente);
-            ps.executeQuery();
+            ps.executeUpdate();
             JOptionPane.showMessageDialog(null,"Se cambiaron los datos con exito","Felicidades",JOptionPane.INFORMATION_MESSAGE);
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Error en actulizar los datos", "Error",JOptionPane.WARNING_MESSAGE);
