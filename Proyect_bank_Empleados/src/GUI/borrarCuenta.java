@@ -366,7 +366,6 @@ public class borrarCuenta extends javax.swing.JFrame {
                 String sql = "UPDATE CUENTA SET ESTADO = 'activa' WHERE IDCUENTA = ?";
                 PreparedStatement pstmt = conn.prepareStatement(sql);
                 pstmt.setString(1, idCuenta);
-
                 int rowsAffected = pstmt.executeUpdate();
 
                 if (rowsAffected > 0) {
