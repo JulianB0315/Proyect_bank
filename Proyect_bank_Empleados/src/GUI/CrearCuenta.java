@@ -437,7 +437,6 @@ private String idEmpleado;
                 passContraseña.setText("");
                 passContraseñaConfirmar.setText("");
                 JOptionPane.showMessageDialog(null, "Cuenta creada exitosamente.Numero de Cuenta" + idCuenta,"Felicidades",JOptionPane.INFORMATION_MESSAGE);
-                conn.close();
             } catch (SQLException e) {
                 JOptionPane.showMessageDialog(null, "Error al insertar los datos datos");
             }
