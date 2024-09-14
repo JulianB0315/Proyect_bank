@@ -3,6 +3,16 @@ package GUI;
 
 import javax.swing.ImageIcon;
 import java.awt.Image;
+import java.awt.Window;
+import java.net.URI;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import java.awt.Desktop;
+import DB.DBConnection;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class interfazEmpleado extends javax.swing.JFrame {
 private String idEmpleado;
@@ -13,6 +23,7 @@ private String idEmpleado;
         ImageIcon icon = new ImageIcon(getClass().getResource("/img/logo.png"));
         Image logo = icon.getImage();
         setIconImage(logo);
+        saludo(idEmpleado,lblsaludo);
     }
 
     /**
@@ -26,22 +37,29 @@ private String idEmpleado;
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        btnHistorialTransacion = new javax.swing.JButton();
-        btnBorrarCuenta = new javax.swing.JButton();
-        btnCuentacrear = new javax.swing.JButton();
-        btnTransaccion = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
-        btnBuscarCliente = new javax.swing.JButton();
-        btnCrearClienta = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        lblsaludo = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
         nmSalir = new javax.swing.JMenu();
-        itemCerrar = new javax.swing.JMenuItem();
-        mnRestablecer = new javax.swing.JMenu();
-        itemRestablecer = new javax.swing.JMenuItem();
+        itmCrearClientes = new javax.swing.JMenuItem();
+        itmBuscar = new javax.swing.JMenuItem();
+        nmSalir2 = new javax.swing.JMenu();
+        itmCrearCuentas = new javax.swing.JMenuItem();
+        itmAlterarCuentas = new javax.swing.JMenuItem();
+        nmSalir3 = new javax.swing.JMenu();
+        itmHistorial = new javax.swing.JMenuItem();
+        itmMovientos = new javax.swing.JMenuItem();
+        nmAcercade = new javax.swing.JMenu();
+        itmProgramador = new javax.swing.JMenuItem();
+        itmGitHub = new javax.swing.JMenuItem();
+        nmSalir1 = new javax.swing.JMenu();
+        itemCerrar1 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -49,58 +67,6 @@ private String idEmpleado;
 
         jPanel2.setBackground(new java.awt.Color(230, 230, 230));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 53, 102), 2));
-
-        btnHistorialTransacion.setBackground(new java.awt.Color(230, 230, 230));
-        btnHistorialTransacion.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
-        btnHistorialTransacion.setForeground(new java.awt.Color(0, 53, 102));
-        btnHistorialTransacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/tramite.png"))); // NOI18N
-        btnHistorialTransacion.setText("Historial de Transacciones");
-        btnHistorialTransacion.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 3, 1, 3, new java.awt.Color(0, 53, 102)));
-        btnHistorialTransacion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnHistorialTransacion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnHistorialTransacionActionPerformed(evt);
-            }
-        });
-
-        btnBorrarCuenta.setBackground(new java.awt.Color(230, 230, 230));
-        btnBorrarCuenta.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
-        btnBorrarCuenta.setForeground(new java.awt.Color(0, 53, 102));
-        btnBorrarCuenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ckeck.png"))); // NOI18N
-        btnBorrarCuenta.setText("Alterar Cuentas");
-        btnBorrarCuenta.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 3, 1, 3, new java.awt.Color(0, 53, 102)));
-        btnBorrarCuenta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnBorrarCuenta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBorrarCuentaActionPerformed(evt);
-            }
-        });
-
-        btnCuentacrear.setBackground(new java.awt.Color(230, 230, 230));
-        btnCuentacrear.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
-        btnCuentacrear.setForeground(new java.awt.Color(0, 53, 102));
-        btnCuentacrear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cuenta.png"))); // NOI18N
-        btnCuentacrear.setText("Crear Cuenta");
-        btnCuentacrear.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 3, 1, 3, new java.awt.Color(0, 53, 102)));
-        btnCuentacrear.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnCuentacrear.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCuentacrearActionPerformed(evt);
-            }
-        });
-
-        btnTransaccion.setBackground(new java.awt.Color(230, 230, 230));
-        btnTransaccion.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
-        btnTransaccion.setForeground(new java.awt.Color(0, 53, 102));
-        btnTransaccion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/dolar.png"))); // NOI18N
-        btnTransaccion.setText("Transaccion o Retiro");
-        btnTransaccion.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 3, 1, 3, new java.awt.Color(0, 53, 102)));
-        btnTransaccion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnTransaccion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTransaccionActionPerformed(evt);
-            }
-        });
 
         jPanel3.setBackground(new java.awt.Color(0, 53, 102));
         jPanel3.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 3, 0, 3, new java.awt.Color(212, 175, 55)));
@@ -132,75 +98,59 @@ private String idEmpleado;
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        btnBuscarCliente.setBackground(new java.awt.Color(230, 230, 230));
-        btnBuscarCliente.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
-        btnBuscarCliente.setForeground(new java.awt.Color(0, 53, 102));
-        btnBuscarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/buscar.png"))); // NOI18N
-        btnBuscarCliente.setText("Buscar Cliente");
-        btnBuscarCliente.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 3, 1, 3, new java.awt.Color(0, 53, 102)));
-        btnBuscarCliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnBuscarCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuscarClienteActionPerformed(evt);
-            }
-        });
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/inicio-Interfaz.png"))); // NOI18N
 
-        btnCrearClienta.setBackground(new java.awt.Color(230, 230, 230));
-        btnCrearClienta.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
-        btnCrearClienta.setForeground(new java.awt.Color(0, 53, 102));
-        btnCrearClienta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/usuario.png"))); // NOI18N
-        btnCrearClienta.setText("Crear Cliente");
-        btnCrearClienta.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 3, 1, 3, new java.awt.Color(0, 53, 102)));
-        btnCrearClienta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnCrearClienta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCrearClientaActionPerformed(evt);
-            }
-        });
+        lblsaludo.setFont(new java.awt.Font("Serif", 1, 36)); // NOI18N
+        lblsaludo.setForeground(new java.awt.Color(0, 53, 102));
+        lblsaludo.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 3, 0, new java.awt.Color(0, 53, 102)));
+
+        jLabel8.setFont(new java.awt.Font("Serif", 1, 36)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(0, 53, 102));
+        jLabel8.setText("¿Que haremos hoy?");
+        jLabel8.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 3, 0, new java.awt.Color(0, 53, 102)));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(20, 20, 20)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 384, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel2)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnTransaccion, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBuscarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnCuentacrear, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnCrearClienta, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBorrarCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnHistorialTransacion, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(193, 193, 193)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(lblsaludo, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel8)
+                        .addGap(78, 78, 78)))
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(20, 20, 20))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 396, Short.MAX_VALUE)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 396, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnCuentacrear, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnBuscarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnCrearClienta, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnBorrarCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnHistorialTransacion, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnTransaccion, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24))
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel2))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(68, 68, 68)
+                        .addComponent(lblsaludo, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         jLabel1.setFont(new java.awt.Font("Serif", 1, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(212, 175, 55));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logo02.png"))); // NOI18N
-        jLabel1.setText("                    Nueva Banco Perú");
+        jLabel1.setText("                   Nueva Banco Perú");
         jLabel1.setToolTipText("");
         jLabel1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 3, 1, 3, new java.awt.Color(212, 175, 55)));
 
@@ -234,17 +184,17 @@ private String idEmpleado;
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(20, 20, 20)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                        .addGap(20, 20, 20)
                         .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(20, 20, 20))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -253,11 +203,11 @@ private String idEmpleado;
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(20, Short.MAX_VALUE))
-                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addContainerGap(26, Short.MAX_VALUE))
+                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         jMenuBar1.setBackground(new java.awt.Color(230, 230, 230));
@@ -266,36 +216,133 @@ private String idEmpleado;
         jMenuBar1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         nmSalir.setForeground(new java.awt.Color(0, 53, 102));
-        nmSalir.setText("Salir");
+        nmSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/hombre-avatar-icon.png"))); // NOI18N
+        nmSalir.setText("Clientes");
 
-        itemCerrar.setBackground(new java.awt.Color(230, 230, 230));
-        itemCerrar.setForeground(new java.awt.Color(0, 53, 102));
-        itemCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/x - copia.png"))); // NOI18N
-        itemCerrar.setText("Cerrar todo");
-        itemCerrar.addActionListener(new java.awt.event.ActionListener() {
+        itmCrearClientes.setBackground(new java.awt.Color(230, 230, 230));
+        itmCrearClientes.setForeground(new java.awt.Color(0, 53, 102));
+        itmCrearClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/lista-de-verificacion-icon.png"))); // NOI18N
+        itmCrearClientes.setText("Crear Cliente");
+        itmCrearClientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                itemCerrarActionPerformed(evt);
+                itmCrearClientesActionPerformed(evt);
             }
         });
-        nmSalir.add(itemCerrar);
+        nmSalir.add(itmCrearClientes);
+
+        itmBuscar.setBackground(new java.awt.Color(230, 230, 230));
+        itmBuscar.setForeground(new java.awt.Color(0, 53, 102));
+        itmBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/buscar-icon.png"))); // NOI18N
+        itmBuscar.setText("Buscar Clientes");
+        itmBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itmBuscarActionPerformed(evt);
+            }
+        });
+        nmSalir.add(itmBuscar);
 
         jMenuBar1.add(nmSalir);
 
-        mnRestablecer.setForeground(new java.awt.Color(0, 53, 102));
-        mnRestablecer.setText("Restablecer datos");
+        nmSalir2.setForeground(new java.awt.Color(0, 53, 102));
+        nmSalir2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cuenta-bancaria-icon.png"))); // NOI18N
+        nmSalir2.setText("Cuentas");
 
-        itemRestablecer.setBackground(new java.awt.Color(230, 230, 230));
-        itemRestablecer.setForeground(new java.awt.Color(0, 53, 102));
-        itemRestablecer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cargar - copia.png"))); // NOI18N
-        itemRestablecer.setText("Restaurar datos");
-        itemRestablecer.addActionListener(new java.awt.event.ActionListener() {
+        itmCrearCuentas.setBackground(new java.awt.Color(230, 230, 230));
+        itmCrearCuentas.setForeground(new java.awt.Color(0, 53, 102));
+        itmCrearCuentas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/tarjeta-de-credito-icon.png"))); // NOI18N
+        itmCrearCuentas.setText("Crear Cuenta");
+        itmCrearCuentas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                itemRestablecerActionPerformed(evt);
+                itmCrearCuentasActionPerformed(evt);
             }
         });
-        mnRestablecer.add(itemRestablecer);
+        nmSalir2.add(itmCrearCuentas);
 
-        jMenuBar1.add(mnRestablecer);
+        itmAlterarCuentas.setBackground(new java.awt.Color(230, 230, 230));
+        itmAlterarCuentas.setForeground(new java.awt.Color(0, 53, 102));
+        itmAlterarCuentas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cuenta-icon.png"))); // NOI18N
+        itmAlterarCuentas.setText("Alterar Cuentas");
+        itmAlterarCuentas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itmAlterarCuentasActionPerformed(evt);
+            }
+        });
+        nmSalir2.add(itmAlterarCuentas);
+
+        jMenuBar1.add(nmSalir2);
+
+        nmSalir3.setForeground(new java.awt.Color(0, 53, 102));
+        nmSalir3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/transferencia-de-dinero-icon.png"))); // NOI18N
+        nmSalir3.setText("Transferancias");
+
+        itmHistorial.setBackground(new java.awt.Color(230, 230, 230));
+        itmHistorial.setForeground(new java.awt.Color(0, 53, 102));
+        itmHistorial.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/historial-de-transacciones-icon.png"))); // NOI18N
+        itmHistorial.setText("Historial");
+        itmHistorial.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itmHistorialActionPerformed(evt);
+            }
+        });
+        nmSalir3.add(itmHistorial);
+
+        itmMovientos.setBackground(new java.awt.Color(230, 230, 230));
+        itmMovientos.setForeground(new java.awt.Color(0, 53, 102));
+        itmMovientos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Registro-icon.png"))); // NOI18N
+        itmMovientos.setText("Movimientos bancarios");
+        itmMovientos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itmMovientosActionPerformed(evt);
+            }
+        });
+        nmSalir3.add(itmMovientos);
+
+        jMenuBar1.add(nmSalir3);
+
+        nmAcercade.setForeground(new java.awt.Color(0, 53, 102));
+        nmAcercade.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/pregunta-icon.png"))); // NOI18N
+        nmAcercade.setText("Acerca de");
+
+        itmProgramador.setBackground(new java.awt.Color(230, 230, 230));
+        itmProgramador.setForeground(new java.awt.Color(0, 53, 102));
+        itmProgramador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/programador-icon.png"))); // NOI18N
+        itmProgramador.setText("Programdor:Julian Burga Bracamonte");
+        itmProgramador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itmProgramadorActionPerformed(evt);
+            }
+        });
+        nmAcercade.add(itmProgramador);
+
+        itmGitHub.setBackground(new java.awt.Color(230, 230, 230));
+        itmGitHub.setForeground(new java.awt.Color(0, 53, 102));
+        itmGitHub.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/github-icon.png"))); // NOI18N
+        itmGitHub.setText("Github");
+        itmGitHub.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itmGitHubActionPerformed(evt);
+            }
+        });
+        nmAcercade.add(itmGitHub);
+
+        jMenuBar1.add(nmAcercade);
+
+        nmSalir1.setForeground(new java.awt.Color(0, 53, 102));
+        nmSalir1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/salida-icon.png"))); // NOI18N
+        nmSalir1.setText("Salir");
+
+        itemCerrar1.setBackground(new java.awt.Color(230, 230, 230));
+        itemCerrar1.setForeground(new java.awt.Color(0, 53, 102));
+        itemCerrar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/x - copia.png"))); // NOI18N
+        itemCerrar1.setText("Cerrar todo");
+        itemCerrar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemCerrar1ActionPerformed(evt);
+            }
+        });
+        nmSalir1.add(itemCerrar1);
+
+        jMenuBar1.add(nmSalir1);
 
         setJMenuBar(jMenuBar1);
 
@@ -313,64 +360,99 @@ private String idEmpleado;
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnCuentacrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCuentacrearActionPerformed
-       CrearCuenta pCrearCuenta = new CrearCuenta(idEmpleado);
-       pCrearCuenta.setVisible(true);
-       pCrearCuenta.setLocationRelativeTo(null);
-    }//GEN-LAST:event_btnCuentacrearActionPerformed
-
-    private void btnBorrarCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrarCuentaActionPerformed
-        borrarCuenta pBorrarCuenta = new borrarCuenta(idEmpleado);
-        pBorrarCuenta.setVisible(true);
-        pBorrarCuenta.setLocationRelativeTo(null);
-    }//GEN-LAST:event_btnBorrarCuentaActionPerformed
-
-    private void btnHistorialTransacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHistorialTransacionActionPerformed
-        historialTransaccion pHistorialTransaccion = new historialTransaccion(idEmpleado);
-        pHistorialTransaccion.setVisible(true);
-        pHistorialTransaccion.setLocationRelativeTo(null);
-    }//GEN-LAST:event_btnHistorialTransacionActionPerformed
-
-    private void btnTransaccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTransaccionActionPerformed
-        operacionesEmpleado pTranferenciaEmpleado = new operacionesEmpleado(idEmpleado);
-        pTranferenciaEmpleado.setVisible(true);
-        pTranferenciaEmpleado.setLocationRelativeTo(null);
-    }//GEN-LAST:event_btnTransaccionActionPerformed
-
-    private void btnBuscarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarClienteActionPerformed
-        buscarBaseCliente pCliente  = new buscarBaseCliente(idEmpleado);
-        pCliente.setVisible(true);
-        pCliente.setLocationRelativeTo(null);
-    }//GEN-LAST:event_btnBuscarClienteActionPerformed
-
-    private void btnCrearClientaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearClientaActionPerformed
+    private void itmCrearClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmCrearClientesActionPerformed
        CrearCliente pCrearCliente = new CrearCliente(idEmpleado);
        pCrearCliente.setVisible(true);
        pCrearCliente.setLocationRelativeTo(null);
-    }//GEN-LAST:event_btnCrearClientaActionPerformed
+    }//GEN-LAST:event_itmCrearClientesActionPerformed
 
-    private void itemCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemCerrarActionPerformed
+    private void itemCerrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemCerrar1ActionPerformed
         Window[] windows = Window.getWindows();
         for (Window window : windows) {
             window.dispose();
         }
         System.exit(0);
-    }//GEN-LAST:event_itemCerrarActionPerformed
+    }//GEN-LAST:event_itemCerrar1ActionPerformed
 
-    private void itemRestablecerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemRestablecerActionPerformed
-        cargarDatosCliente(idCliente, txtNombres, txtApellidos, txtCorreo, txtDireccion, txtTelefono);
-    }//GEN-LAST:event_itemRestablecerActionPerformed
+    private void itmCrearCuentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmCrearCuentasActionPerformed
+        CrearCuenta pCrearCuenta = new CrearCuenta(idEmpleado);
+       pCrearCuenta.setVisible(true);
+       pCrearCuenta.setLocationRelativeTo(null);
+    }//GEN-LAST:event_itmCrearCuentasActionPerformed
 
+    private void itmHistorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmHistorialActionPerformed
+        historialTransaccion pHistorialTransaccion = new historialTransaccion(idEmpleado);
+        pHistorialTransaccion.setVisible(true);
+        pHistorialTransaccion.setLocationRelativeTo(null);
+    }//GEN-LAST:event_itmHistorialActionPerformed
+
+    private void itmBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmBuscarActionPerformed
+        buscarBaseCliente pCliente  = new buscarBaseCliente(idEmpleado);
+        pCliente.setVisible(true);
+        pCliente.setLocationRelativeTo(null);
+    }//GEN-LAST:event_itmBuscarActionPerformed
+
+    private void itmAlterarCuentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmAlterarCuentasActionPerformed
+        borrarCuenta pBorrarCuenta = new borrarCuenta(idEmpleado);
+        pBorrarCuenta.setVisible(true);
+        pBorrarCuenta.setLocationRelativeTo(null);
+    }//GEN-LAST:event_itmAlterarCuentasActionPerformed
+
+    private void itmMovientosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmMovientosActionPerformed
+        operacionesEmpleado pTranferenciaEmpleado = new operacionesEmpleado(idEmpleado);
+        pTranferenciaEmpleado.setVisible(true);
+        pTranferenciaEmpleado.setLocationRelativeTo(null);
+    }//GEN-LAST:event_itmMovientosActionPerformed
+
+    private void itmProgramadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmProgramadorActionPerformed
+        try {
+            if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
+                URI uri = new URI("https://julianb0315.github.io/");
+                Desktop.getDesktop().browse(uri);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_itmProgramadorActionPerformed
+
+    private void itmGitHubActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmGitHubActionPerformed
+        try {
+        if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
+            URI uri = new URI("https://github.com/JulianB0315");
+            Desktop.getDesktop().browse(uri);
+        }
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+    }//GEN-LAST:event_itmGitHubActionPerformed
+    private void saludo(String idEmpleado,JLabel lblsaludo){
+        String sql="SELECT NOMBRE FROM EMPLEADO WHERE IDEMPLEADO = ?";
+        String Nombre =null;
+        try(Connection conn = DBConnection.getConnection()){
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, idEmpleado);
+            ResultSet rs=ps.executeQuery();
+            if (rs.next()) {
+                Nombre=rs.getString("NOMBRE");
+                lblsaludo.setText("Hola "+Nombre+" un gusto verte");
+            }
+        }catch (SQLException e) {
+            JOptionPane.showMessageDialog(null,"Algo salio mal", "Error", JOptionPane.WARNING_MESSAGE);
+        }
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBorrarCuenta;
-    private javax.swing.JButton btnBuscarCliente;
-    private javax.swing.JButton btnCrearClienta;
-    private javax.swing.JButton btnCuentacrear;
-    private javax.swing.JButton btnHistorialTransacion;
-    private javax.swing.JButton btnTransaccion;
-    private javax.swing.JMenuItem itemCerrar;
-    private javax.swing.JMenuItem itemRestablecer;
+    private javax.swing.JMenuItem itemCerrar1;
+    private javax.swing.JMenuItem itmAlterarCuentas;
+    private javax.swing.JMenuItem itmBuscar;
+    private javax.swing.JMenuItem itmCrearClientes;
+    private javax.swing.JMenuItem itmCrearCuentas;
+    private javax.swing.JMenuItem itmGitHub;
+    private javax.swing.JMenuItem itmHistorial;
+    private javax.swing.JMenuItem itmMovientos;
+    private javax.swing.JMenuItem itmProgramador;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -378,7 +460,11 @@ private String idEmpleado;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JMenu mnRestablecer;
+    private javax.swing.JLabel lblsaludo;
+    private javax.swing.JMenu nmAcercade;
     private javax.swing.JMenu nmSalir;
+    private javax.swing.JMenu nmSalir1;
+    private javax.swing.JMenu nmSalir2;
+    private javax.swing.JMenu nmSalir3;
     // End of variables declaration//GEN-END:variables
 }
