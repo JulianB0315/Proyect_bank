@@ -10,6 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import DB.DBConnection;
+import java.awt.Window;
 
 public class borrarCuenta extends javax.swing.JFrame {
     private String idEmpleado;
@@ -49,6 +50,8 @@ public class borrarCuenta extends javax.swing.JFrame {
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu2 = new javax.swing.JMenu();
         itmVolver1 = new javax.swing.JMenuItem();
+        nmSalir = new javax.swing.JMenu();
+        itemCerrar = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -247,6 +250,7 @@ public class borrarCuenta extends javax.swing.JFrame {
 
         jMenu2.setBackground(new java.awt.Color(230, 230, 230));
         jMenu2.setForeground(new java.awt.Color(0, 53, 102));
+        jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/volver.png"))); // NOI18N
         jMenu2.setText("Volver");
         jMenu2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
@@ -262,6 +266,23 @@ public class borrarCuenta extends javax.swing.JFrame {
         jMenu2.add(itmVolver1);
 
         jMenuBar2.add(jMenu2);
+
+        nmSalir.setForeground(new java.awt.Color(0, 53, 102));
+        nmSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/salida-icon.png"))); // NOI18N
+        nmSalir.setText("Salir");
+
+        itemCerrar.setBackground(new java.awt.Color(230, 230, 230));
+        itemCerrar.setForeground(new java.awt.Color(0, 53, 102));
+        itemCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/x - copia.png"))); // NOI18N
+        itemCerrar.setText("Cerrar todo");
+        itemCerrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemCerrarActionPerformed(evt);
+            }
+        });
+        nmSalir.add(itemCerrar);
+
+        jMenuBar2.add(nmSalir);
 
         setJMenuBar(jMenuBar2);
 
@@ -287,6 +308,14 @@ public class borrarCuenta extends javax.swing.JFrame {
         pEmpleado.setLocationRelativeTo(null);
         this.dispose();
     }//GEN-LAST:event_itmVolver1ActionPerformed
+
+    private void itemCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemCerrarActionPerformed
+        Window[] windows = Window.getWindows();
+        for (Window window : windows) {
+            window.dispose();
+        }
+        System.exit(0);
+    }//GEN-LAST:event_itemCerrarActionPerformed
 
     private void txtCuentaActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_txtCuentaActionPerformed
         // TODO add your handling code here:
@@ -429,18 +458,17 @@ public class borrarCuenta extends javax.swing.JFrame {
     private javax.swing.JButton btnBorrar;
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnDesactivar;
-    private javax.swing.JMenuItem itmVolver;
+    private javax.swing.JMenuItem itemCerrar;
     private javax.swing.JMenuItem itmVolver1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JMenu nmSalir;
     private javax.swing.JTable tblVerCuentas;
     private javax.swing.JTextField txtCuenta;
     // End of variables declaration//GEN-END:variables

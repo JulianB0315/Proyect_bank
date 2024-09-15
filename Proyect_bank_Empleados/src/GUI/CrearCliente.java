@@ -355,12 +355,14 @@ private String idEmpleado;
 
         jMenu1.setBackground(new java.awt.Color(230, 230, 230));
         jMenu1.setForeground(new java.awt.Color(0, 53, 102));
+        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/volver.png"))); // NOI18N
         jMenu1.setText("Volver");
         jMenu1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         itmVolver.setBackground(new java.awt.Color(230, 230, 230));
         itmVolver.setFont(new java.awt.Font("Serif", 1, 12)); // NOI18N
         itmVolver.setForeground(new java.awt.Color(0, 53, 102));
+        itmVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/volver.png"))); // NOI18N
         itmVolver.setText("Volver");
         itmVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -372,6 +374,7 @@ private String idEmpleado;
         jMenuBar1.add(jMenu1);
 
         jMenu2.setForeground(new java.awt.Color(0, 53, 102));
+        jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/limpiar-icon.png"))); // NOI18N
         jMenu2.setText("Limpiar");
 
         itmLimpiar.setBackground(new java.awt.Color(230, 230, 230));
@@ -387,6 +390,7 @@ private String idEmpleado;
         jMenuBar1.add(jMenu2);
 
         nmSalir.setForeground(new java.awt.Color(0, 53, 102));
+        nmSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/salida-icon.png"))); // NOI18N
         nmSalir.setText("Salir");
 
         itemCerrar.setBackground(new java.awt.Color(230, 230, 230));
