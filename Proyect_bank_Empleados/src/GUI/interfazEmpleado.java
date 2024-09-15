@@ -49,9 +49,6 @@ private String idEmpleado;
         nmSalir = new javax.swing.JMenu();
         itmCrearClientes = new javax.swing.JMenuItem();
         itmBuscar = new javax.swing.JMenuItem();
-        mnEmpleados = new javax.swing.JMenu();
-        itmCrearEmpleado = new javax.swing.JMenuItem();
-        itmBuscarEmpleado = new javax.swing.JMenuItem();
         nmSalir2 = new javax.swing.JMenu();
         itmCrearCuentas = new javax.swing.JMenuItem();
         itmAlterarCuentas = new javax.swing.JMenuItem();
@@ -246,34 +243,6 @@ private String idEmpleado;
 
         jMenuBar1.add(nmSalir);
 
-        mnEmpleados.setForeground(new java.awt.Color(0, 53, 102));
-        mnEmpleados.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/empleado-icon.png"))); // NOI18N
-        mnEmpleados.setText("Empleados");
-
-        itmCrearEmpleado.setBackground(new java.awt.Color(230, 230, 230));
-        itmCrearEmpleado.setForeground(new java.awt.Color(0, 53, 102));
-        itmCrearEmpleado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/empleado-crear-icon.png"))); // NOI18N
-        itmCrearEmpleado.setText("Crear empleados ");
-        itmCrearEmpleado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                itmCrearEmpleadoActionPerformed(evt);
-            }
-        });
-        mnEmpleados.add(itmCrearEmpleado);
-
-        itmBuscarEmpleado.setBackground(new java.awt.Color(230, 230, 230));
-        itmBuscarEmpleado.setForeground(new java.awt.Color(0, 53, 102));
-        itmBuscarEmpleado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/buscar-empleado-icon.png"))); // NOI18N
-        itmBuscarEmpleado.setText("Buscar empleado");
-        itmBuscarEmpleado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                itmBuscarEmpleadoActionPerformed(evt);
-            }
-        });
-        mnEmpleados.add(itmBuscarEmpleado);
-
-        jMenuBar1.add(mnEmpleados);
-
         nmSalir2.setForeground(new java.awt.Color(0, 53, 102));
         nmSalir2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cuenta-bancaria-icon.png"))); // NOI18N
         nmSalir2.setText("Cuentas");
@@ -456,14 +425,6 @@ private String idEmpleado;
         e.printStackTrace();
     }
     }//GEN-LAST:event_itmGitHubActionPerformed
-
-    private void itmCrearEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmCrearEmpleadoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_itmCrearEmpleadoActionPerformed
-
-    private void itmBuscarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmBuscarEmpleadoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_itmBuscarEmpleadoActionPerformed
     private void saludo(String idEmpleado,JLabel lblsaludo){
         String sql="SELECT NOMBRE FROM EMPLEADO WHERE IDEMPLEADO = ?";
         String Nombre =null;
@@ -483,10 +444,8 @@ private String idEmpleado;
     private javax.swing.JMenuItem itemCerrar1;
     private javax.swing.JMenuItem itmAlterarCuentas;
     private javax.swing.JMenuItem itmBuscar;
-    private javax.swing.JMenuItem itmBuscarEmpleado;
     private javax.swing.JMenuItem itmCrearClientes;
     private javax.swing.JMenuItem itmCrearCuentas;
-    private javax.swing.JMenuItem itmCrearEmpleado;
     private javax.swing.JMenuItem itmGitHub;
     private javax.swing.JMenuItem itmHistorial;
     private javax.swing.JMenuItem itmMovientos;
@@ -502,7 +461,6 @@ private String idEmpleado;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JLabel lblsaludo;
-    private javax.swing.JMenu mnEmpleados;
     private javax.swing.JMenu nmAcercade;
     private javax.swing.JMenu nmSalir;
     private javax.swing.JMenu nmSalir1;

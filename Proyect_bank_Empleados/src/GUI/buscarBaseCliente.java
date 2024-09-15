@@ -9,7 +9,6 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import DB.DBConnection;
 import java.awt.Image;
-import java.awt.Window;
 import javax.swing.JFrame;
 import javax.swing.ImageIcon;
 public class buscarBaseCliente extends javax.swing.JFrame {
@@ -46,8 +45,6 @@ private String idEmpleado;
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu2 = new javax.swing.JMenu();
         itmVolver1 = new javax.swing.JMenuItem();
-        nmSalir = new javax.swing.JMenu();
-        itemCerrar = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -171,7 +168,7 @@ private String idEmpleado;
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(19, Short.MAX_VALUE))
@@ -211,7 +208,6 @@ private String idEmpleado;
 
         jMenu2.setBackground(new java.awt.Color(230, 230, 230));
         jMenu2.setForeground(new java.awt.Color(0, 53, 102));
-        jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/volver.png"))); // NOI18N
         jMenu2.setText("Volver");
         jMenu2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
@@ -228,23 +224,6 @@ private String idEmpleado;
         jMenu2.add(itmVolver1);
 
         jMenuBar2.add(jMenu2);
-
-        nmSalir.setForeground(new java.awt.Color(0, 53, 102));
-        nmSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/salida-icon.png"))); // NOI18N
-        nmSalir.setText("Salir");
-
-        itemCerrar.setBackground(new java.awt.Color(230, 230, 230));
-        itemCerrar.setForeground(new java.awt.Color(0, 53, 102));
-        itemCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/x - copia.png"))); // NOI18N
-        itemCerrar.setText("Cerrar todo");
-        itemCerrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                itemCerrarActionPerformed(evt);
-            }
-        });
-        nmSalir.add(itemCerrar);
-
-        jMenuBar2.add(nmSalir);
 
         setJMenuBar(jMenuBar2);
 
@@ -355,18 +334,9 @@ private String idEmpleado;
         this.dispose();     
     }//GEN-LAST:event_itmVolver1ActionPerformed
 
-    private void itemCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemCerrarActionPerformed
-        Window[] windows = Window.getWindows();
-        for (Window window : windows) {
-            window.dispose();
-        }
-        System.exit(0);
-    }//GEN-LAST:event_itemCerrarActionPerformed
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCuenta;
     private javax.swing.JButton btnEditar;
-    private javax.swing.JMenuItem itemCerrar;
     private javax.swing.JMenuItem itmVolver1;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
@@ -376,7 +346,6 @@ private String idEmpleado;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JMenu nmSalir;
     private javax.swing.JTable tblVerTranferencias;
     private javax.swing.JTextField txtDNI;
     // End of variables declaration//GEN-END:variables

@@ -240,7 +240,6 @@ private String idEmpleado;
 
         jMenu1.setBackground(new java.awt.Color(230, 230, 230));
         jMenu1.setForeground(new java.awt.Color(0, 53, 102));
-        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/volver.png"))); // NOI18N
         jMenu1.setText("Volver");
         jMenu1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
@@ -258,7 +257,6 @@ private String idEmpleado;
         jMenuBar1.add(jMenu1);
 
         nmSalir.setForeground(new java.awt.Color(0, 53, 102));
-        nmSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/salida-icon.png"))); // NOI18N
         nmSalir.setText("Salir");
 
         itemCerrar.setBackground(new java.awt.Color(230, 230, 230));
