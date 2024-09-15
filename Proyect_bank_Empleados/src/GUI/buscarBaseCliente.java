@@ -35,13 +35,13 @@ private String idEmpleado;
 
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tblVerTranferencias = new javax.swing.JTable();
         btnCuenta = new javax.swing.JButton();
         txtDNI = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         btnEditar = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblVerTranferencias = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu2 = new javax.swing.JMenu();
@@ -56,35 +56,6 @@ private String idEmpleado;
         jPanel3.setBackground(new java.awt.Color(230, 230, 230));
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 53, 102), 2));
         jPanel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        tblVerTranferencias.setBackground(new java.awt.Color(230, 230, 230));
-        tblVerTranferencias.setFont(new java.awt.Font("Serif", 1, 14)); // NOI18N
-        tblVerTranferencias.setForeground(new java.awt.Color(0, 53, 102));
-        tblVerTranferencias.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Id Cliente", "DNI", "Nombre", "Apellido", "Sexo", "Fecha Nacimiento", "Direccion", "Telefono", "Correo", "Fecha de registro"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        tblVerTranferencias.setSelectionForeground(new java.awt.Color(0, 53, 102));
-        jScrollPane1.setViewportView(tblVerTranferencias);
 
         btnCuenta.setBackground(new java.awt.Color(230, 230, 230));
         btnCuenta.setFont(new java.awt.Font("Serif", 1, 14)); // NOI18N
@@ -137,6 +108,35 @@ private String idEmpleado;
             }
         });
 
+        tblVerTranferencias.setBackground(new java.awt.Color(230, 230, 230));
+        tblVerTranferencias.setFont(new java.awt.Font("Serif", 1, 14)); // NOI18N
+        tblVerTranferencias.setForeground(new java.awt.Color(0, 53, 102));
+        tblVerTranferencias.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Id Cliente", "DNI", "Nombre", "Apellido", "Sexo", "Fecha Nacimiento", "Direccion", "Telefono", "Correo", "Fecha de registro"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tblVerTranferencias.setSelectionForeground(new java.awt.Color(0, 53, 102));
+        jScrollPane2.setViewportView(tblVerTranferencias);
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -154,11 +154,10 @@ private String idEmpleado;
                 .addComponent(txtDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap(481, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1)
-                .addContainerGap())
+                .addComponent(jScrollPane2))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -168,8 +167,8 @@ private String idEmpleado;
                     .addComponent(btnCuenta)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -375,7 +374,7 @@ private String idEmpleado;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JMenu nmSalir;
     private javax.swing.JTable tblVerTranferencias;
     private javax.swing.JTextField txtDNI;

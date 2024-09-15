@@ -85,7 +85,7 @@ private String idEmpleado;
 
         jLabel28.setFont(new java.awt.Font("Serif", 1, 24)); // NOI18N
         jLabel28.setForeground(new java.awt.Color(0, 53, 102));
-        jLabel28.setText("                   Crear Regsitro del Cliente");
+        jLabel28.setText("                   Crear Registro del Cliente");
         jLabel28.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 3, 1, 3, new java.awt.Color(0, 53, 102)));
 
         txtdni.setBackground(new java.awt.Color(230, 230, 230));
@@ -442,31 +442,30 @@ private String idEmpleado;
 
         Date fechaNacimientoDate = clrfechanacimiento.getDate();
         if (fechaNacimientoDate == null) {
-            JOptionPane.showMessageDialog(null, "Por favor, seleccione una fecha de nacimiento válida.");
+            JOptionPane.showMessageDialog(null, "Por favor, seleccione una fecha de nacimiento válida." ,"Error",JOptionPane.WARNING_MESSAGE);
             return;
         }
-
 
         String dni = txtdni.getText();
         if (!dni.matches("\\d{8}")) {
-            JOptionPane.showMessageDialog(null, "DNI invalido.");
+            JOptionPane.showMessageDialog(null, "DNI invalido.","Error",JOptionPane.WARNING_MESSAGE);
             return;
         }
         if (isDniRegistered(dni)) {
-            JOptionPane.showMessageDialog(null, "El DNI ya está registrado.");
+            JOptionPane.showMessageDialog(null, "El DNI ya está registrado.","Error",JOptionPane.WARNING_MESSAGE);
             return;
         }
 
 
         String telefono = txttelefono.getText();
         if (!telefono.matches("\\d{9}")) {
-            JOptionPane.showMessageDialog(null, "Numero teléfono invalido.");
+            JOptionPane.showMessageDialog(null, "Numero teléfono invalido.","Error",JOptionPane.WARNING_MESSAGE);
             return;
         }
 
         String email = txtCorreo.getText();
         if (!validarEmail(email)) {
-            JOptionPane.showMessageDialog(null, "Por favor, ingrese un correo electrónico válido.");
+            JOptionPane.showMessageDialog(null, "Por favor, ingrese un correo electrónico válido.","Error",JOptionPane.WARNING_MESSAGE);
             return;
         }
 
@@ -479,23 +478,23 @@ private String idEmpleado;
         cal.add(Calendar.YEAR, -18); // Hace 18 años desde hoy
         Date fechaLimiteMayorEdad = cal.getTime();
         if (fechaNacimientoDate.after(fechaActual)) {
-            JOptionPane.showMessageDialog(null, "La fecha de nacimiento no puede ser futura.");
+            JOptionPane.showMessageDialog(null, "La fecha de nacimiento no puede ser futura.","Error",JOptionPane.WARNING_MESSAGE);
             return;
         } else if (fechaNacimientoDate.before(fechaLimiteAntigua)) {
-            JOptionPane.showMessageDialog(null, "La fecha de nacimiento no puede ser tan antigua.");
+            JOptionPane.showMessageDialog(null, "La fecha de nacimiento no puede ser tan antigua.","Error",JOptionPane.WARNING_MESSAGE);
             return;
         } else if (fechaNacimientoDate.after(fechaLimiteMayorEdad)) {
-            JOptionPane.showMessageDialog(null, "Debe ser mayor de 18 años para registrarse.");
+            JOptionPane.showMessageDialog(null, "Debe ser mayor de 18 años para registrarse.","Error",JOptionPane.WARNING_MESSAGE);
             return;
         }
 
         if (!nombre.matches("[a-zA-ZáéíóúÁÉÍÓÚñÑ\\s]+")) {
-            JOptionPane.showMessageDialog(null, "El nombre solo debe contener letras y espacios.");
+            JOptionPane.showMessageDialog(null, "El nombre solo debe contener letras y espacios.","Error",JOptionPane.WARNING_MESSAGE);
             return;
         }
         // Validar que el apellido solo contenga letras
         if (!apellido.matches("[a-zA-ZáéíóúÁÉÍÓÚñÑ\\s]+")) {
-            JOptionPane.showMessageDialog(null, "El apellido solo debe contener letras y espacios.");
+            JOptionPane.showMessageDialog(null, "El apellido solo debe contener letras y espacios.","Error",JOptionPane.WARNING_MESSAGE);
             return;
         }
 
@@ -504,7 +503,7 @@ private String idEmpleado;
 
         // Validar que los datos esten completos
         if (dni.isEmpty() || nombre.isEmpty() || apellido.isEmpty() || sexo.isEmpty()|| fechaNacimiento.isEmpty() || direccion.isEmpty() || telefono.isEmpty() || email.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Por favor, completar todos los datos.");
+            JOptionPane.showMessageDialog(null, "Por favor, completar todos los datos.","Error",JOptionPane.WARNING_MESSAGE);
             return;
         }
 
@@ -524,7 +523,7 @@ private String idEmpleado;
             ps.setString(8, telefono);
             ps.setString(9, email);
             ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Registro exitoso.");
+            JOptionPane.showMessageDialog(null, "Registro exitoso.","Felicidade",JOptionPane.INFORMATION_MESSAGE);
             txtnombres.setText("");
             txtapellidos.setText("");
             txtdni.setText("");
@@ -553,6 +552,7 @@ private String idEmpleado;
         txtCorreo.setText("");
         txtdireccion.setText("");
         txttelefono.setText("");
+        clrfechanacimiento.setDate(null);
     }//GEN-LAST:event_itmLimpiarActionPerformed
 
     private void itemCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemCerrarActionPerformed

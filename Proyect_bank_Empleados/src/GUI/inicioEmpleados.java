@@ -218,8 +218,7 @@ private int contar = 0;
 
     private void buttonInicioActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_buttonInicioActionPerformed
         String user = txtuser.getText();
-        char[] contraseñaIngresadaArray = passContraseña.getPassword();
-        String contraseñaIngresada = new String(contraseñaIngresadaArray);
+        String contraseñaIngresada= new String(passContraseña.getPassword());
         if(contar>=3){
             JOptionPane.showMessageDialog(null, "Se alcanzo el limite de intentos.Vuelva mas tarde", "Advertencia",JOptionPane.WARNING_MESSAGE);
             passContraseña.setEnabled(false);

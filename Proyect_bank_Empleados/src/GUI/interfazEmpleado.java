@@ -458,11 +458,15 @@ private String idEmpleado;
     }//GEN-LAST:event_itmGitHubActionPerformed
 
     private void itmCrearEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmCrearEmpleadoActionPerformed
-        // TODO add your handling code here:
+        CrearEmpleado pCrearEmpleado = new CrearEmpleado(idEmpleado);
+        pCrearEmpleado.setVisible(true);
+        pCrearEmpleado.setLocationRelativeTo(null);
     }//GEN-LAST:event_itmCrearEmpleadoActionPerformed
 
     private void itmBuscarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmBuscarEmpleadoActionPerformed
-        // TODO add your handling code here:
+        BuscarEmpleado nBuscarEmpleado = new BuscarEmpleado(idEmpleado);
+        nBuscarEmpleado.setVisible(true);
+        nBuscarEmpleado.setLocationRelativeTo(null);
     }//GEN-LAST:event_itmBuscarEmpleadoActionPerformed
     private void saludo(String idEmpleado,JLabel lblsaludo){
         String sql="SELECT NOMBRE FROM EMPLEADO WHERE IDEMPLEADO = ?";
