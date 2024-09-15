@@ -27,44 +27,7 @@ public class voucherPago extends javax.swing.JFrame {
         ImageIcon icon = new ImageIcon(getClass().getResource("/img/logo.png"));
         Image logo = icon.getImage();
         setIconImage(logo);
-
-        try (Connection conn = DBConnection.getConnection()) {
-            String sql = "SELECT * FROM TRANSACCION WHERE IDTRANSACCION = ?";
-            PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setString(1, idTransaccion);
-            ResultSet rs = ps.executeQuery();
-            if (rs.next()) {
-                String idCuenta = rs.getString("IDCUENTA");
-                String idEmpleado = rs.getString("IDEMPLEADO");
-                String tipoTransaccion = rs.getString("TIPOTRANSACCION");
-                String descripcion = rs.getString("DESCRIPCION");
-                double monto = rs.getDouble("MONTO");
-                Timestamp fechaTransaccion = rs.getTimestamp("FECHATRANSACCION");
-                String cuentaRecibe = rs.getString("CUENTARECIBE");
-                String txtboleta = "<html>" +
-                        "<div style='border: 3px solid rgb(0, 53, 102); border-radius: 10px; padding: 15px;'>" +
-                        "<h1 style='color: rgb(212, 175, 55); font-family: serif; text-align: center; margin-bottom: 20px; font-size: 32px;'>Nuevo Banco Perú</h1>"
-                        +
-                        "<table style='width: 100%; color: rgb(0, 53, 102); font-family: serif; font-size: 14px;'>" +
-                        "<tr><td><b>ID Transacción:</b></td><td>" + idTransaccion + "</td></tr>" +
-                        "<tr><td><b>ID Cuenta:</b></td><td>" + idCuenta + "</td></tr>" +
-                        "<tr><td><b>ID Empleado:</b></td><td>" + idEmpleado + "</td></tr>" +
-                        "<tr><td><b>Tipo de Transacción:</b></td><td>" + tipoTransaccion + "</td></tr>" +
-                        "<tr><td><b>Descripción:</b></td><td>" + descripcion + "</td></tr>" +
-                        "<tr><td><b>Monto:</b></td><td>S/ " + String.format("%.2f", monto) + "</td></tr>" +
-                        "<tr><td><b>Fecha Transacción:</b></td><td>" + fechaTransaccion + "</td></tr>" +
-                        "<tr><td><b>Cuenta Recibe:</b></td><td>" + cuentaRecibe + "</td></tr>" +
-                        "</table>" +
-                        "</div>" +
-                        "</html>";
-                lblBoleta.setText(txtboleta);
-            } else {
-                JOptionPane.showMessageDialog(null, "No se encontro ninguna boleta", "Error",
-                        JOptionPane.WARNING_MESSAGE);
-            }
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Ocurrio un error", "Error", JOptionPane.WARNING_MESSAGE);
-        }
+        cargarBoleta(idTransaccion);
     }
 
     /**
@@ -201,7 +164,45 @@ public class voucherPago extends javax.swing.JFrame {
             e.printStackTrace();
         }
     }// GEN-LAST:event_btninprimirActionPerformed
-
+private void cargarBoleta(String idTransaccion){
+    try (Connection conn = DBConnection.getConnection()) {
+        String sql = "SELECT * FROM TRANSACCION WHERE IDTRANSACCION = ?";
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ps.setString(1, idTransaccion);
+        ResultSet rs = ps.executeQuery();
+        if (rs.next()) {
+            String idCuenta = rs.getString("IDCUENTA");
+            String idEmpleado = rs.getString("IDEMPLEADO");
+            String tipoTransaccion = rs.getString("TIPOTRANSACCION");
+            String descripcion = rs.getString("DESCRIPCION");
+            double monto = rs.getDouble("MONTO");
+            Timestamp fechaTransaccion = rs.getTimestamp("FECHATRANSACCION");
+            String cuentaRecibe = rs.getString("CUENTARECIBE");
+            String txtboleta = "<html>" +
+                    "<div style='border: 3px solid rgb(0, 53, 102); border-radius: 10px; padding: 15px;'>" +
+                    "<h1 style='color: rgb(212, 175, 55); font-family: serif; text-align: center; margin-bottom: 20px; font-size: 32px;'>Nuevo Banco Perú</h1>"
+                    +
+                    "<table style='width: 100%; color: rgb(0, 53, 102); font-family: serif; font-size: 14px;'>" +
+                    "<tr><td><b>N° Transacción:</b></td><td>" + idTransaccion + "</td></tr>" +
+                    "<tr><td><b>N° Cuenta:</b></td><td>" + idCuenta + "</td></tr>" +
+                    "<tr><td><b>N° Empleado:</b></td><td>" + idEmpleado + "</td></tr>" +
+                    "<tr><td><b>Tipo de Transacción:</b></td><td>" + tipoTransaccion + "</td></tr>" +
+                    "<tr><td><b>Descripción:</b></td><td>" + descripcion + "</td></tr>" +
+                    "<tr><td><b>Monto:</b></td><td>S/ " + String.format("%.2f", monto) + "</td></tr>" +
+                    "<tr><td><b>Fecha Transacción:</b></td><td>" + fechaTransaccion + "</td></tr>" +
+                    "<tr><td><b>Cuenta que Recibe:</b></td><td>" + cuentaRecibe + "</td></tr>" +
+                    "</table>" +
+                    "</div>" +
+                    "</html>";
+            lblBoleta.setText(txtboleta);
+        } else {
+            JOptionPane.showMessageDialog(null, "No se encontro ninguna boleta", "Error",
+                    JOptionPane.WARNING_MESSAGE);
+        }
+    } catch (SQLException e) {
+        JOptionPane.showMessageDialog(null, "Ocurrio un error", "Error", JOptionPane.WARNING_MESSAGE);
+    }
+}
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btninprimir;
     private javax.swing.JLabel jLabel3;
