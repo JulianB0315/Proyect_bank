@@ -486,7 +486,7 @@ private String idEmpleado;
     }
 
     if (contraseña.length() >= 8) {
-        JOptionPane.showMessageDialog(null, "La contraseña no puede exceder los 16 caracteres.", "Error", JOptionPane.WARNING_MESSAGE);
+        JOptionPane.showMessageDialog(null, "La contraseña no puede exceder los 8 caracteres.", "Error", JOptionPane.WARNING_MESSAGE);
         return;
     }
 
