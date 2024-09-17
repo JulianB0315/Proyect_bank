@@ -61,6 +61,7 @@ public class ticket extends javax.swing.JFrame {
         btnImprimir.setBackground(new java.awt.Color(230, 230, 230));
         btnImprimir.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
         btnImprimir.setForeground(new java.awt.Color(0, 53, 102));
+        btnImprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/inprimir.png"))); // NOI18N
         btnImprimir.setText("Imprimir");
         btnImprimir.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 2, 1, 2, new java.awt.Color(0, 53, 102)));
         btnImprimir.addActionListener(new java.awt.event.ActionListener() {

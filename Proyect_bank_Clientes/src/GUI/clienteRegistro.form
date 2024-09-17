@@ -22,7 +22,7 @@
             <Property name="text" type="java.lang.String" value="Volver"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem1">
+            <MenuItem class="javax.swing.JMenuItem" name="itmVolver">
               <Properties>
                 <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
                   <KeyStroke key="Ctrl+Z"/>
@@ -32,6 +32,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Volver al Inicio"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="itmVolverActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -198,7 +201,7 @@
                                                       </Group>
                                                   </Group>
                                               </Group>
-                                              <EmptySpace pref="10" max="32767" attributes="0"/>
+                                              <EmptySpace max="32767" attributes="0"/>
                                               <Group type="103" groupAlignment="0" attributes="0">
                                                   <Component id="jLabel5" alignment="1" min="-2" max="-2" attributes="0"/>
                                                   <Component id="jLabel6" alignment="1" min="-2" max="-2" attributes="0"/>
@@ -233,10 +236,12 @@
                       <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel25" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="TxtDNI" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="jLabel25" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="TxtDNI" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                               <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
@@ -319,7 +324,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="66" green="35" red="0" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Resgistarse"/>
+                <Property name="text" type="java.lang.String" value=" Registrarse "/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
                     <MatteColorBorder bottom="1" left="3" right="3" top="1">
@@ -382,7 +387,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="66" green="35" red="0" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Previzualizar Registro"/>
+                <Property name="text" type="java.lang.String" value="Previsualizar Registro "/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
                     <MatteColorBorder bottom="1" left="3" right="3" top="1">
@@ -566,7 +571,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="66" green="35" red="0" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="    Direccion                    :"/>
+                <Property name="text" type="java.lang.String" value="    Direcci&#xf3;n                    :"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
                     <MatteColorBorder bottom="0" left="2" right="0" top="0">
@@ -584,7 +589,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="66" green="35" red="0" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="    Telefono                     :"/>
+                <Property name="text" type="java.lang.String" value="    Tel&#xe9;fono                     :"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
                     <MatteColorBorder bottom="0" left="2" right="0" top="0">

@@ -6,6 +6,7 @@ import java.awt.event.WindowEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import java.awt.Image;
@@ -37,17 +38,19 @@ public class inicioSession extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        ButtonVolver = new javax.swing.JButton();
         ButtonSession = new javax.swing.JButton();
-        TXTDNI = new javax.swing.JTextField();
-        Contraseña = new javax.swing.JPasswordField();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
-        jToggleButton1 = new javax.swing.JToggleButton();
+        btntVerOcultar = new javax.swing.JToggleButton();
+        txtCuenta = new javax.swing.JTextField();
+        Contraseña = new javax.swing.JPasswordField();
         jLabel4 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        itmVolver = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -60,21 +63,10 @@ public class inicioSession extends javax.swing.JFrame {
 
         jLabel8.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
 
-        ButtonVolver.setBackground(new java.awt.Color(230, 230, 230));
-        ButtonVolver.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
-        ButtonVolver.setForeground(new java.awt.Color(0, 53, 102));
-        ButtonVolver.setText("Volver");
-        ButtonVolver.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 3, 1, 3, new java.awt.Color(0, 53, 102)));
-        ButtonVolver.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonVolverActionPerformed(evt);
-            }
-        });
-
         ButtonSession.setBackground(new java.awt.Color(230, 230, 230));
         ButtonSession.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
         ButtonSession.setForeground(new java.awt.Color(0, 53, 102));
-        ButtonSession.setText("Iniciar sesion");
+        ButtonSession.setText("Iniciar Sesión ");
         ButtonSession.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 3, 1, 3, new java.awt.Color(0, 53, 102)));
         ButtonSession.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -82,29 +74,9 @@ public class inicioSession extends javax.swing.JFrame {
             }
         });
 
-        TXTDNI.setBackground(new java.awt.Color(230, 230, 230));
-        TXTDNI.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
-        TXTDNI.setForeground(new java.awt.Color(0, 53, 102));
-        TXTDNI.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 3, 0, new java.awt.Color(0, 53, 102)));
-        TXTDNI.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TXTDNIActionPerformed(evt);
-            }
-        });
-
-        Contraseña.setBackground(new java.awt.Color(230, 230, 230));
-        Contraseña.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
-        Contraseña.setForeground(new java.awt.Color(0, 53, 102));
-        Contraseña.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 3, 0, new java.awt.Color(0, 53, 102)));
-        Contraseña.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ContraseñaActionPerformed(evt);
-            }
-        });
-
         jLabel14.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(0, 53, 102));
-        jLabel14.setText("   N° de DNI               :");
+        jLabel14.setText("   N° de Cuenta          :");
         jLabel14.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 2, 0, 0, new java.awt.Color(0, 53, 102)));
 
         jLabel15.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
@@ -117,14 +89,28 @@ public class inicioSession extends javax.swing.JFrame {
         jLabel28.setText("Soluciones financieras con confianza y claridad.");
         jLabel28.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 3, 1, 3, new java.awt.Color(0, 53, 102)));
 
-        jToggleButton1.setBackground(new java.awt.Color(230, 230, 230));
-        jToggleButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ocultar.png"))); // NOI18N
-        jToggleButton1.setBorder(null);
-        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+        btntVerOcultar.setBackground(new java.awt.Color(230, 230, 230));
+        btntVerOcultar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ocultar.png"))); // NOI18N
+        btntVerOcultar.setBorder(null);
+        btntVerOcultar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton1ActionPerformed(evt);
+                btntVerOcultarActionPerformed(evt);
             }
         });
+
+        txtCuenta.setBackground(new java.awt.Color(230, 230, 230));
+        txtCuenta.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
+        txtCuenta.setForeground(new java.awt.Color(0, 53, 102));
+        txtCuenta.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 3, 0, new java.awt.Color(0, 53, 102)));
+        txtCuenta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCuentaActionPerformed(evt);
+            }
+        });
+
+        Contraseña.setBackground(new java.awt.Color(230, 230, 230));
+        Contraseña.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
+        Contraseña.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 3, 0, new java.awt.Color(0, 53, 102)));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -134,58 +120,53 @@ public class inicioSession extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(55, 55, 55)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel28)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                            .addComponent(jLabel14)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(TXTDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addComponent(ButtonSession, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(jLabel15))
-                                            .addGap(18, 18, 18)
-                                            .addComponent(Contraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel14)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel8)
-                                    .addComponent(jToggleButton1)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(ButtonVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(35, 35, 35))))
+                                .addComponent(txtCuenta, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel15)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(Contraseña)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel8)
+                            .addComponent(btntVerOcultar)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(180, 180, 180)
-                        .addComponent(jLabel3)))
+                        .addComponent(jLabel3))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(154, 154, 154)
+                        .addComponent(ButtonSession, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(82, 82, 82)
+                        .addComponent(jLabel28)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jLabel28)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(82, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel8)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel28)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel14)
-                            .addComponent(TXTDNI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jToggleButton1)
+                    .addComponent(btntVerOcultar)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(Contraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel15)))
-                .addGap(30, 30, 30)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ButtonSession, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ButtonVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
+                        .addComponent(jLabel15)
+                        .addComponent(Contraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(32, 32, 32)
+                .addComponent(ButtonSession, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel3))
         );
 
@@ -246,17 +227,35 @@ public class inicioSession extends javax.swing.JFrame {
                     .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(20, Short.MAX_VALUE))
+                        .addContainerGap(18, Short.MAX_VALUE))
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
+
+        jMenuBar1.setBackground(new java.awt.Color(230, 230, 230));
+        jMenuBar1.setForeground(new java.awt.Color(0, 53, 102));
+
+        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/volver.png"))); // NOI18N
+        jMenu1.setText("Volver");
+
+        itmVolver.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Z, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        itmVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/volver.png"))); // NOI18N
+        itmVolver.setText("Volver al Inicio");
+        itmVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itmVolverActionPerformed(evt);
+            }
+        });
+        jMenu1.add(itmVolver);
+
+        jMenuBar1.add(jMenu1);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -266,17 +265,32 @@ public class inicioSession extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jToggleButton1ActionPerformed
+    private void btntVerOcultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btntVerOcultarActionPerformed
+        ImageIcon iconMostrar = new ImageIcon(getClass().getResource("/img/ver.png"));
+        ImageIcon iconOcultar = new ImageIcon(getClass().getResource("/img/ocultar.png"));
 
-    private void TXTDNIActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_TXTDNIActionPerformed
-        // TODO add your handling code here:
-    }// GEN-LAST:event_TXTDNIActionPerformed
+        if (btntVerOcultar.isSelected()) {
+            // Si está seleccionado, muestra la contraseña y cambia el ícono a "mostrar"
+            Contraseña.setEchoChar((char) 0);
+            btntVerOcultar.setIcon(iconMostrar);
+        } else {
+            // Si no está seleccionado, oculta la contraseña y cambia el ícono a "ocultar"
+            Contraseña.setEchoChar('*');
+            btntVerOcultar.setIcon(iconOcultar);
+        }
+    }//GEN-LAST:event_btntVerOcultarActionPerformed
 
-    private void ContraseñaActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_ContraseñaActionPerformed
+    private void itmVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmVolverActionPerformed
+        inicioGuia pInicioGuia = new inicioGuia();
+        pInicioGuia.setVisible(true);
+        pInicioGuia.setLocationRelativeTo(null);
+        this.dispose();
+    }//GEN-LAST:event_itmVolverActionPerformed
+
+    private void txtCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCuentaActionPerformed
         // TODO add your handling code here:
-    }// GEN-LAST:event_ContraseñaActionPerformed
+    }//GEN-LAST:event_txtCuentaActionPerformed
+
 
     // Funcion de salir
     public void cerrar() {
@@ -295,85 +309,53 @@ public class inicioSession extends javax.swing.JFrame {
         }
     }
 
-    private void ButtonVolverActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_ButtonVolverActionPerformed
-        inicioGuia pantallaGuia = new inicioGuia();
-        pantallaGuia.setVisible(true);
-        pantallaGuia.setLocationRelativeTo(null);
-        this.dispose();
-    }// GEN-LAST:event_ButtonVolverActionPerformed
-
     private void ButtonSessionActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_ButtonSessionActionPerformed
         // Obtener los datos del formulario
-        String dni = TXTDNI.getText();
+        String idCuenta = txtCuenta.getText();
         // Convertir la contraseña insertada aun string
-        char[] contraseñaIngresadaArray = Contraseña.getPassword();
-        String contraseñaIngresada = new String(contraseñaIngresadaArray);
-
-        try (Connection conn = DBConnection.getConnection()) {
-            // Paso 1: Obtener el idCliente usando el DNI
-            String sql = "SELECT idCliente FROM cliente WHERE dni = ?";
-            String idCliente = null;
-            try (PreparedStatement ps = conn.prepareStatement(sql)) {
-                ps.setString(1, dni);
-                try (ResultSet rs = ps.executeQuery()) {
-                    if (rs.next()) {
-                        idCliente = rs.getString("idCliente");
-                    } else {
-                        JOptionPane.showMessageDialog(null, "Datos Incorrectos!!", "Advertencia",
-                                JOptionPane.WARNING_MESSAGE);
-                        return;
-                    }
-                }
-            }
-
-            // Paso 2: Obtener la contraseña y el idCuenta usando el idCliente
-            sql = "SELECT contraseña, idCuenta FROM cuenta WHERE idCliente = ?";
-            String idCuenta = null;
-            try (PreparedStatement ps = conn.prepareStatement(sql)) {
-                ps.setString(1, idCliente);
-                try (ResultSet rs = ps.executeQuery()) {
+        String contraseña = new String(Contraseña.getPassword());
+            try (Connection conn = DBConnection.getConnection()) {
+                String sql = "SELECT contraseña FROM cuenta WHERE idCuenta = ?";
+                PreparedStatement ps = conn.prepareStatement(sql);
+                ps.setString(1, idCuenta);
+                ResultSet rs = ps.executeQuery();
                     if (rs.next()) {
                         String contraseñaAlmacenada = rs.getString("contraseña");
-                        idCuenta = rs.getString("idCuenta");
-                        // Comparar la contraseña con la contraseña en la base de datos
-                        if (contraseñaIngresada.equals(contraseñaAlmacenada)) {
+                        if (contraseña.equals(contraseñaAlmacenada)) {
                             // Mandar el idCuenta
                             JFrame clienteCuenta = new clienteCuenta(idCuenta);
                             clienteCuenta.setVisible(true);
                             clienteCuenta.setLocationRelativeTo(null);
                             this.dispose();
                         } else {
-                            JOptionPane.showMessageDialog(null, "Datos Incorrectos!!", "Advertencia",
-                                    JOptionPane.WARNING_MESSAGE);
+                            JOptionPane.showMessageDialog(null, "Datos Incorrectos!!", "Advertencia",JOptionPane.WARNING_MESSAGE);
                         }
-                    } else {
-                        JOptionPane.showMessageDialog(null, "Datos Incorrectos!!", "Advertencia",
-                                JOptionPane.WARNING_MESSAGE);
-                    }
-                }
+            }else {
+                JOptionPane.showMessageDialog(null, "Datos Incorrectos!!", "Advertencia",JOptionPane.WARNING_MESSAGE);
             }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Ocurrió un error: " + e.getMessage(), "Error",
-                    JOptionPane.ERROR_MESSAGE);
-            e.printStackTrace();
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Error con la consulta", "Advertencia",JOptionPane.WARNING_MESSAGE);
+
         }
     }// GEN-LAST:event_ButtonSessionActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ButtonSession;
-    private javax.swing.JButton ButtonVolver;
     private javax.swing.JPasswordField Contraseña;
-    private javax.swing.JTextField TXTDNI;
+    private javax.swing.JToggleButton btntVerOcultar;
+    private javax.swing.JMenuItem itmVolver;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JTextField txtCuenta;
     // End of variables declaration//GEN-END:variables
 }

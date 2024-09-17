@@ -42,7 +42,7 @@ public class inicioGuia extends javax.swing.JFrame {
         ButtonRegistro.setBackground(new java.awt.Color(230, 230, 230));
         ButtonRegistro.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
         ButtonRegistro.setForeground(new java.awt.Color(0, 53, 102));
-        ButtonRegistro.setText("Resgistarse");
+        ButtonRegistro.setText("Registrarse");
         ButtonRegistro.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 3, 1, 3, new java.awt.Color(0, 53, 102)));
         ButtonRegistro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         ButtonRegistro.addActionListener(new java.awt.event.ActionListener() {
@@ -54,7 +54,7 @@ public class inicioGuia extends javax.swing.JFrame {
         ButtonInicio.setBackground(new java.awt.Color(230, 230, 230));
         ButtonInicio.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
         ButtonInicio.setForeground(new java.awt.Color(0, 53, 102));
-        ButtonInicio.setText("Iniciar Sesion");
+        ButtonInicio.setText("Iniciar Sesión");
         ButtonInicio.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 3, 1, 3, new java.awt.Color(0, 53, 102)));
         ButtonInicio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         ButtonInicio.addActionListener(new java.awt.event.ActionListener() {

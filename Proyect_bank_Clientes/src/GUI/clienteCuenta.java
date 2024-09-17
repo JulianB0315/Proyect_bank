@@ -50,13 +50,16 @@ public class clienteCuenta extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
-        cuentaSaldoDar1 = new javax.swing.JLabel();
-        cuentaSaldoDar2 = new javax.swing.JLabel();
+        lblestado = new javax.swing.JLabel();
+        lbltipo = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        itmVolver = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -155,13 +158,13 @@ public class clienteCuenta extends javax.swing.JFrame {
         jLabel19.setText("   Tipo de Cuenta           :");
         jLabel19.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 2, 0, 0, new java.awt.Color(0, 53, 102)));
 
-        cuentaSaldoDar1.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
-        cuentaSaldoDar1.setForeground(new java.awt.Color(0, 53, 102));
-        cuentaSaldoDar1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 3, 0, new java.awt.Color(0, 53, 102)));
+        lblestado.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
+        lblestado.setForeground(new java.awt.Color(0, 53, 102));
+        lblestado.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 3, 0, new java.awt.Color(0, 53, 102)));
 
-        cuentaSaldoDar2.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
-        cuentaSaldoDar2.setForeground(new java.awt.Color(0, 53, 102));
-        cuentaSaldoDar2.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 3, 0, new java.awt.Color(0, 53, 102)));
+        lbltipo.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
+        lbltipo.setForeground(new java.awt.Color(0, 53, 102));
+        lbltipo.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 3, 0, new java.awt.Color(0, 53, 102)));
 
         jLabel20.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(0, 53, 102));
@@ -195,8 +198,8 @@ public class clienteCuenta extends javax.swing.JFrame {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(cuentaSaldoDar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(idCuentaDar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(cuentaSaldoDar1, javax.swing.GroupLayout.DEFAULT_SIZE, 177, Short.MAX_VALUE)
-                                    .addComponent(cuentaSaldoDar2, javax.swing.GroupLayout.DEFAULT_SIZE, 177, Short.MAX_VALUE)))
+                                    .addComponent(lblestado, javax.swing.GroupLayout.DEFAULT_SIZE, 177, Short.MAX_VALUE)
+                                    .addComponent(lbltipo, javax.swing.GroupLayout.DEFAULT_SIZE, 177, Short.MAX_VALUE)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(Transacion, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -247,11 +250,11 @@ public class clienteCuenta extends javax.swing.JFrame {
                                         .addComponent(jLabel18)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jLabel16))
-                            .addComponent(cuentaSaldoDar1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblestado, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel19, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(cuentaSaldoDar2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lbltipo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addComponent(jLabel15)))
                 .addGap(18, 18, 18)
@@ -332,6 +335,26 @@ public class clienteCuenta extends javax.swing.JFrame {
                         .addGap(0, 20, Short.MAX_VALUE))))
         );
 
+        jMenuBar1.setBackground(new java.awt.Color(230, 230, 230));
+        jMenuBar1.setForeground(new java.awt.Color(0, 53, 102));
+
+        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/volver.png"))); // NOI18N
+        jMenu1.setText("Volver");
+
+        itmVolver.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Z, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        itmVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/volver.png"))); // NOI18N
+        itmVolver.setText("Volver al Inicio");
+        itmVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itmVolverActionPerformed(evt);
+            }
+        });
+        jMenu1.add(itmVolver);
+
+        jMenuBar1.add(jMenu1);
+
+        setJMenuBar(jMenuBar1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -347,6 +370,13 @@ public class clienteCuenta extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void itmVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmVolverActionPerformed
+        inicioGuia pInicioGuia = new inicioGuia();
+        pInicioGuia.setVisible(true);
+        pInicioGuia.setLocationRelativeTo(null);
+        this.dispose();
+    }//GEN-LAST:event_itmVolverActionPerformed
 
     private void txtCuentaActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_txtCuentaActionPerformed
         // TODO add your handling code here:
@@ -456,7 +486,7 @@ public class clienteCuenta extends javax.swing.JFrame {
     private void cargarDatos() {
         try (Connection conn = DBConnection.getConnection()) {
             // Consulta SQL para obtener el saldo de la cuenta
-            String sql = "SELECT saldo FROM cuenta WHERE idCuenta = ?";
+            String sql = "SELECT saldo,estado,tipocuenta FROM cuenta WHERE idCuenta = ?";
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setString(1, this.idCuenta); // Asignar el idCuenta al parámetro de la consulta
             ResultSet rs = stmt.executeQuery();
@@ -465,12 +495,14 @@ public class clienteCuenta extends javax.swing.JFrame {
             if (rs.next()) {
                 // Obtener el saldo de la base de datos
                 String saldo = rs.getString("saldo");
+                String estado =rs.getString("estado");
+                String tipocuenta = rs.getString("tipocuenta");
                 // Mostrar el idCuenta y saldo en las JLabel
                 idCuentaDar.setText(this.idCuenta);
                 cuentaSaldoDar.setText("S/. " + saldo);
+                lblestado.setText(estado);
+                lbltipo.setText(tipocuenta);
             }
-            rs.close();
-            stmt.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -479,9 +511,8 @@ public class clienteCuenta extends javax.swing.JFrame {
     private javax.swing.JButton Transacion;
     private javax.swing.JButton actulizar;
     private javax.swing.JLabel cuentaSaldoDar;
-    private javax.swing.JLabel cuentaSaldoDar1;
-    private javax.swing.JLabel cuentaSaldoDar2;
     private javax.swing.JLabel idCuentaDar;
+    private javax.swing.JMenuItem itmVolver;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
@@ -494,10 +525,14 @@ public class clienteCuenta extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
+    private javax.swing.JLabel lblestado;
+    private javax.swing.JLabel lbltipo;
     private javax.swing.JTextField saldoRecibir;
     private javax.swing.JTextField txtCuenta;
     // End of variables declaration//GEN-END:variables

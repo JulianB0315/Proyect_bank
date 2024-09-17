@@ -146,41 +146,48 @@ public class crearCuenta extends javax.swing.JFrame {
         btntgConfirmar.setBackground(new java.awt.Color(230, 230, 230));
         btntgConfirmar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ocultar.png"))); // NOI18N
         btntgConfirmar.setBorder(null);
+        btntgConfirmar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btntgConfirmarActionPerformed(evt);
+            }
+        });
 
         btntgContraseña.setBackground(new java.awt.Color(230, 230, 230));
         btntgContraseña.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ocultar.png"))); // NOI18N
         btntgContraseña.setBorder(null);
+        btntgContraseña.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btntgContraseñaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
                         .addComponent(jLabel26)
                         .addGap(9, 9, 9)
                         .addComponent(passConfirmar))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
+                        .addComponent(jLabel25)
+                        .addGap(34, 34, 34)
+                        .addComponent(ButtonDebito)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(buttonCredito))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel25)
-                                .addGap(34, 34, 34)
-                                .addComponent(ButtonDebito)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(buttonCredito))
+                                .addComponent(jLabel27)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(passContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel27)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(passContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(160, 160, 160)
-                                        .addComponent(jLabel3)))
-                                .addGap(0, 0, Short.MAX_VALUE)))))
+                                .addGap(160, 160, 160)
+                                .addComponent(jLabel3)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(195, 195, 195)
@@ -287,7 +294,7 @@ public class crearCuenta extends javax.swing.JFrame {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(20, 20, 20)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 520, Short.MAX_VALUE)
                         .addGap(20, 20, 20)
                         .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(20, 20, 20))
@@ -324,6 +331,36 @@ public class crearCuenta extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btntgContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btntgContraseñaActionPerformed
+        ImageIcon iconMostrar = new ImageIcon(getClass().getResource("/img/ver.png"));
+        ImageIcon iconOcultar = new ImageIcon(getClass().getResource("/img/ocultar.png"));
+
+        if (btntgContraseña.isSelected()) {
+            // Si está seleccionado, muestra la contraseña y cambia el ícono a "mostrar"
+            passContraseña.setEchoChar((char) 0);
+            btntgContraseña.setIcon(iconMostrar);
+        } else {
+            // Si no está seleccionado, oculta la contraseña y cambia el ícono a "ocultar"
+            passContraseña.setEchoChar('*');
+            btntgContraseña.setIcon(iconOcultar);
+        }
+    }//GEN-LAST:event_btntgContraseñaActionPerformed
+
+    private void btntgConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btntgConfirmarActionPerformed
+        ImageIcon iconMostrar = new ImageIcon(getClass().getResource("/img/ver.png"));
+        ImageIcon iconOcultar = new ImageIcon(getClass().getResource("/img/ocultar.png"));
+
+        if (btntgContraseña.isSelected()) {
+            // Si está seleccionado, muestra la contraseña y cambia el ícono a "mostrar"
+            passConfirmar.setEchoChar((char) 0);
+            btntgConfirmar.setIcon(iconMostrar);
+        } else {
+            // Si no está seleccionado, oculta la contraseña y cambia el ícono a "ocultar"
+            passConfirmar.setEchoChar('*');
+            btntgConfirmar.setIcon(iconOcultar);
+        }
+    }//GEN-LAST:event_btntgConfirmarActionPerformed
 
         private void buttonCancelarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_buttonCancelarActionPerformed
                 // Boton cancelar

@@ -76,7 +76,7 @@ public class clienteRegistro extends javax.swing.JFrame {
         jPanel7 = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        itmVolver = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -87,7 +87,7 @@ public class clienteRegistro extends javax.swing.JFrame {
         ButtonRegistro1.setBackground(new java.awt.Color(230, 230, 230));
         ButtonRegistro1.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
         ButtonRegistro1.setForeground(new java.awt.Color(0, 53, 102));
-        ButtonRegistro1.setText("Resgistarse");
+        ButtonRegistro1.setText(" Registrarse ");
         ButtonRegistro1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 3, 1, 3, new java.awt.Color(0, 53, 102)));
         ButtonRegistro1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         ButtonRegistro1.addActionListener(new java.awt.event.ActionListener() {
@@ -113,7 +113,7 @@ public class clienteRegistro extends javax.swing.JFrame {
         buttonMostrar.setBackground(new java.awt.Color(230, 230, 230));
         buttonMostrar.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
         buttonMostrar.setForeground(new java.awt.Color(0, 53, 102));
-        buttonMostrar.setText("Previzualizar Registro");
+        buttonMostrar.setText("Previsualizar Registro ");
         buttonMostrar.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 3, 1, 3, new java.awt.Color(0, 53, 102)));
         buttonMostrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         buttonMostrar.addActionListener(new java.awt.event.ActionListener() {
@@ -181,12 +181,12 @@ public class clienteRegistro extends javax.swing.JFrame {
 
         jLabel18.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(0, 53, 102));
-        jLabel18.setText("    Direccion                    :");
+        jLabel18.setText("    Dirección                    :");
         jLabel18.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 2, 0, 0, new java.awt.Color(0, 53, 102)));
 
         jLabel19.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(0, 53, 102));
-        jLabel19.setText("    Telefono                     :");
+        jLabel19.setText("    Teléfono                     :");
         jLabel19.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 2, 0, 0, new java.awt.Color(0, 53, 102)));
 
         jLabel20.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
@@ -301,7 +301,7 @@ public class clienteRegistro extends javax.swing.JFrame {
                                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                     .addComponent(TXTtelefono, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                     .addComponent(TXTcorreo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
                                             .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -325,10 +325,11 @@ public class clienteRegistro extends javax.swing.JFrame {
                 .addGap(15, 15, 15)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel25)
-                            .addComponent(TxtDNI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1))
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel25)
+                                .addComponent(TxtDNI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(15, 15, 15)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(TXTNombres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -444,10 +445,15 @@ public class clienteRegistro extends javax.swing.JFrame {
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/volver.png"))); // NOI18N
         jMenu1.setText("Volver");
 
-        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Z, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/volver.png"))); // NOI18N
-        jMenuItem1.setText("Volver al Inicio");
-        jMenu1.add(jMenuItem1);
+        itmVolver.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Z, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        itmVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/volver.png"))); // NOI18N
+        itmVolver.setText("Volver al Inicio");
+        itmVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itmVolverActionPerformed(evt);
+            }
+        });
+        jMenu1.add(itmVolver);
 
         jMenuBar1.add(jMenu1);
 
@@ -468,6 +474,13 @@ public class clienteRegistro extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void itmVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmVolverActionPerformed
+        inicioGuia pInicioGuia = new inicioGuia();
+        pInicioGuia.setVisible(true);
+        pInicioGuia.setLocationRelativeTo(null);
+        this.dispose();
+    }//GEN-LAST:event_itmVolverActionPerformed
 
     private void ButtonRegistro1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_ButtonRegistro1ActionPerformed
         // Obtener los datos del formulario
@@ -806,6 +819,7 @@ public class clienteRegistro extends javax.swing.JFrame {
     private javax.swing.JTextField TXTtelefono;
     private javax.swing.JTextField TxtDNI;
     private javax.swing.JButton buttonMostrar;
+    private javax.swing.JMenuItem itmVolver;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel17;
@@ -827,7 +841,6 @@ public class clienteRegistro extends javax.swing.JFrame {
     private com.toedter.components.JLocaleChooser jLocaleChooser1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
