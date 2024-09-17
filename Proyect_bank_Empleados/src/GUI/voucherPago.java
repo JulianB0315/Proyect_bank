@@ -65,6 +65,9 @@ public class voucherPago extends javax.swing.JFrame {
             }
         });
 
+        lblBoleta.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 53, 102), 2));
+        lblBoleta.setFocusCycleRoot(true);
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
