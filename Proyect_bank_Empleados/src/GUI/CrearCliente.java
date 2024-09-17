@@ -56,7 +56,6 @@ private String idEmpleado;
         txttelefono = new javax.swing.JTextField();
         txtdireccion = new javax.swing.JTextField();
         txtCorreo = new javax.swing.JTextField();
-        clrfechanacimiento = new com.toedter.calendar.JDateChooser();
         masculino = new javax.swing.JRadioButton();
         femenino = new javax.swing.JRadioButton();
         otros = new javax.swing.JRadioButton();
@@ -68,6 +67,7 @@ private String idEmpleado;
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+        clrfechanacimiento = new com.toedter.calendar.JDateChooser();
         jLabel3 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -152,12 +152,6 @@ private String idEmpleado;
         txtCorreo.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
         txtCorreo.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 3, 0, new java.awt.Color(0, 53, 102)));
 
-        clrfechanacimiento.setBackground(new java.awt.Color(230, 230, 230));
-        clrfechanacimiento.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(230, 230, 230)));
-        clrfechanacimiento.setForeground(new java.awt.Color(0, 53, 102));
-        clrfechanacimiento.setFont(new java.awt.Font("Serif", 0, 12)); // NOI18N
-        clrfechanacimiento.setMaxSelectableDate(new java.util.Date(253370786470000L));
-
         masculino.setForeground(new java.awt.Color(0, 53, 102));
         masculino.setText("Masculino");
         masculino.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -223,11 +217,11 @@ private String idEmpleado;
                         .addGap(10, 10, 10)
                         .addComponent(jLabel1))
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
                                 .addComponent(jLabel35)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(clrfechanacimiento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(18, 18, 18)
+                                .addComponent(clrfechanacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addComponent(jLabel34)
                                 .addGap(15, 15, 15)
@@ -297,9 +291,9 @@ private String idEmpleado;
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel5)
                             .addComponent(jLabel35)
-                            .addComponent(clrfechanacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5))
+                            .addComponent(clrfechanacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(15, 15, 15)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -492,7 +486,6 @@ private String idEmpleado;
             JOptionPane.showMessageDialog(null, "El nombre solo debe contener letras y espacios.","Error",JOptionPane.WARNING_MESSAGE);
             return;
         }
-        // Validar que el apellido solo contenga letras
         if (!apellido.matches("[a-zA-ZáéíóúÁÉÍÓÚñÑ\\s]+")) {
             JOptionPane.showMessageDialog(null, "El apellido solo debe contener letras y espacios.","Error",JOptionPane.WARNING_MESSAGE);
             return;
@@ -576,7 +569,6 @@ private String idEmpleado;
 
     // Método para validar el formato del correo electrónico
     private boolean validarEmail(String email) {
-        // * indica que el grupo anterior (un punto seguido de caracteres) puede repetirse cero o más veces
         String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
         Pattern pattern = Pattern.compile(emailRegex);
         Matcher matcher = pattern.matcher(email);
