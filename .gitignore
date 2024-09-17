@@ -2,7 +2,6 @@
 */.DS_Store
 .vscode/
 *.txt
-*.xml
 *.iml
 *.json
 !stats.json
