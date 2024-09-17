@@ -102,6 +102,7 @@ public class borrarCuenta extends javax.swing.JFrame {
         jLabel1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 2, 0, 0, new java.awt.Color(0, 53, 102)));
 
         tblVerCuentas.setBackground(new java.awt.Color(230, 230, 230));
+        tblVerCuentas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 53, 102)));
         tblVerCuentas.setFont(new java.awt.Font("Serif", 1, 12)); // NOI18N
         tblVerCuentas.setForeground(new java.awt.Color(0, 53, 102));
         tblVerCuentas.setModel(new javax.swing.table.DefaultTableModel(
@@ -109,7 +110,7 @@ public class borrarCuenta extends javax.swing.JFrame {
 
             },
             new String [] {
-                "N° Cuenta", "DNI", "Nombres", "Apellidos", "Tipo Cuenta", "Saldo", "Estado"
+                "N° Cuenta", "DNI", "Nombres", "Apellidos", "Tipo de Cuenta", "Saldo", "Estado"
             }
         ) {
             Class[] types = new Class [] {
@@ -254,9 +255,11 @@ public class borrarCuenta extends javax.swing.JFrame {
         jMenu2.setText("Volver");
         jMenu2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
+        itmVolver1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Z, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         itmVolver1.setBackground(new java.awt.Color(230, 230, 230));
         itmVolver1.setFont(new java.awt.Font("Serif", 1, 12)); // NOI18N
         itmVolver1.setForeground(new java.awt.Color(0, 53, 102));
+        itmVolver1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/volver.png"))); // NOI18N
         itmVolver1.setText("Volver");
         itmVolver1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -271,10 +274,11 @@ public class borrarCuenta extends javax.swing.JFrame {
         nmSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/salida-icon.png"))); // NOI18N
         nmSalir.setText("Salir");
 
+        itemCerrar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_X, java.awt.event.InputEvent.ALT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
         itemCerrar.setBackground(new java.awt.Color(230, 230, 230));
         itemCerrar.setForeground(new java.awt.Color(0, 53, 102));
         itemCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/x - copia.png"))); // NOI18N
-        itemCerrar.setText("Cerrar todo");
+        itemCerrar.setText("Cerrar todas las ventanas");
         itemCerrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 itemCerrarActionPerformed(evt);

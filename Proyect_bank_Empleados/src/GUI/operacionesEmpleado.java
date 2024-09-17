@@ -82,7 +82,7 @@ private String idEmpleado;
         btnTransferencia.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
         btnTransferencia.setForeground(new java.awt.Color(0, 53, 102));
         btnTransferencia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cuenta.png"))); // NOI18N
-        btnTransferencia.setText("Transferancia de Cuenta a Cuenta");
+        btnTransferencia.setText("Transferencia de Cuenta a Cuenta");
         btnTransferencia.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 3, 1, 3, new java.awt.Color(0, 53, 102)));
         btnTransferencia.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnTransferencia.addActionListener(new java.awt.event.ActionListener() {

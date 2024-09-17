@@ -80,7 +80,7 @@ private String idEmpleado;
 
         jLabel2.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 53, 102));
-        jLabel2.setText("     Buscar Empleado ID                :");
+        jLabel2.setText("     Buscar por ID del Empleado                :");
         jLabel2.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 2, 0, 0, new java.awt.Color(0, 53, 102)));
 
         btnBorrar.setBackground(new java.awt.Color(230, 230, 230));
@@ -115,7 +115,7 @@ private String idEmpleado;
 
             },
             new String [] {
-                "Id Empleado", "Nombres", "Apellidos", "Sexo", "Fecha de Nacimiento", "Cargo", "Fecha de Inicio", "Salario", "Contraseña"
+                "Id Empleado", "Nombres", "Apellidos", "Sexo", "Fecha de Nacimiento", "Cargo", "Fecha de inicio de contrato", "Salario", "Contraseña"
             }
         ) {
             Class[] types = new Class [] {
@@ -152,7 +152,7 @@ private String idEmpleado;
                 .addGap(12, 12, 12)
                 .addComponent(txtIEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
@@ -164,7 +164,7 @@ private String idEmpleado;
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCuenta)
+                    .addComponent(btnCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtIEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -179,7 +179,7 @@ private String idEmpleado;
         jLabel1.setFont(new java.awt.Font("Serif", 1, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(212, 175, 55));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logo02.png"))); // NOI18N
-        jLabel1.setText("          Nueva Banco Perú");
+        jLabel1.setText("                Nueva Banco Perú");
         jLabel1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 3, 1, 3, new java.awt.Color(212, 175, 55)));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -200,7 +200,7 @@ private String idEmpleado;
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         jMenuBar1.setBackground(new java.awt.Color(230, 230, 230));
@@ -214,6 +214,7 @@ private String idEmpleado;
         jMenu1.setText("Volver");
         jMenu1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
+        itmVolver.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Z, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         itmVolver.setBackground(new java.awt.Color(230, 230, 230));
         itmVolver.setFont(new java.awt.Font("Serif", 1, 12)); // NOI18N
         itmVolver.setForeground(new java.awt.Color(0, 53, 102));
@@ -232,10 +233,11 @@ private String idEmpleado;
         nmSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/salida-icon.png"))); // NOI18N
         nmSalir.setText("Salir");
 
+        itemCerrar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_X, java.awt.event.InputEvent.ALT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
         itemCerrar.setBackground(new java.awt.Color(230, 230, 230));
         itemCerrar.setForeground(new java.awt.Color(0, 53, 102));
         itemCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/x - copia.png"))); // NOI18N
-        itemCerrar.setText("Cerrar todo");
+        itemCerrar.setText("Cerrar todas las ventanas");
         itemCerrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 itemCerrarActionPerformed(evt);

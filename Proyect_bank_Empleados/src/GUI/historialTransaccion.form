@@ -41,6 +41,9 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="itmVolver">
               <Properties>
+                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                  <KeyStroke key="Ctrl+Z"/>
+                </Property>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="e6" green="e6" red="e6" type="rgb"/>
                 </Property>
@@ -49,6 +52,9 @@
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="66" green="35" red="0" type="rgb"/>
+                </Property>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/img/volver.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Volver"/>
               </Properties>
@@ -71,6 +77,9 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="itemCerrar">
               <Properties>
+                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                  <KeyStroke key="Ctrl+Alt+X"/>
+                </Property>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="e6" green="e6" red="e6" type="rgb"/>
                 </Property>
@@ -80,7 +89,7 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/img/x - copia.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Cerrar todo"/>
+                <Property name="text" type="java.lang.String" value="Cerrar todas las ventanas"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="itemCerrarActionPerformed"/>
@@ -223,10 +232,12 @@
                           <Component id="txtCuentaDa" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="btnBuscarRecibir" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel3" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
-                          <Component id="txtCuentaRecibe" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLabel3" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                              <Component id="txtCuentaRecibe" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jScrollPane1" min="-2" pref="156" max="-2" attributes="0"/>
@@ -258,12 +269,12 @@
                     </Property>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                       <Table columnCount="8" rowCount="0">
-                        <Column editable="false" title="N&#xb0; de Transaccion" type="java.lang.String"/>
+                        <Column editable="false" title="N&#xb0; de Transacci&#xf3;n" type="java.lang.String"/>
                         <Column editable="false" title="N&#xb0; Cuenta" type="java.lang.String"/>
                         <Column editable="false" title="N&#xb0; Cuenta Depositada" type="java.lang.String"/>
                         <Column editable="false" title="N&#xb0; de Empleado" type="java.lang.String"/>
-                        <Column editable="false" title="Tipo" type="java.lang.String"/>
-                        <Column editable="false" title="Descripcion" type="java.lang.String"/>
+                        <Column editable="false" title="Tipo de Cuenta" type="java.lang.String"/>
+                        <Column editable="false" title="Descripci&#xf3;n " type="java.lang.String"/>
                         <Column editable="false" title="Monto" type="java.lang.String"/>
                         <Column editable="false" title="Fecha" type="java.lang.String"/>
                       </Table>
@@ -445,7 +456,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="66" green="35" red="0" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="   N&#xb0; de Cuenta  que Recibe          :"/>
+                <Property name="text" type="java.lang.String" value="   N&#xb0; de Cuenta que Recibe           :"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
                     <MatteColorBorder bottom="0" left="2" right="0" top="0">
@@ -469,7 +480,7 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/img/ver.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Ver Voucher"/>
+                <Property name="text" type="java.lang.String" value="Ver V&#xe1;ucher "/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
                     <MatteColorBorder bottom="1" left="3" right="3" top="1">

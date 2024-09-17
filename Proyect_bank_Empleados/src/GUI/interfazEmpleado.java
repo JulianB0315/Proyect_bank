@@ -42,6 +42,7 @@ private String idEmpleado;
         jLabel2 = new javax.swing.JLabel();
         lblsaludo = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
@@ -112,6 +113,11 @@ private String idEmpleado;
         jLabel8.setText("¿Que haremos hoy?");
         jLabel8.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 3, 0, new java.awt.Color(0, 53, 102)));
 
+        jLabel28.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
+        jLabel28.setForeground(new java.awt.Color(0, 53, 102));
+        jLabel28.setText("Soluciones financieras con confianza y claridad.");
+        jLabel28.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 3, 1, 3, new java.awt.Color(0, 53, 102)));
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -128,8 +134,13 @@ private String idEmpleado;
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel8)
-                        .addGap(78, 78, 78)))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel8)
+                                .addGap(78, 78, 78))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel28)
+                                .addGap(42, 42, 42)))))
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
         );
@@ -143,7 +154,8 @@ private String idEmpleado;
                         .addContainerGap()
                         .addComponent(jLabel2))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(68, 68, 68)
+                        .addComponent(jLabel28)
+                        .addGap(43, 43, 43)
                         .addComponent(lblsaludo, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -225,7 +237,7 @@ private String idEmpleado;
         itmCrearClientes.setBackground(new java.awt.Color(230, 230, 230));
         itmCrearClientes.setForeground(new java.awt.Color(0, 53, 102));
         itmCrearClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/lista-de-verificacion-icon.png"))); // NOI18N
-        itmCrearClientes.setText("Crear Cliente");
+        itmCrearClientes.setText("Crear un nuevo Cliente");
         itmCrearClientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 itmCrearClientesActionPerformed(evt);
@@ -253,7 +265,7 @@ private String idEmpleado;
         itmCrearEmpleado.setBackground(new java.awt.Color(230, 230, 230));
         itmCrearEmpleado.setForeground(new java.awt.Color(0, 53, 102));
         itmCrearEmpleado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/empleado-crear-icon.png"))); // NOI18N
-        itmCrearEmpleado.setText("Crear empleados ");
+        itmCrearEmpleado.setText("Crear un nuevo empleado ");
         itmCrearEmpleado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 itmCrearEmpleadoActionPerformed(evt);
@@ -281,7 +293,7 @@ private String idEmpleado;
         itmCrearCuentas.setBackground(new java.awt.Color(230, 230, 230));
         itmCrearCuentas.setForeground(new java.awt.Color(0, 53, 102));
         itmCrearCuentas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/tarjeta-de-credito-icon.png"))); // NOI18N
-        itmCrearCuentas.setText("Crear Cuenta");
+        itmCrearCuentas.setText("Crear una nueva Cuenta");
         itmCrearCuentas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 itmCrearCuentasActionPerformed(evt);
@@ -292,7 +304,7 @@ private String idEmpleado;
         itmAlterarCuentas.setBackground(new java.awt.Color(230, 230, 230));
         itmAlterarCuentas.setForeground(new java.awt.Color(0, 53, 102));
         itmAlterarCuentas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cuenta-icon.png"))); // NOI18N
-        itmAlterarCuentas.setText("Alterar Cuentas");
+        itmAlterarCuentas.setText("Alterar las Cuentas");
         itmAlterarCuentas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 itmAlterarCuentasActionPerformed(evt);
@@ -304,7 +316,7 @@ private String idEmpleado;
 
         nmSalir3.setForeground(new java.awt.Color(0, 53, 102));
         nmSalir3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/transferencia-de-dinero-icon.png"))); // NOI18N
-        nmSalir3.setText("Transferancias");
+        nmSalir3.setText("Transferencias ");
 
         itmHistorial.setBackground(new java.awt.Color(230, 230, 230));
         itmHistorial.setForeground(new java.awt.Color(0, 53, 102));
@@ -337,7 +349,7 @@ private String idEmpleado;
         itmProgramador.setBackground(new java.awt.Color(230, 230, 230));
         itmProgramador.setForeground(new java.awt.Color(0, 53, 102));
         itmProgramador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/programador-icon.png"))); // NOI18N
-        itmProgramador.setText("Programdor:Julian Burga Bracamonte");
+        itmProgramador.setText("Programador: Julian Burga Bracamonte ");
         itmProgramador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 itmProgramadorActionPerformed(evt);
@@ -362,10 +374,11 @@ private String idEmpleado;
         nmSalir1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/salida-icon.png"))); // NOI18N
         nmSalir1.setText("Salir");
 
+        itemCerrar1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_X, java.awt.event.InputEvent.ALT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
         itemCerrar1.setBackground(new java.awt.Color(230, 230, 230));
         itemCerrar1.setForeground(new java.awt.Color(0, 53, 102));
         itemCerrar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/x - copia.png"))); // NOI18N
-        itemCerrar1.setText("Cerrar todo");
+        itemCerrar1.setText("Cerrar todas las ventanas");
         itemCerrar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 itemCerrar1ActionPerformed(evt);
@@ -497,6 +510,7 @@ private String idEmpleado;
     private javax.swing.JMenuItem itmProgramador;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;

@@ -74,12 +74,12 @@ private String idEmpleado;
 
         jLabel3.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 53, 102));
-        jLabel3.setText("   N° User                             :");
+        jLabel3.setText("   ID del Cliente                   :");
         jLabel3.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 2, 0, 0, new java.awt.Color(0, 53, 102)));
 
         jLabel4.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 53, 102));
-        jLabel4.setText("   Tipo Cuenta                      :");
+        jLabel4.setText("   Tipo  de Cuenta                :");
         jLabel4.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 2, 0, 0, new java.awt.Color(0, 53, 102)));
 
         jLabel5.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
@@ -141,7 +141,7 @@ private String idEmpleado;
         btnCrearCuenta.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
         btnCrearCuenta.setForeground(new java.awt.Color(0, 53, 102));
         btnCrearCuenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/realizar.png"))); // NOI18N
-        btnCrearCuenta.setText("Crear Cuenta");
+        btnCrearCuenta.setText("Crear nueva Cuenta  ");
         btnCrearCuenta.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 3, 1, 3, new java.awt.Color(0, 53, 102)));
         btnCrearCuenta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCrearCuenta.addActionListener(new java.awt.event.ActionListener() {
@@ -152,7 +152,7 @@ private String idEmpleado;
 
         grpTipoCuenta.add(rdoCredito);
         rdoCredito.setForeground(new java.awt.Color(0, 53, 102));
-        rdoCredito.setText("Credito");
+        rdoCredito.setText("Crédito");
 
         grpTipoCuenta.add(rdoDebito);
         rdoDebito.setForeground(new java.awt.Color(0, 53, 102));
@@ -294,6 +294,7 @@ private String idEmpleado;
         jMenu1.setText("Volver");
         jMenu1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
+        itmVolver.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Z, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         itmVolver.setBackground(new java.awt.Color(230, 230, 230));
         itmVolver.setFont(new java.awt.Font("Serif", 1, 12)); // NOI18N
         itmVolver.setForeground(new java.awt.Color(0, 53, 102));
@@ -312,8 +313,10 @@ private String idEmpleado;
         jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/limpiar-icon.png"))); // NOI18N
         jMenu2.setText("Limpiar");
 
+        itmLimpiar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         itmLimpiar.setBackground(new java.awt.Color(230, 230, 230));
         itmLimpiar.setForeground(new java.awt.Color(0, 53, 102));
+        itmLimpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/limpiar-icon.png"))); // NOI18N
         itmLimpiar.setText("Limpiar");
         itmLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -328,10 +331,11 @@ private String idEmpleado;
         nmSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/salida-icon.png"))); // NOI18N
         nmSalir.setText("Salir");
 
+        itemCerrar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_X, java.awt.event.InputEvent.ALT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
         itemCerrar.setBackground(new java.awt.Color(230, 230, 230));
         itemCerrar.setForeground(new java.awt.Color(0, 53, 102));
         itemCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/x - copia.png"))); // NOI18N
-        itemCerrar.setText("Cerrar todo");
+        itemCerrar.setText("Cerrar todas las ventanas");
         itemCerrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 itemCerrarActionPerformed(evt);
