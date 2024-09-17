@@ -1,52 +1,25 @@
 package GUI;
 
-// Maneja la conexión con la base de datos
 import DB.DBConnection;
-// Establece una conexión con la base de datos
 import java.sql.Connection;
-// Permite ejecutar consultas SQL parametrizadas
 import java.sql.PreparedStatement;
-// Proporciona acceso a los resultados de una consulta SQL
 import java.sql.ResultSet;
-// Maneja errores relacionados con la base de datos
 import java.sql.SQLException;
-// Genera números aleatorios
 import java.util.Random;
-// Muestra cuadros de diálogo en la interfaz gráfica
 import javax.swing.JOptionPane;
+import java.awt.Image;
+import javax.swing.ImageIcon;
 
 public class clienteCuenta extends javax.swing.JFrame {
     private String idCuenta;
-
     public clienteCuenta(String idCuenta) {
         this.idCuenta = idCuenta;
         initComponents();
-        this.setTitle("Bienvenido!!");
-
+        this.setTitle("Bienvenido");
         cargarDatos();
-    }
-
-    private void cargarDatos() {
-        try (Connection conn = DBConnection.getConnection()) {
-            // Consulta SQL para obtener el saldo de la cuenta
-            String sql = "SELECT saldo FROM cuenta WHERE idCuenta = ?";
-            PreparedStatement stmt = conn.prepareStatement(sql);
-            stmt.setString(1, this.idCuenta); // Asignar el idCuenta al parámetro de la consulta
-            ResultSet rs = stmt.executeQuery();
-
-            // Verificar si se obtuvo un resultado
-            if (rs.next()) {
-                // Obtener el saldo de la base de datos
-                String saldo = rs.getString("saldo");
-                // Mostrar el idCuenta y saldo en las JLabel
-                idCuentaDar.setText(this.idCuenta);
-                cuentaSaldoDar.setText("S/. " + saldo);
-            }
-            rs.close();
-            stmt.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        ImageIcon icon = new ImageIcon(getClass().getResource("/img/logo.png"));
+        Image logo = icon.getImage();
+        setIconImage(logo);
     }
 
     /**
@@ -197,7 +170,7 @@ public class clienteCuenta extends javax.swing.JFrame {
 
         jLabel21.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
         jLabel21.setForeground(new java.awt.Color(0, 53, 102));
-        jLabel21.setText("   Saldo                           :");
+        jLabel21.setText("   Monto                         :");
         jLabel21.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 2, 0, 0, new java.awt.Color(0, 53, 102)));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -360,7 +333,7 @@ public class clienteCuenta extends javax.swing.JFrame {
                     .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 15, Short.MAX_VALUE))))
+                        .addGap(0, 20, Short.MAX_VALUE))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -384,13 +357,11 @@ public class clienteCuenta extends javax.swing.JFrame {
     }// GEN-LAST:event_txtCuentaActionPerformed
 
     private void TransacionActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_TransacionActionPerformed
-        Connection conn = null;
+        
         double montoDeposito;
         String idCuentaRecibir = txtCuenta.getText();
-        try {
-            // Obtener la conexión
-            conn = DBConnection.getConnection();
-
+        try (Connection conn = DBConnection.getConnection()){
+            
             String idTransaccion = generateidTransaccion();
             String idEmpleado = "WEB00001";
             String tipoTransaccion = "Transferencia";
@@ -457,26 +428,14 @@ public class clienteCuenta extends javax.swing.JFrame {
 
             // Mostrar mensaje de éxito en un JPanel
             JOptionPane.showMessageDialog(this, "Depósito realizado exitosamente.");
-            ticket Boleta = new ticket(idTransaccion, idCuenta, idEmpleado, tipoTransaccion, descripcion,
-                    montoDeposito,
-                    idCuentaRecibir);
+            ticket Boleta = new ticket(idTransaccion);
             Boleta.setVisible(true);
             Boleta.setLocationRelativeTo(null);
         } catch (SQLException e) {
             e.printStackTrace();
             // Manejo de errores
-            JOptionPane.showMessageDialog(null, "Error en la transacción: " + e.getMessage(), "Error",
-                    JOptionPane.ERROR_MESSAGE);
-        } finally {
-            // Cerrar la conexión si está abierta
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
+            JOptionPane.showMessageDialog(null, "Error en la transacción: " + e.getMessage(), "Error",JOptionPane.ERROR_MESSAGE);
+        } 
     }// GEN-LAST:event_TransacionActionPerformed
 
     private void saldoRecibirActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_saldoRecibirActionPerformed
@@ -498,6 +457,28 @@ public class clienteCuenta extends javax.swing.JFrame {
         }
         return sb.toString();
     }
+    private void cargarDatos() {
+        try (Connection conn = DBConnection.getConnection()) {
+            // Consulta SQL para obtener el saldo de la cuenta
+            String sql = "SELECT saldo FROM cuenta WHERE idCuenta = ?";
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setString(1, this.idCuenta); // Asignar el idCuenta al parámetro de la consulta
+            ResultSet rs = stmt.executeQuery();
+
+            // Verificar si se obtuvo un resultado
+            if (rs.next()) {
+                // Obtener el saldo de la base de datos
+                String saldo = rs.getString("saldo");
+                // Mostrar el idCuenta y saldo en las JLabel
+                idCuentaDar.setText(this.idCuenta);
+                cuentaSaldoDar.setText("S/. " + saldo);
+            }
+            rs.close();
+            stmt.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Transacion;
     private javax.swing.JButton actulizar;
@@ -518,9 +499,7 @@ public class clienteCuenta extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JTextField saldoRecibir;

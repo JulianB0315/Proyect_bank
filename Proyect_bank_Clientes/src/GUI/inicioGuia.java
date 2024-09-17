@@ -1,21 +1,20 @@
 package GUI;
 
-// Se utiliza para manejar la lógica y la interfaz de registro de nuevos clientes.
-// Esta clase se encarga de la funcionalidad de inicio de sesión para los clientes.
-// Se utiliza para manejar eventos de ventana, permitiendo implementar solo los métodos necesarios sin tener que definir toda la interfaz `WindowListener`.
 import java.awt.event.WindowAdapter; 
-// Representa eventos específicos relacionados con la ventana, como abrir, cerrar o minimizar.
 import java.awt.event.WindowEvent; 
-// `JFrame` es la clase base para crear una ventana en una aplicación Java Swing.
 import javax.swing.JFrame; 
-// de información, advertencia o confirmación.
 import javax.swing.JOptionPane;
+import java.awt.Image;
+import javax.swing.ImageIcon;
 
 public class inicioGuia extends javax.swing.JFrame {
     public inicioGuia() {
         initComponents();
         cerrar();
         this.setTitle("Guia de inicio");
+        ImageIcon icon = new ImageIcon(getClass().getResource("/img/logo.png"));
+        Image logo = icon.getImage();
+        setIconImage(logo);
     }
 
     @SuppressWarnings("unchecked")

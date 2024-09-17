@@ -1,21 +1,15 @@
 package GUI;
 
-// Maneja la conexión con la base de datos a través de una clase personalizada
 import DB.DBConnection;
-// Maneja eventos de ventanas, como el cierre de la ventana
 import java.awt.event.WindowAdapter;
-// Maneja eventos específicos de ventanas, como el evento de cierre de ventana
 import java.awt.event.WindowEvent;
-// Establece una conexión con la base de datos
 import java.sql.Connection;
-// Permite ejecutar consultas SQL parametrizadas
 import java.sql.PreparedStatement;
-// Proporciona acceso a los resultados de una consulta SQL
 import java.sql.ResultSet;
-// Define la ventana principal en la interfaz gráfica de usuario (GUI)
 import javax.swing.JFrame;
-// Muestra cuadros de diálogo en la interfaz gráfica de usuario (GUI) para mensajes y advertencias
 import javax.swing.JOptionPane;
+import java.awt.Image;
+import javax.swing.ImageIcon;
 
 public class inicioSession extends javax.swing.JFrame {
 
@@ -24,6 +18,9 @@ public class inicioSession extends javax.swing.JFrame {
         cerrar();
         this.setTitle("Inicio de Session");
         Contraseña.setEchoChar('*');
+        ImageIcon icon = new ImageIcon(getClass().getResource("/img/logo.png"));
+        Image logo = icon.getImage();
+        setIconImage(logo);
     }
 
     @SuppressWarnings("unchecked")
