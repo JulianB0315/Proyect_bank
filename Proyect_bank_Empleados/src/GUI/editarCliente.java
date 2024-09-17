@@ -12,6 +12,8 @@ import java.sql.SQLException;
 import java.awt.Image;
 import java.awt.Window;
 import javax.swing.JOptionPane;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class editarCliente extends javax.swing.JFrame {
 private String idEmpleado;
@@ -335,6 +337,24 @@ private String idCliente;
         String Correoedit = txtCorreo.getText();
         String Direccionsedit = txtDireccion.getText();
         String Telefonoedit = txtTelefono.getText();
+        
+        if (!Nombresedit.matches("[a-zA-ZáéíóúÁÉÍÓÚñÑ\\s]+")) {
+            JOptionPane.showMessageDialog(null, "El nombre solo debe contener letras y espacios.","Error",JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        if (!Apellidosedit.matches("[a-zA-ZáéíóúÁÉÍÓÚñÑ\\s]+")) {
+            JOptionPane.showMessageDialog(null, "El apellido solo debe contener letras y espacios.","Error",JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        if (!Telefonoedit.matches("\\d{9}")) {
+            JOptionPane.showMessageDialog(null, "Numero teléfono invalido.","Error",JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        if (!validarEmail(Correoedit)) {
+            JOptionPane.showMessageDialog(null, "Por favor, ingrese un correo electrónico válido.","Error",JOptionPane.WARNING_MESSAGE);
+            return;
+        }
         if(Nombresedit.isEmpty()||Apellidosedit.isEmpty()||Correoedit.isEmpty()||Direccionsedit.isEmpty()||Telefonoedit.isEmpty()){
             JOptionPane.showMessageDialog(null,"Por favor,Llenar todos los campos", "Advertencia", JOptionPane.WARNING_MESSAGE);
             return;
@@ -424,7 +444,13 @@ private String idCliente;
             txtDireccion.setText(Direccion);
             txtTelefono.setText(telefono);
         return true;
-}
+    }
+    private boolean validarEmail(String email) {
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
+        Pattern pattern = Pattern.compile(emailRegex);
+        Matcher matcher = pattern.matcher(email);
+        return matcher.matches();
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEditar;
     private javax.swing.JMenuItem itemCerrar;
