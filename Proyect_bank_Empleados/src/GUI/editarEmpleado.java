@@ -360,6 +360,22 @@ private String idEmpleadoEdit;
         String contraseña = new String(passContraseña.getPassword());
         String cargo = (String) cbxcargo.getSelectedItem();
 
+        if (!Nombresedit.matches("[a-zA-ZáéíóúÁÉÍÓÚñÑ\\s]+")) {
+            JOptionPane.showMessageDialog(null, "El apellido solo debe contener letras y espacios.", "Error", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        if (!Apellidosedit.matches("[a-zA-ZáéíóúÁÉÍÓÚñÑ\\s]+")) {
+            JOptionPane.showMessageDialog(null, "El apellido solo debe contener letras y espacios.", "Error", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        if (contraseña.length() >= 8) {
+            JOptionPane.showMessageDialog(null, "La contraseña no puede exceder los  caracteres.", "Error", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        if (!saladarioString.matches("-?\\d+(\\.\\d+)?") || Double.parseDouble(saladarioString) <= 0) {
+            JOptionPane.showMessageDialog(null, "El salario debe ser un número positivo.", "Error", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
         if(Nombresedit.isEmpty()||Apellidosedit.isEmpty()||saladarioString.isEmpty()||contraseña.isEmpty()||cargo.isEmpty()){
             JOptionPane.showMessageDialog(null,"Por favor,Llenar todos los campos", "Advertencia", JOptionPane.WARNING_MESSAGE);
             return;
