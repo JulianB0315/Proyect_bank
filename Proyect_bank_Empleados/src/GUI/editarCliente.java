@@ -22,7 +22,7 @@ private String idCliente;
         initComponents();
         this.idEmpleado= idEmpleado;
         this.idCliente = idCliente;
-        this.setTitle("Deposito a Cuenta");
+        this.setTitle("Editar cliente");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         ImageIcon icon = new ImageIcon(getClass().getResource("/img/logo.png"));
         Image logo = icon.getImage();
