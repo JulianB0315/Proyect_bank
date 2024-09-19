@@ -14,9 +14,10 @@ public class DBConnection {
 
         try {
             Class.forName("oracle.jdbc.OracleDriver"); // Cargar el driver
+            System.out.println("Conectado");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
-            System.out.println("Conectado");
+            System.out.println("Error al conectar"+e.getMessage());
         }
 
         return DriverManager.getConnection(url, user, password);
