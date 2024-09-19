@@ -410,7 +410,7 @@ public class transferanciaCuentaCuenta extends javax.swing.JFrame {
         String cuentaCliente = txtCuentadar.getText();
         String contraseñaCliente = new String(passContraseña.getPassword());
         if (!comprobarTransferencia(cuentaCliente, contraseñaCliente, lblsaldo, lbltipoCuenta)) {
-            JOptionPane.showMessageDialog(null, "Contraseña incorrecta", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Contraseña incorrecta", "Advertencia", JOptionPane.ERROR_MESSAGE);
             return;
         }
     }//GEN-LAST:event_btncargadatosActionPerformed
@@ -471,36 +471,36 @@ public class transferanciaCuentaCuenta extends javax.swing.JFrame {
         String tipoTransaccion = "Transferencia";
         String descripcion = "Realizada por un empleado autorizado";
         if (!existeCuenta(cuentaCliente)) {
-            JOptionPane.showMessageDialog(null, "Cuenta no encontrada.", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Cuenta no encontrada.", "Advertencia", JOptionPane.ERROR_MESSAGE);
             return;
         }
         if (!existeCuenta(cuentaRemitente)) {
-            JOptionPane.showMessageDialog(null, "La cuenta del receptor no exite.", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "La cuenta del receptor no exite.", "Advertencia", JOptionPane.ERROR_MESSAGE);
             return;
         }
         if (!comprobarTransferencia(cuentaCliente, contraseñaCliente, lblsaldo, lbltipoCuenta)) {
-            JOptionPane.showMessageDialog(null, "Contraseña incorrecta", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Contraseña incorrecta", "Advertencia", JOptionPane.ERROR_MESSAGE);
             return;
         }
         if (!comprobarEstadoCuenta(cuentaCliente)) {
-            JOptionPane.showMessageDialog(null, "Cuenta desactivda.", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Cuenta desactivda.", "Advertencia", JOptionPane.ERROR_MESSAGE);
             return;
         }
         if (!comprobarEstadoCuenta(cuentaRemitente)) {
-            JOptionPane.showMessageDialog(null, "La cuenta del receptor esta desactivada.", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "La cuenta del receptor esta desactivada.", "Advertencia", JOptionPane.ERROR_MESSAGE);
             return;
         }
         if(!MontoString.matches("^\\d*\\.?\\d+$")){
-            JOptionPane.showMessageDialog(null,"Ingresar un montos Valido","Error",JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null,"Ingresar un montos Valido","Advertencia",JOptionPane.WARNING_MESSAGE);
             return;
         }
         double Monto = Double.parseDouble(MontoString);
         if (!comprobarSaldo(cuentaCliente, Monto)) {
-            JOptionPane.showMessageDialog(null, "El monto excede el saldo disponible.", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "El monto excede el saldo disponible.", "Advertencia", JOptionPane.ERROR_MESSAGE);
             return;
         }
         if(cuentaCliente.isEmpty()||contraseñaCliente.isEmpty()||cuentaRemitente.isEmpty()||MontoString.isEmpty()){
-                JOptionPane.showMessageDialog(null, "Completar los campos.", "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Completar los campos.", "Advertencia", JOptionPane.ERROR_MESSAGE);
                 return;
             }
         try (Connection conn = DBConnection.getConnection()) {
