@@ -328,13 +328,13 @@ public class inicioSession extends javax.swing.JFrame {
                             clienteCuenta.setLocationRelativeTo(null);
                             this.dispose();
                         } else {
-                            JOptionPane.showMessageDialog(null, "Datos Incorrectos!!", "Advertencia",JOptionPane.WARNING_MESSAGE);
+                            JOptionPane.showMessageDialog(null, "Datos Incorrectos,Ingresar los datos correctos", "Advertencia",JOptionPane.WARNING_MESSAGE);
                         }
             }else {
-                JOptionPane.showMessageDialog(null, "Datos Incorrectos!!", "Advertencia",JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Datos Incorrectos, Ingresar los datos correctos", "Advertencia",JOptionPane.WARNING_MESSAGE);
             }
         }catch(SQLException e){
-            JOptionPane.showMessageDialog(null, "Error con la consulta", "Advertencia",JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Error con la consulta"+e.getMessage(), "Error",JOptionPane.WARNING_MESSAGE);
 
         }
     }// GEN-LAST:event_ButtonSessionActionPerformed

@@ -23,7 +23,7 @@ public class ticket extends javax.swing.JFrame {
     public ticket(String idTransaccion) {
         initComponents();
         //Da titulo a la Interfaz
-        this.setTitle("Baucher de Transacción ");
+        this.setTitle("Váucher de Transacción");
         //Altera para que no se cierre la Aplicacion sino solo esta interfaz
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         ImageIcon icon = new ImageIcon(getClass().getResource("/img/logo.png"));

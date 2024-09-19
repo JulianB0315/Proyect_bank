@@ -15,7 +15,7 @@ public class clienteCuenta extends javax.swing.JFrame {
     public clienteCuenta(String idCuenta) {
         this.idCuenta = idCuenta;
         initComponents();
-        this.setTitle("Bienvenido");
+        this.setTitle("Cuenta");
         cargarDatos();
         ImageIcon icon = new ImageIcon(getClass().getResource("/img/logo.png"));
         Image logo = icon.getImage();
@@ -400,7 +400,7 @@ public class clienteCuenta extends javax.swing.JFrame {
             ResultSet rsTipoCuenta = psTipoCuenta.executeQuery();
 
             if (!rsTipoCuenta.next()) {
-                JOptionPane.showMessageDialog(this, "Cuenta no encontrada.");
+                JOptionPane.showMessageDialog(null, "La cuenta ingresada no existe.","Advertencia",JOptionPane.WARNING_MESSAGE);
                 return;
             }
 
@@ -411,18 +411,17 @@ public class clienteCuenta extends javax.swing.JFrame {
             try {
                 montoDeposito = Double.parseDouble(saldoRecibir.getText().trim());
                 if (montoDeposito <= 0) {
-                    JOptionPane.showMessageDialog(this, "El monto debe ser mayor que 0.");
+                    JOptionPane.showMessageDialog(null, "El monto debe de mayor de 0.","Advertencia",JOptionPane.WARNING_MESSAGE);
                     return;
                 }
 
                 // Validar saldo para cuentas de débito
                 if ("debito".equals(tipoCuenta) && montoDeposito > saldoActual) {
-                    JOptionPane.showMessageDialog(this,
-                            "El monto a retirar excede el saldo disponible.");
+                    JOptionPane.showMessageDialog(null,"El monto excede el saldo disponible.","Advertencia",JOptionPane.WARNING_MESSAGE);
                     return;
                 }
             } catch (NumberFormatException e) {
-                JOptionPane.showMessageDialog(this, "Ingrese un monto válido.");
+                JOptionPane.showMessageDialog(this, "Por favor, Ingrese un monto válido.","Advertencia",JOptionPane.WARNING_MESSAGE);
                 return;
             }
 
@@ -453,7 +452,7 @@ public class clienteCuenta extends javax.swing.JFrame {
             psInsert.executeUpdate();
 
             // Mostrar mensaje de éxito en un JPanel
-            JOptionPane.showMessageDialog(this, "Depósito realizado exitosamente.");
+            JOptionPane.showMessageDialog(null, "La transferencia se realizó con éxito.","Felicidades",JOptionPane.INFORMATION_MESSAGE);
             ticket Boleta = new ticket(idTransaccion);
             Boleta.setVisible(true);
             Boleta.setLocationRelativeTo(null);

@@ -14,7 +14,7 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 
 public class crearCuenta extends javax.swing.JFrame {
-        private String idCliente;// Traer idCliente de la clienteRegistro
+        private String idCliente;
         public crearCuenta(String idCliente) {
                 this.idCliente = idCliente;// Traer el idCliente como una variable para despues usarla 
                 initComponents();
@@ -364,7 +364,7 @@ public class crearCuenta extends javax.swing.JFrame {
 
         private void buttonCancelarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_buttonCancelarActionPerformed
                 // Boton cancelar
-                int confirmar = JOptionPane.showConfirmDialog(this,"¿Está seguro de que quiero cancelar?, se borrar también el registro.","Confirmar eliminación", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+                int confirmar = JOptionPane.showConfirmDialog(this,"¿Está seguro de que quiero cancelar?, se borrar también el nuevo usuario.","Cancelar registro", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
                 // Funcion para borra el ragistro
                 if (confirmar == JOptionPane.YES_OPTION) {
                         eliminarRegistro(idCliente);//Se usa la variable antes traida
@@ -387,7 +387,7 @@ public class crearCuenta extends javax.swing.JFrame {
                 String confirmarContraseña = new String(passConfirmar.getPassword());
                 // Verificar tipo de cuenta que solo se permite de credito
                 if (tipoCuenta.equals("credito")) {
-                        JOptionPane.showMessageDialog(null, "Para abrir una cuenta de crédito necesita evaluación.");
+                        JOptionPane.showMessageDialog(null, "Para abrir una cuenta de crédito necesita evaluación previa.","Advertencia",JOptionPane.WARNING_MESSAGE);
                         return;
                 }
                 //Se almacena el metodo para generar IdCuenta
@@ -406,12 +406,12 @@ public class crearCuenta extends javax.swing.JFrame {
                                         psCuenta.setString(3, tipoCuenta);
                                         psCuenta.setString(4, contraseña);
                                         psCuenta.executeUpdate();
-                                        JOptionPane.showMessageDialog(null, "Cuenta creada exitosamente.");
+                                        JOptionPane.showMessageDialog(null, "Cuenta creada exitosamente.","Felicidades",JOptionPane.INFORMATION_MESSAGE);
                                         conn.close();//Cierro la conexion
                                         this.dispose(); // Cierra la ventana después de crear la cuenta
                                 } catch (SQLException e) {
                                         //Manda un mensaje si no se cumple el proceso correctamente
-                                        JOptionPane.showMessageDialog(null, "Error al insertar los datos datos");//Al haber algun error en la conexion
+                                        JOptionPane.showMessageDialog(null, "Error: En completar la creación de la cuenta","Error",JOptionPane.WARNING_MESSAGE);//Al haber algun error en la conexion
                                 }
                         }
                 }
@@ -420,17 +420,17 @@ public class crearCuenta extends javax.swing.JFrame {
         private boolean validarContraseña(String contraseña, String confirmarContraseña) {
                 //Retorna falso al cumplirse
                 if (contraseña.isEmpty() || confirmarContraseña.isEmpty()) {
-                        JOptionPane.showMessageDialog(null, "Debe ingresar y confirmar su contraseña.");
+                        JOptionPane.showMessageDialog(null, "Debe ingresar y confirmar su contraseña.","Advertencia",JOptionPane.WARNING_MESSAGE);
                         return false;
                 }
                 //Retorna falso al cumplirse
                 if (contraseña.length() != 8) {
-                        JOptionPane.showMessageDialog(null, "La contraseña debe tener exactamente 8 caracteres.");
+                        JOptionPane.showMessageDialog(null, "La contraseña debe tener exactamente 8 caracteres, puedes usar letras, números y símbolos.","Advertencia",JOptionPane.WARNING_MESSAGE);
                         return false;
                 }
                 //Retorna falso al cumplirse
                 if (!contraseña.equals(confirmarContraseña)) {
-                        JOptionPane.showMessageDialog(null, "Las contraseñas no coinciden.");
+                        JOptionPane.showMessageDialog(null, "Las contraseñas no coinciden.","Advertencia",JOptionPane.WARNING_MESSAGE);
                         return false;
                 }
                 //Si no se cumple ninguna se manda verdad y se puede continuar
@@ -462,17 +462,13 @@ public class crearCuenta extends javax.swing.JFrame {
                         int rowsAffected = psEliminar.executeUpdate();
                         //Si se elimina 1 o mas registros 
                         if (rowsAffected > 0) {
-                                JOptionPane.showMessageDialog(null, "Registro eliminado exitosamente.");
+                                JOptionPane.showMessageDialog(null, "Usuario se eliminó exitosamente, vuela pronto.","Hasta luego",JOptionPane.INFORMATION_MESSAGE);
                                 // Cierra la ventana después de eliminar
                                 this.dispose();
-                        //Si no se elimina ningun registro
-                        } else {
-                                JOptionPane.showMessageDialog(null, "No se encontro registro del cliente");
-                        }
-                        conn.close();
+                            }
                 //Error al llevar a cabo el proceso
                 } catch (SQLException e) {
-                        JOptionPane.showMessageDialog(null, "Error al eliminar");
+                        JOptionPane.showMessageDialog(null, "Error al eliminar"+e.getMessage(),"Error",JOptionPane.WARNING_MESSAGE);
                 }
         }
         // Metodo que cambia el comportamiento al cerrar la ventana

@@ -299,7 +299,7 @@ private String idEmpleado;
         pstmt.close();
     } catch (SQLException e) {
         e.printStackTrace();
-        JOptionPane.showMessageDialog(this, "Error al recuperar los datos de clientes.", "Error", JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showMessageDialog(this, "Error al recuperar los datos de clientes.", "Sin resultados", JOptionPane.ERROR_MESSAGE);
     }
     }//GEN-LAST:event_btnCuentaActionPerformed
 
@@ -310,7 +310,7 @@ private String idEmpleado;
         String idCliente = tblVerTranferencias.getValueAt(selectedRow, 0).toString();
         String Dni = tblVerTranferencias.getValueAt(selectedRow,1).toString();
         
-        int confirm = JOptionPane.showConfirmDialog(this, "¿Esta seguro de borrar el Cliente con DNI:"+Dni+"?", "Confirmar Borrado", JOptionPane.YES_NO_OPTION);
+        int confirm = JOptionPane.showConfirmDialog(this, "¿Esta seguro de borrar el Cliente con DNI:"+Dni+"?Se borrarán sus cuentas y transferencias.", "Confirmar Borrado", JOptionPane.YES_NO_OPTION);
         if (confirm == JOptionPane.YES_OPTION) {
             
             try (Connection conn = DBConnection.getConnection()) {
@@ -331,7 +331,7 @@ private String idEmpleado;
             }
         }
     } else {
-        JOptionPane.showMessageDialog(this, "Por favor, selecciones un cliente para borrar.", "Advertencia", JOptionPane.WARNING_MESSAGE);
+        JOptionPane.showMessageDialog(this, "Por favor, selecciones un usurio para borrar.", "Advertencia", JOptionPane.WARNING_MESSAGE);
     }
     }//GEN-LAST:event_jButton1ActionPerformed
 

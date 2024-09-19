@@ -309,7 +309,7 @@ private String idEmpleado;
         if (selectedRow != -1) {
 
             String idCliente = tblVerTranferencias.getValueAt(selectedRow, 0).toString();
-            int confirm = JOptionPane.showConfirmDialog(this, "¿Esta seguro de borrar el Empleado:"+idCliente+"?", "Confirmar Borrado", JOptionPane.YES_NO_OPTION);
+            int confirm = JOptionPane.showConfirmDialog(this, "¿Esta seguro de borrar el Empleado:"+idCliente+"?se borraran todos los datos relacionados", "Confirmar Borrado", JOptionPane.YES_NO_OPTION);
             if (confirm == JOptionPane.YES_OPTION) {
 
                 try (Connection conn = DBConnection.getConnection()) {
@@ -326,7 +326,7 @@ private String idEmpleado;
                     pstmt.close();
                 } catch (SQLException e) {
                     e.printStackTrace();
-                    JOptionPane.showMessageDialog(this, "Error al intentar borrar la cuenta.", "Error", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(this, "Error al intentar borrar el empleado.", "Error", JOptionPane.ERROR_MESSAGE);
                 }
             }
         } else {
@@ -342,7 +342,7 @@ private String idEmpleado;
             pEditarEmpleado.setVisible(true);
             pEditarEmpleado.setLocationRelativeTo(null);
         }else{
-            JOptionPane.showMessageDialog(this, "Por favor, selecciones un cliente para editar.", "Advertencia", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Por favor, selecciones un empleado para editar.", "Advertencia", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_btnEditarActionPerformed
 

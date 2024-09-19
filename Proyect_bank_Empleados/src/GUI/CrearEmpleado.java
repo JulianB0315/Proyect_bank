@@ -22,7 +22,7 @@ private String idEmpleado;
         this.idEmpleado=idEmpleado;
         passContraseña.setEchoChar('*');
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        this.setTitle("Crear Empleados");
+        this.setTitle("Crear nuevos Empleados");
         ImageIcon icon = new ImageIcon(getClass().getResource("/img/logo.png"));
         Image logo = icon.getImage();
         setIconImage(logo);
@@ -455,26 +455,26 @@ private String idEmpleado;
     Date fechaLimiteMayorEdad = cal.getTime();
 
     if (fechaNacimientoDate.after(fechaActual)) {
-        JOptionPane.showMessageDialog(null, "La fecha de nacimiento no puede ser futura.", "Error", JOptionPane.WARNING_MESSAGE);
+        JOptionPane.showMessageDialog(null, "La fecha de nacimiento no puede ser futura.", "Advertencia", JOptionPane.WARNING_MESSAGE);
         return;
     } else if (fechaNacimientoDate.before(fechaLimiteAntigua)) {
-        JOptionPane.showMessageDialog(null, "La fecha de nacimiento no puede ser tan antigua.", "Error", JOptionPane.WARNING_MESSAGE);
+        JOptionPane.showMessageDialog(null, "La fecha de nacimiento no puede ser tan antigua.", "Advertencia", JOptionPane.WARNING_MESSAGE);
         return;
     } else if (fechaNacimientoDate.after(fechaLimiteMayorEdad)) {
-        JOptionPane.showMessageDialog(null, "Debe ser mayor de 18 años para registrarse.", "Error", JOptionPane.WARNING_MESSAGE);
+        JOptionPane.showMessageDialog(null, "Debe ser mayor de 18 años para registrarse.", "Advertencia", JOptionPane.WARNING_MESSAGE);
         return;
     }
 
     if (!nombre.matches("[a-zA-ZáéíóúÁÉÍÓÚñÑ\\s]+")) {
-        JOptionPane.showMessageDialog(null, "El nombre solo debe contener letras y espacios.", "Error", JOptionPane.WARNING_MESSAGE);
+        JOptionPane.showMessageDialog(null, "El nombre solo debe contener letras y espacios.", "Advertencia", JOptionPane.WARNING_MESSAGE);
         return;
     }
     if (!salarioString.matches("-?\\d+(\\.\\d+)?") || Double.parseDouble(salarioString) <= 0) {
-        JOptionPane.showMessageDialog(null, "El salario debe ser un número positivo.", "Error", JOptionPane.WARNING_MESSAGE);
+        JOptionPane.showMessageDialog(null, "El salario debe ser un número positivo.", "Advertencia", JOptionPane.WARNING_MESSAGE);
         return;
     }
     if (!apellido.matches("[a-zA-ZáéíóúÁÉÍÓÚñÑ\\s]+")) {
-        JOptionPane.showMessageDialog(null, "El apellido solo debe contener letras y espacios.", "Error", JOptionPane.WARNING_MESSAGE);
+        JOptionPane.showMessageDialog(null, "El apellido solo debe contener letras y espacios.", "Advertencia", JOptionPane.WARNING_MESSAGE);
         return;
     }
     if(cargo.equals("--------")){
@@ -491,7 +491,7 @@ private String idEmpleado;
     }
 
     if (contraseña.length() >= 8) {
-        JOptionPane.showMessageDialog(null, "La contraseña no puede exceder los 8 caracteres.", "Error", JOptionPane.WARNING_MESSAGE);
+        JOptionPane.showMessageDialog(null, "La contraseña no puede exceder los 8 caracteres.", "Advertencia", JOptionPane.WARNING_MESSAGE);
         return;
     }
 

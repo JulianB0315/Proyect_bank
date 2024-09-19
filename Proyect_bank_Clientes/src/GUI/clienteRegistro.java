@@ -24,7 +24,7 @@ public class clienteRegistro extends javax.swing.JFrame {
     public clienteRegistro() {
         initComponents();
         //Da titulo a  la Interfaz
-        this.setTitle("Registro de datos del nuevo cliente");
+        this.setTitle("Registro de nuevo usuario ");
         cerrar();
         ImageIcon icon = new ImageIcon(getClass().getResource("/img/logo.png"));
         Image logo = icon.getImage();
@@ -498,32 +498,32 @@ public class clienteRegistro extends javax.swing.JFrame {
 
         Date fechaNacimientoDate = Nacimiento.getDate();// JCalendario no es error solo importe los paneles
         if (fechaNacimientoDate == null) {
-            JOptionPane.showMessageDialog(null, "Por favor, seleccione una fecha de nacimiento válida.");
+            JOptionPane.showMessageDialog(null, "Por favor, seleccionar una fecha de nacimiento válida.","Advertencia",JOptionPane.WARNING_MESSAGE);
             return;
         }
 
         // Validar que el DNI tenga 8 dígitos y no sean letras
         String dni = TxtDNI.getText();
         if (!dni.matches("\\d{8}")) {
-            JOptionPane.showMessageDialog(null, "DNI invalido.");
+            JOptionPane.showMessageDialog(null, "El DNI es invalido, ingresar un DNI valido.","Advertencia",JOptionPane.WARNING_MESSAGE);
             return;
         }
         if (isDniRegistered(dni)) {
-            JOptionPane.showMessageDialog(null, "El DNI ya está registrado.");
+            JOptionPane.showMessageDialog(null, "El DNI ya se encuentra registrado con otro usuario, por favor, ingresar otro.","Advertencia",JOptionPane.WARNING_MESSAGE);
             return;
         }
 
         // Validar que el teléfono tenga 9 dígitos
         String telefono = TXTtelefono.getText();
         if (!telefono.matches("\\d{9}")) {
-            JOptionPane.showMessageDialog(null, "Numero teléfono invalido.");
+            JOptionPane.showMessageDialog(null, "El número de teléfono es invalido, por favor ingresar un número de teléfono valido.","Advertencia",JOptionPane.WARNING_MESSAGE);
             return;
         }
 
         // Validar el formato del correo electrónico
         String email = TXTcorreo.getText();
         if (!validarEmail(email)) {
-            JOptionPane.showMessageDialog(null, "Por favor, ingrese un correo electrónico válido.");
+            JOptionPane.showMessageDialog(null, "Por favor, ingrese un correo electrónico válido.","Advertencia",JOptionPane.WARNING_MESSAGE);
             return;
         }
 
@@ -537,13 +537,13 @@ public class clienteRegistro extends javax.swing.JFrame {
         cal.add(Calendar.YEAR, -18); // Hace 18 años desde hoy
         Date fechaLimiteMayorEdad = cal.getTime();
         if (fechaNacimientoDate.after(fechaActual)) {
-            JOptionPane.showMessageDialog(null, "La fecha de nacimiento no puede ser futura.");
+            JOptionPane.showMessageDialog(null, "La fecha de nacimiento no puede ser del futuro, por favor ingresar una fecha valida.","Advertencia",JOptionPane.WARNING_MESSAGE);
             return;
         } else if (fechaNacimientoDate.before(fechaLimiteAntigua)) {
-            JOptionPane.showMessageDialog(null, "La fecha de nacimiento no puede ser tan antigua.");
+            JOptionPane.showMessageDialog(null, "La fecha de nacimiento no puede ser tan antigua, por favor ingresar una fecha valida.","Advertencia",JOptionPane.WARNING_MESSAGE);
             return;
         } else if (fechaNacimientoDate.after(fechaLimiteMayorEdad)) {
-            JOptionPane.showMessageDialog(null, "Debe ser mayor de 18 años para registrarse.");
+            JOptionPane.showMessageDialog(null, "Debe ser mayor de 18 años para registrarse.","Advertencia",JOptionPane.WARNING_MESSAGE);
             return;
         }
         // Validar que el nombre solo contenga letras
@@ -552,12 +552,12 @@ public class clienteRegistro extends javax.swing.JFrame {
         //\\s: Permite espacios en blanco.
         //+: Indica que la cadena debe tener al menos un carácter válido (letra o espacio).
         if (!nombre.matches("[a-zA-ZáéíóúÁÉÍÓÚñÑ\\s]+")) {
-            JOptionPane.showMessageDialog(null, "El nombre solo debe contener letras y espacios.");
+            JOptionPane.showMessageDialog(null, "Nombre invalido, por favor ingresar un nombre valido, prueba solo usar letras.","Advertencia",JOptionPane.WARNING_MESSAGE);
             return;//Sale del metodo si no se escribe bien el nombre
         }
         // Validar que el apellido solo contenga letras
         if (!apellido.matches("[a-zA-ZáéíóúÁÉÍÓÚñÑ\\s]+")) {
-            JOptionPane.showMessageDialog(null, "El apellido solo debe contener letras y espacios.");
+            JOptionPane.showMessageDialog(null, "Apellido invalido, por favor ingresar un apellido valido, prueba solo usar letras.","Advertencia",JOptionPane.WARNING_MESSAGE);
             return;
         }
 
@@ -566,7 +566,7 @@ public class clienteRegistro extends javax.swing.JFrame {
 
         // Validar que los datos esten completos
         if (dni.isEmpty() || nombre.isEmpty() || apellido.isEmpty() || sexo.isEmpty()|| fechaNacimiento.isEmpty() || direccion.isEmpty() || telefono.isEmpty() || email.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Por favor, completar todos los datos.");
+            JOptionPane.showMessageDialog(null, "Por favor, completar todos los campos.","Advertencia",JOptionPane.WARNING_MESSAGE);
             return;
         }
 
@@ -587,7 +587,7 @@ public class clienteRegistro extends javax.swing.JFrame {
             ps.setString(9, email);
             ps.executeUpdate();
 
-            JOptionPane.showMessageDialog(null, "Registro exitoso.");
+            JOptionPane.showMessageDialog(null, "Se completo el registro del nuevo usuario, ahora pasemos a crea una cuenta.","Felicidades",JOptionPane.INFORMATION_MESSAGE);
 
             // Mandar el id Cliente crearCuenta y abrir la interfaz
             crearCuenta pantallaCuenta = new crearCuenta(idCliente);
@@ -595,7 +595,7 @@ public class clienteRegistro extends javax.swing.JFrame {
             pantallaCuenta.setLocationRelativeTo(null);
             this.dispose();
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Error:No se completo el registro");
+            JOptionPane.showMessageDialog(null, "Error:No se completo el registro"+e.getMessage(),"Error",JOptionPane.WARNING_MESSAGE);
         }
     }// GEN-LAST:event_ButtonRegistro1ActionPerformed
 

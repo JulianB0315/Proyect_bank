@@ -331,8 +331,7 @@ public class borrarCuenta extends javax.swing.JFrame {
     if (selectedRow != -1) {
         String idCuenta = tblVerCuentas.getValueAt(selectedRow, 0).toString();
 
-        int confirm = JOptionPane.showConfirmDialog(this, 
-                "¿Estás seguro de que deseas borrar la cuenta : " + idCuenta + "?", "Confirmar Borrado", JOptionPane.YES_NO_OPTION);
+        int confirm = JOptionPane.showConfirmDialog(this,"¿Estás seguro de que deseas borrar la cuenta : " + idCuenta + "?", "Confirmar Borrado", JOptionPane.YES_NO_OPTION,JOptionPane.INFORMATION_MESSAGE);
         if (confirm == JOptionPane.YES_OPTION) {
             try (Connection conn = DBConnection.getConnection()) {
                 // SQL para borrar la cuenta
@@ -342,7 +341,7 @@ public class borrarCuenta extends javax.swing.JFrame {
                 int rowsAffected = pstmt.executeUpdate();
                 if (rowsAffected > 0) {
                     ((DefaultTableModel) tblVerCuentas.getModel()).removeRow(selectedRow);
-                    JOptionPane.showMessageDialog(this, "Cuenta borrada exitosamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(this, "La cuenta fue borrada exitosamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
                 } else {
                     JOptionPane.showMessageDialog(this, "Error al borrar la cuenta.", "Error", JOptionPane.ERROR_MESSAGE);
                 }
@@ -350,11 +349,11 @@ public class borrarCuenta extends javax.swing.JFrame {
                 pstmt.close();
             } catch (SQLException e) {
                 e.printStackTrace();
-                JOptionPane.showMessageDialog(this, "Error al intentar borrar la cuenta.", "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Error al intentar borrar la cuenta."+e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
             }
         }
     } else {
-        JOptionPane.showMessageDialog(this, "Por favor, selecciona una cuenta para borrar.", "Advertencia", JOptionPane.WARNING_MESSAGE);
+        JOptionPane.showMessageDialog(this, "Por favor, seleccionar una cuenta para borrar.", "Advertencia", JOptionPane.WARNING_MESSAGE);
     }
     }// GEN-LAST:event_btnBorrarActionPerformed
 
@@ -385,8 +384,7 @@ public class borrarCuenta extends javax.swing.JFrame {
             ps.close();
         } catch (SQLException e) {
             e.printStackTrace();
-            JOptionPane.showMessageDialog(this, "Error al recuperar los datos de la cuenta.", "Error",
-                    JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Error al recuperar los datos de la cuenta."+e.getMessage(), "Error",JOptionPane.ERROR_MESSAGE);
         }
     }// GEN-LAST:event_btnBuscarActionPerformed
 
@@ -402,25 +400,22 @@ public class borrarCuenta extends javax.swing.JFrame {
                 int rowsAffected = pstmt.executeUpdate();
 
                 if (rowsAffected > 0) {
-                    JOptionPane.showMessageDialog(this, "La cuenta ha sido activada con éxito.", "Éxito",
+                    JOptionPane.showMessageDialog(this, "La cuenta se ha activado exitosamente.", "Éxito",
                             JOptionPane.INFORMATION_MESSAGE);
 
                     // Actualizar la tabla para reflejar el cambio
                     ((DefaultTableModel) tblVerCuentas.getModel()).setValueAt("inactiva", selectedRow, 4);
                 } else {
-                    JOptionPane.showMessageDialog(this, "No se pudo desactivar la cuenta.", "Error",
-                            JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(this, "No se ha pudo activar la cuenta.", "Error",JOptionPane.ERROR_MESSAGE);
                 }
 
                 pstmt.close();
             } catch (SQLException e) {
                 e.printStackTrace();
-                JOptionPane.showMessageDialog(this, "Error al intentar activar la cuenta.", "Error",
-                        JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Error al intentar activar la cuenta.", "Error",JOptionPane.ERROR_MESSAGE);
             }
         } else {
-            JOptionPane.showMessageDialog(this, "Por favor, seleccione una cuenta de la tabla.", "Advertencia",
-                    JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Por favor, seleccione una cuenta de la tabla para activar.", "Advertencia",JOptionPane.WARNING_MESSAGE);
         }
     }// GEN-LAST:event_btnActivarActionPerformed
 
@@ -452,7 +447,7 @@ public class borrarCuenta extends javax.swing.JFrame {
                         JOptionPane.ERROR_MESSAGE);
             }
         } else {
-            JOptionPane.showMessageDialog(this, "Por favor, seleccione una cuenta de la tabla.", "Advertencia",
+            JOptionPane.showMessageDialog(this, "Por favor, seleccione una cuenta de la tabla para desactivar.", "Advertencia",
                     JOptionPane.WARNING_MESSAGE);
         }
     }// GEN-LAST:event_btnDesactivarActionPerformed

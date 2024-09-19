@@ -251,19 +251,19 @@ private String idEmpleado;
         String tipoTransaccion = "Deposito";
         String descripcion = "Realizada por un empleado autorizado";
         if(!existeCuenta(cuentaCliente)){
-            JOptionPane.showMessageDialog(null, "Cuenta no encontrada.", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Cuenta no encontrada.", "Advertencia", JOptionPane.ERROR_MESSAGE);
             return;
         }
         if(!comprobarEstadoCuenta(cuentaCliente)){
-            JOptionPane.showMessageDialog(null, "La cuenta se encuentra inactiva.", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "La cuenta se encuentra inactiva.", "Advertencia", JOptionPane.ERROR_MESSAGE);
             return;
         }
         if(!MontoString.matches("^\\d*\\.?\\d+$")){
-            JOptionPane.showMessageDialog(null,"Ingresar un montos Valido","Error",JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null,"Ingresar un montos Valido","Advertencia",JOptionPane.WARNING_MESSAGE);
             return;
         }
         if(cuentaCliente.isEmpty()||MontoString.isEmpty()){
-            JOptionPane.showMessageDialog(null, "Completar los campos.", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Completar los campos.", "Advertencia", JOptionPane.ERROR_MESSAGE);
             return;
         }
         double Monto = Double.parseDouble(MontoString);

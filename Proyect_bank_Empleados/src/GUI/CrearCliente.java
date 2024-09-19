@@ -23,7 +23,7 @@ private String idEmpleado;
     public CrearCliente(String idEmpleado) {
         initComponents();
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        this.setTitle("Registro de Cliente");
+        this.setTitle("Registro de nuevos usuarios");
         ImageIcon icon = new ImageIcon(getClass().getResource("/img/logo.png"));
         Image logo = icon.getImage();
         setIconImage(logo);
@@ -500,7 +500,7 @@ private String idEmpleado;
 
         // Validar que los datos esten completos
         if (dni.isEmpty() || nombre.isEmpty() || apellido.isEmpty() || sexo.isEmpty()|| fechaNacimiento.isEmpty() || direccion.isEmpty() || telefono.isEmpty() || email.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Por favor, completar todos los datos.","Error",JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Por favor, completar todos los datos.","Advertencia",JOptionPane.WARNING_MESSAGE);
             return;
         }
 
@@ -520,7 +520,7 @@ private String idEmpleado;
             ps.setString(8, telefono);
             ps.setString(9, email);
             ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Registro exitoso.","Felicidade",JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Registro exitoso.","Felicidades",JOptionPane.INFORMATION_MESSAGE);
             txtnombres.setText("");
             txtapellidos.setText("");
             txtdni.setText("");
@@ -531,7 +531,7 @@ private String idEmpleado;
 
 
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Error:No se completo el registro");
+            JOptionPane.showMessageDialog(null, "Error:No se completo el registro"+e.getMessage(),"Error",JOptionPane.QUESTION_MESSAGE);
         }
     }//GEN-LAST:event_btnCrearRegsitroActionPerformed
 

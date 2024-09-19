@@ -381,20 +381,20 @@ private String idCliente;
         String Telefonoedit = txtTelefono.getText();
         
         if (!Nombresedit.matches("[a-zA-ZáéíóúÁÉÍÓÚñÑ\\s]+")) {
-            JOptionPane.showMessageDialog(null, "El nombre solo debe contener letras y espacios.","Error",JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "El nombre solo debe contener letras y espacios.","Advertencia",JOptionPane.WARNING_MESSAGE);
             return;
         }
         if (!Apellidosedit.matches("[a-zA-ZáéíóúÁÉÍÓÚñÑ\\s]+")) {
-            JOptionPane.showMessageDialog(null, "El apellido solo debe contener letras y espacios.","Error",JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "El apellido solo debe contener letras y espacios.","Advertencia",JOptionPane.WARNING_MESSAGE);
             return;
         }
         if (!Telefonoedit.matches("\\d{9}")) {
-            JOptionPane.showMessageDialog(null, "Numero teléfono invalido.","Error",JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Numero teléfono invalido.","Advertencia",JOptionPane.WARNING_MESSAGE);
             return;
         }
 
         if (!validarEmail(Correoedit)) {
-            JOptionPane.showMessageDialog(null, "Por favor, ingrese un correo electrónico válido.","Error",JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Por favor, ingrese un correo electrónico válido.","Advertencia",JOptionPane.WARNING_MESSAGE);
             return;
         }
         if(Nombresedit.isEmpty()||Apellidosedit.isEmpty()||Correoedit.isEmpty()||Direccionsedit.isEmpty()||Telefonoedit.isEmpty()){
@@ -413,7 +413,7 @@ private String idCliente;
             ps.executeUpdate();
             JOptionPane.showMessageDialog(null,"Se cambiaron los datos con exito","Felicidades",JOptionPane.INFORMATION_MESSAGE);
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Error en actulizar los datos", "Error",JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Error en actualizar los datos", "Error",JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_btnEditarActionPerformed
 

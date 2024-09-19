@@ -20,7 +20,7 @@ private String idEmpleado;
         passContraseñaConfirmar.setEchoChar('*');
         passContraseña.setEchoChar('*');
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        this.setTitle("Crear Cuentas");
+        this.setTitle("Crear nuevas Cuentas");
         ImageIcon icon = new ImageIcon(getClass().getResource("/img/logo.png"));
         Image logo = icon.getImage();
         setIconImage(logo);
@@ -429,7 +429,7 @@ private String idEmpleado;
         String contraseñaConfirmar = new String(passContraseñaConfirmar.getPassword());
         String tipoCuenta = rdoCredito.isSelected() ? "credito" : "debito";
         if (!existeCliente(idCliente)) {
-            JOptionPane.showMessageDialog(null, "Cliente no registrado.");
+            JOptionPane.showMessageDialog(null, "Cliente no registrado.","Advertencia",JOptionPane.WARNING_MESSAGE);
             return;
         }
         if (validarContraseña(contraseña, contraseñaConfirmar)) {
@@ -444,9 +444,9 @@ private String idEmpleado;
                 txtuserCliente.setText("");
                 passContraseña.setText("");
                 passContraseñaConfirmar.setText("");
-                JOptionPane.showMessageDialog(null, "Cuenta creada exitosamente.Numero de Cuenta" + idCuenta,"Felicidades",JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Cuenta creada exitosamente. Numero de Cuenta" + idCuenta,"Felicidades",JOptionPane.INFORMATION_MESSAGE);
             } catch (SQLException e) {
-                JOptionPane.showMessageDialog(null, "Error al insertar los datos datos");
+                JOptionPane.showMessageDialog(null, "Error al insertar los datos datos"+e.getMessage(),"Error",JOptionPane.WARNING_MESSAGE);
             }
         }
     }// GEN-LAST:event_btnCrearCuentaActionPerformed
@@ -483,17 +483,17 @@ private String idEmpleado;
     private boolean validarContraseña(String contraseña, String contraseñaConfirmar) {
         // Retorna falso al cumplirse
         if (contraseña.isEmpty() || contraseñaConfirmar.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Debe ingresar y confirmar su contraseña.");
+            JOptionPane.showMessageDialog(null, "Debe ingresar y confirmar su contraseña.","Advertencia",JOptionPane.WARNING_MESSAGE);
             return false;
         }
         // Retorna falso al cumplirse
         if (contraseña.length() != 8) {
-            JOptionPane.showMessageDialog(null, "La contraseña debe tener exactamente 8 caracteres.");
+            JOptionPane.showMessageDialog(null, "La contraseña debe tener exactamente 8 caracteres.","Advertencia",JOptionPane.WARNING_MESSAGE);
             return false;
         }
         // Retorna falso al cumplirse
         if (!contraseña.equals(contraseñaConfirmar)) {
-            JOptionPane.showMessageDialog(null, "Las contraseñas no coinciden.");
+            JOptionPane.showMessageDialog(null, "Las contraseñas no coinciden.","Advertencia",JOptionPane.WARNING_MESSAGE);
             return false;
         }
         // Si no se cumple ninguna se manda verdad y se puede continuar
