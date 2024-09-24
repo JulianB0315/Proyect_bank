@@ -1,23 +1,23 @@
 <div align="center">
-  <img src="https://readme-typing-svg.herokuapp.com/?font=vergana&color=ff3333&size=50&center=true&vCenter=true&width=400&duration=4000&lines=Proyecto+Banco;" />
+  <img src="https://jay-website-personal-65b76d6e8318.herokuapp.com?font=Libre+Baskerville&size=40&pause=1000&color=D4AF37&repeat=false&random=false&width=590&height=70&lines=Project+with+Java+and+SQL" />
 </div>
 <div align='center'>
-    <img src="https://capsule-render.vercel.app/api?type=wave&color=ff3333&height=300&section=header&text=Java,Swing%20y%20Oracle&fontSize=90&animation=fadeIn&fontAlignY=38&desc=&descAlignY=51&descAlign=62"/>
+    <img src="https://capsule-render.vercel.app/api?type=wave&height=250&color=003566&text=Project%20Bank&fontAlign=50&fontAlignY=50&reversal=false&fontColor=d4af37&fontSize=90&animation=fadeIn&stroke=d4af37"/>
 </div>
 <div>
-  <img src="https://readme-typing-svg.herokuapp.com/?font=Oswald&color=ff3333&size=35&vCenter=true&repeat=false&width=1000&lines=Proyecto:;" />
+  <img src="https://jay-website-personal-65b76d6e8318.herokuapp.com?font=Libre+Baskerville&size=30&pause=1000&color=D4AF37&vCenter=true&repeat=false&random=false&width=670&lines=Proyect%3A" />
 </div>
 <div>
-  <p>Trabajo individual de instituto </p>
-  <p>El repositorio tiene desde contiene Java,Swing,sql Orcale</p>
+  <img src="https://jay-website-personal-65b76d6e8318.herokuapp.com?font=Libre+Baskerville&size=15&pause=1000&color=003566&background=E6E6E6&vCenter=true&repeat=false&random=false&width=1000&height=20&lines=+The+main+topic+is+to+design+and+program+some+windows+to+do+the+%22CRUD%22+(create%2C+read%2C+update+and+delete)" />
+  <img src="https://jay-website-personal-65b76d6e8318.herokuapp.com?font=Libre+Baskerville&size=15&pause=1000&color=003566&background=E6E6E6&vCenter=true&repeat=false&random=false&width=1000&height=20&lines=%2C+but+I+decided+to+go+a+little+further+and+make+a+small+design"
 </div>
 <div>
-  <img src="https://readme-typing-svg.herokuapp.com/?font=Oswald&color=ff3333&size=35&vCenter=true&repeat=false&width=1000&lines=Code:;" />
+  <img src="https://jay-website-personal-65b76d6e8318.herokuapp.com?font=Libre+Baskerville&size=30&pause=1000&color=D4AF37&vCenter=true&repeat=false&random=false&width=670&lines=Code%3A" />
 </div>
 <div>
 </div>
 <div>
-  <img src="https://readme-typing-svg.herokuapp.com/?font=Oswald&color=ff3333&size=35&vCenter=true&repeat=false&width=1000&lines=Final;" />
+  <img src="https://jay-website-personal-65b76d6e8318.herokuapp.com?font=Libre+Baskerville&size=30&pause=1000&color=D4AF37&vCenter=true&repeat=false&random=false&width=670&lines=+Result%3A" />
 </div>
 <div align='center'>
   
