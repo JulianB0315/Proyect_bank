@@ -8,8 +8,8 @@
   <img src="https://jay-website-personal-65b76d6e8318.herokuapp.com?font=Libre+Baskerville&size=30&pause=1000&color=D4AF37&vCenter=true&repeat=false&random=false&width=670&lines=Proyect%3A" />
 </div>
 <div>
-  <img src="https://jay-website-personal-65b76d6e8318.herokuapp.com?font=Libre+Baskerville&size=15&pause=1000&color=003566&background=E6E6E6&vCenter=true&repeat=false&random=false&width=1000&height=20&lines=+The+main+topic+is+to+design+and+program+some+windows+to+do+the+%22CRUD%22+(create%2C+read%2C+update+and+delete)" />
-  <img src="https://jay-website-personal-65b76d6e8318.herokuapp.com?font=Libre+Baskerville&size=15&pause=1000&color=003566&background=E6E6E6&vCenter=true&repeat=false&random=false&width=1000&height=20&lines=%2C+but+I+decided+to+go+a+little+further+and+make+a+small+design"
+  <img src="https://jay-website-personal-65b76d6e8318.herokuapp.com?font=Libre+Baskerville&size=15&pause=1000&color=D4AF37&background=003566&vCenter=true&repeat=false&random=false&width=1000&height=20&lines=The+main+topic+is+to+design+and+program+some+windows+to+do+the+%22CRUD%22+(create%2C+read%2C+update+and+delete)" />
+  <img src="https://jay-website-personal-65b76d6e8318.herokuapp.com?font=Libre+Baskerville&size=15&pause=1000&color=D4AF37&background=003566&vCenter=true&repeat=false&random=false&width=1000&height=20&lines=%2C+but+I+decided+to+go+a+little+further+and+make+a+small+design.">
 </div>
 <div>
   <img src="https://jay-website-personal-65b76d6e8318.herokuapp.com?font=Libre+Baskerville&size=30&pause=1000&color=D4AF37&vCenter=true&repeat=false&random=false&width=670&lines=Code%3A" />
