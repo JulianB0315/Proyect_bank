@@ -17,18 +17,7 @@
 </div>
 <!--img-->
 <div align="center">
-   <picture>
-     <img src="https://jay-website-personal-65b76d6e8318.herokuapp.com?font=Libre+Baskerville&size=30&pause=1000&color=D4AF37&background=003566&vCenter=true&repeat=false&random=false&width=150&height=30&lines=Create++++%3A">
-</picture>
-  <img src="https://jay-website-personal-65b76d6e8318.herokuapp.com?font=Libre+Baskerville&size=30&pause=1000&color=D4AF37&background=003566&vCenter=true&repeat=false&random=false&width=150&height=30&lines=Create++++%3A">
-   <picture>
-     </picture>
-  <img src="https://jay-website-personal-65b76d6e8318.herokuapp.com?font=Libre+Baskerville&size=30&pause=1000&color=D4AF37&background=003566&vCenter=true&repeat=false&random=false&width=150&height=30&lines=Create++++%3A">
-   <picture>
-     </picture>
-  <img src="https://jay-website-personal-65b76d6e8318.herokuapp.com?font=Libre+Baskerville&size=30&pause=1000&color=D4AF37&background=003566&vCenter=true&repeat=false&random=false&width=150&height=30&lines=Create++++%3A">
-  <img src="https://jay-website-personal-65b76d6e8318.herokuapp.com?font=Libre+Baskerville&size=30&pause=1000&color=D4AF37&background=003566&vCenter=true&repeat=false&random=false&width=150&height=30&lines=Create++++%3A">
-   <picture>
+
 </picture>
 </div>
 <div>
